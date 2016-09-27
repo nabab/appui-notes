@@ -1,0 +1,19 @@
+{
+  "name": "bbn/appui-notes",
+  "description": "Notes system for appui",
+  "keywords": ["notes","php","appui"],
+  "homepage": "https://github.com/nabab/appui-notes",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Nabet",
+      "email": "thomas.nabet@gmail.com",
+      "homepage": "http://bbn.solutions",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "bbn/bbn": "dev-master"
+  }
+}
