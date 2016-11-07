@@ -2,15 +2,56 @@
  * Created by BBN on 06/11/2016.
  */
 
-var postIt = new Vue({
-  el: ele,
-  data: {
-    options: data.options,
-    notes: data.notes
-  },
-  methods: {
-    shortTitle: function(title){
-      return appui.fn.shorten(title, 25);
-    }
-  }
-});
+appui.fn.log(data.notes);
+appui.fn.log(data.notes[0].content);
+
+var
+    $ele = $(ele),
+    postIt = new Vue({
+      el: '#appui-postit-container',
+      //se 'el:ele' vue da un errore
+      data: {
+        notes: data.notes
+      },
+      methods: {
+        myTitle: function(note){
+          return note.title.length ? note.title : '';
+        },
+        editContent: function(e){
+          var $c = $(e.target).closest(".appui-postit").find("div.content");
+          appui.fn.log($c.length);
+          $c.attr("contenteditable", true).focus();
+        }
+      },
+      mounted: function(){
+        $(".appui-postit").each(function(){
+          var r = Math.random(),
+              r2 = Math.random(),
+              n = r > 0.5 ? r * 7 : r * -7,
+              cols = [
+                '#009FD6',
+                '#009FD6',
+                '#FDB44D',
+                '#FDB44D',
+                '#FE59B5',
+                '#FE59B5',
+                '#FFFFA5',
+                '#FFFFA5',
+                '#FFFFA5',
+                '#FFFFA5',
+              ],
+              idx = Math.round(r2*10);
+
+          $(this).css({
+            'background-color': cols[idx],
+            '-moz-transform': 'rotate(' + n + ')',
+            '-webkit-transform': 'rotate(' + n + ')',
+            '-o-transform': 'rotate(' + n + ')',
+            '-ms-transform': 'rotate(' + n + 'deg)',
+            'transform': 'rotate(' + n + 'deg)',
+          })
+        });
+        appui.fn.analyzeContent($ele);
+        appui.fn.addToggler($ele);
+      }
+    });
