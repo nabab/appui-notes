@@ -2,9 +2,6 @@
  * Created by BBN on 06/11/2016.
  */
 
-appui.fn.log(data.notes);
-appui.fn.log(data.notes[0].content);
-
 var
     $ele = $(ele),
     postIt = new Vue({
@@ -24,7 +21,7 @@ var
         }
       },
       mounted: function(){
-        $(".appui-postit").each(function(){
+        $(".appui-postit", ele).each(function(){
           var r = Math.random(),
               r2 = Math.random(),
               n = r > 0.5 ? r * 7 : r * -7,
