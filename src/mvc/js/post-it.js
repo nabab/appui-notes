@@ -16,7 +16,7 @@ var
         },
         editContent: function(e){
           var $c = $(e.target).closest(".appui-postit").find("div.content");
-          appui.fn.log($c.length);
+          bbn.fn.log($c.length);
           $c.attr("contenteditable", true).focus();
         }
       },
@@ -48,7 +48,7 @@ var
             'transform': 'rotate(' + n + 'deg)',
           })
         });
-        appui.fn.analyzeContent($ele);
-        appui.fn.addToggler($ele);
+        bbn.fn.analyzeContent($ele);
+        bbn.fn.addToggler($ele);
       }
     });
