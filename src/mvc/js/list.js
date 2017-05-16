@@ -1,5 +1,5 @@
 // Javascript Document
-$(".appui-notes-list", ele).kendoGrid({
+$(".bbn-notes-list", ele).kendoGrid({
   dataSource: {
     serverPaging: true,
     transport: {

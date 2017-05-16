@@ -2,7 +2,7 @@
 var $ele = $(ele);
 //creation of Vue's object
 window.notes = new Vue({
-    el: '#appui-postit-container',
+    el: '#bbn-postit-container',
     data: {
       prove_notes: data.prove_notes,
       //obj fancyTree is an empty array

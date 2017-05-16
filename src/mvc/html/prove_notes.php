@@ -1,4 +1,4 @@
-<div id="appui-postit-container" class="appui-h-100">
+<div id="bbn-postit-container" class="bbn-h-100">
   <div id="fancy"></div>
   <!--table class="ui celled padded table">
     <thead>

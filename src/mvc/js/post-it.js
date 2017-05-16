@@ -5,7 +5,7 @@
 var
     $ele = $(ele),
     postIt = new Vue({
-      el: '#appui-postit-container',
+      el: '#bbn-postit-container',
       //se 'el:ele' vue da un errore
       data: {
         notes: data.notes
@@ -15,13 +15,13 @@ var
           return note.title.length ? note.title : '';
         },
         editContent: function(e){
-          var $c = $(e.target).closest(".appui-postit").find("div.content");
+          var $c = $(e.target).closest(".bbn-postit").find("div.content");
           bbn.fn.log($c.length);
           $c.attr("contenteditable", true).focus();
         }
       },
       mounted: function(){
-        $(".appui-postit", ele).each(function(){
+        $(".bbn-postit", ele).each(function(){
           var r = Math.random(),
               r2 = Math.random(),
               n = r > 0.5 ? r * 7 : r * -7,
