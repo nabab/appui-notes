@@ -16,8 +16,7 @@
         originalPalette: ['#FBAE3C', '#FD4DB0', '#1CABE3', '#E7F152', '#FFD93A'],
         isMounted: false,
         actualColor: false,
-        actualRotation:false,
-
+        actualRotation: bbn.fn.randomInt(-15,15)
       }
     },
     props: {
@@ -46,34 +45,31 @@
         bbn.fn.analyzeContent(vm.$el, true);
       });
       vm.isMounted = true;
+      $(vm.$el).css({
+        height: '250px',
+        '-moz-transform': 'rotate(' + vm.actualRotation + 'deg)',
+        '-webkit-transform': 'rotate(' + vm.actualRotation + ')',
+        '-o-transform': 'rotate(' + vm.actualRotation + ')',
+        '-ms-transform': 'rotate(' + vm.actualRotation + 'deg)',
+        transform: 'rotate(' + vm.actualRotation + 'deg)',
+        backgroundColor: vm.actualColor
+      });
+      this.$nextTick(function(){
+        bbn.fn.analyzeContent(this.$el, true);
+      });
     },
     beforeMount(){
-      var vm = this;
+      const vm = this;
       if ( vm.color ){
         vm.actualColor = vm.color;
       }
       else{
-        var r = Math.random(),
-          r2 = Math.random(),
-          n = r > 0.5 ? r * 7 : r * -7;
-        while ( !vm.originalPalette[Math.round(r2*10)] ){
-          r2 = Math.random();
+        var r = Math.random();
+        while ( !vm.originalPalette[Math.round(r*10)] ){
+          r = Math.random();
         }
-        vm.actualColor = vm.originalPalette[Math.round(r2*10)];
+        vm.actualColor = vm.originalPalette[Math.round(r*10)];
       }
-
-      $(vm.$el).css({
-        'height':'250px',
-        '-moz-transform': 'rotate(' + n + ')',
-        '-webkit-transform': 'rotate(' + n + ')',
-        '-o-transform': 'rotate(' + n + ')',
-        '-ms-transform': 'rotate(' + n + 'deg)',
-        'transform': 'rotate(' + n + 'deg)',
-      });
-
-      this.$nextTick(function(){
-        bbn.fn.analyzeContent(this.$el, true);
-      });
     },
     methods: {
       fdate: bbn.fn.fdate,

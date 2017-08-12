@@ -1,4 +1,4 @@
-<div class="bbn-widget bbn-postit" :style="{backgroundColor: actualColor}">
+<div class="bbn-widget bbn-postit">
   <div id="creation" style="width:100%">
     <input type="hidden" name="id_note" v-model="uid">
     <div id="bbn-block-left" class="bbn-block-left">
