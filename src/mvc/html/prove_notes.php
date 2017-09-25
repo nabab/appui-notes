@@ -1,5 +1,8 @@
-<div id="bbn-postit-container" class="bbn-h-100">
-  <div id="fancy"></div>
+<div class="bbn-100">
+  <bbn-tree :source="{data: source.prove_notes}"
+  >
+  </bbn-tree>>
+</div>
   <!--table class="ui celled padded table">
     <thead>
       <tr>
@@ -22,4 +25,3 @@
       </tr>
     </tbody>
   </table-->
-</div>

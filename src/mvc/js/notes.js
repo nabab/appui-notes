@@ -12,16 +12,14 @@
     beforeMount: function(){
       bbn.vue.setComponentRule(this.source.root + 'components/', 'appui-notes');
       bbn.vue.addComponent('postit');
-
       bbn.vue.unsetComponentRule();
     },
     mounted(){
-      bbn.fn.log('this note', this);
       this.$nextTick(function(){
         bbn.fn.analyzeContent(this.$el, true);
       });
     },
-    data: function(){
+    data(){
       return $.extend(this.source, {editedNote: false}, {choosing:false});
     },
     watch: {

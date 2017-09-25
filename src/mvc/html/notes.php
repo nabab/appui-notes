@@ -2,7 +2,7 @@
   <div class="bbn-w-100 bbn-block bbn-c bbn-vmargin" style="height: 80px">
     <input type="text" class="k-input k-textbox" placeholder="<?=_("Rechercher")?>" autocomplete="off" style="width: 75%; font-size: x-large">
   </div>
-  <div class="bbn-content bbn-postit-container" v-bbn-fill-height>
+  <div class="bbn-content bbn-postit-container bbn-w-100" v-bbn-fill-height>
     <appui-notes-postit v-for="note in source.notes"
                         :key="note.id_note"
                         :uid="note.id_note"
