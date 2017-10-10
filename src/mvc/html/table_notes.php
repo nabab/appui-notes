@@ -96,9 +96,7 @@
       <label class="bbn-form-label">
         <?=_("Texte")?>
       </label>
-      <div class="bbn-form-field"
-           v-bbn-fill-height
-      >
+      <div class="bbn-form-field">
         <bbn-rte v-model="source.texte"
                  name="texte"
                  required="required"

@@ -1,1 +1,1 @@
-<div class="bbn-notes-list" v-bbn-fill-height></div>
+<div class="bbn-notes-list bbn-full-screen"></div>
