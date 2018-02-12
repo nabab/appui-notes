@@ -9,7 +9,7 @@ $masks = new \bbn\appui\masks($model->db);
 $all = $masks->get_all();
 $cats = $model->inc->options->options($masks->get_option_root());
 return [
-  'is_admin' => $model->inc->user->is_admin(),
+  'is_dev' => $model->inc->user->is_dev(),
   'data' => $all,
   'cats' => $cats
 ];
