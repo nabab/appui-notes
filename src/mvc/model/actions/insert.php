@@ -6,6 +6,7 @@ if ( !empty($model->data['title']) || !empty($model->data['content']) ){
   $res['success'] = $note->insert(
     $model->data['title'] ?? '',
     $model->data['content'] ?? '',
+    $model->data['type'] ?? NULL,
     empty($model->data['private']) ? 0 : 1,
     empty($model->data['locked']) ? 0 : 1
   );

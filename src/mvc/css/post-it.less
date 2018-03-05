@@ -1,23 +1,9 @@
-.bbn-postit-container {
-  .bbn-postit{
-    background:#FFFFA5;
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size:15px;
-    color: #000;
-    word-wrap: break-word;
-    width: 60%;
-    margin: 2% 15%;
-    padding: 5%;
-    overflow-y: auto;
-
-    -moz-transform: rotate((7)deg);
-    -webkit-transform: rotate((7)deg);
-    -o-transform: rotate((7)deg);
-    -ms-transform: rotate((7)deg);
-    transform: rotate((7)deg);
-
-    box-shadow: 0px 4px 6px #333;
-    -moz-box-shadow: 0px 4px 6px #333;
-    -webkit-box-shadow: 0px 4px 6px #333;
+.appui-notes-postit{
+  .bbn-postit-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    grid-gap: 100px;
+    justify-content: center;
+    padding: 4em;
   }
 }

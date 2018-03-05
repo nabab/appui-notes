@@ -1,53 +1,27 @@
 /*I use display flex on the parent div because bbn-masonry doesn't work*/
-.bbn-postit-container {
-  column-count: 3;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.appui-notes-postit {
   .bbn-postit{
-    padding-left: 5px;
-    padding-right: 5px;
-    background:#FFFFA5;
+    height: 250px;
     font-family: 'Gloria Hallelujah', cursive;
-    font-size:15px;
+    font-size: 15px;
     color: #000;
     word-wrap: break-word;
-    //margin: 2% 15%;
-    padding: 7px;
+    padding: 15px 7px 7px 7px;
     overflow-y: auto;
-    margin: 25px;
-    width: 250px!important;
-    height:220px;
-    min-width:250px;
-    max-width:250px;
-    min-height:220px;
-    max-height:220px;
-    padding-top:15px;
-    -webkit-transform: rotate(7.5deg);  /* Chrome, Opera 15+, Safari 3.1+*/
-      -ms-transform: rotate(7.5deg);  /* IE 9 */
-          transform: rotate(7.5deg);  /* Firefox 16+, IE 10+, Opera */
-    box-shadow: 0px 4px 6px #333;
-    -moz-box-shadow: 0px 4px 6px #333;
-    -webkit-box-shadow: 0px 4px 6px #333;
-    .cursor{
-      cursor: pointer;
-    }
-
-
-  
+    box-shadow: 0 4px 6px #333;
+    -moz-box-shadow: 0 4px 6px #333;
+    -webkit-box-shadow: 0 4px 6px #333;
   }
-}
-::-webkit-scrollbar
-{
-  width: 6px;  /* for vertical scrollbars */
-}
+  ::-webkit-scrollbar {
+    width: 6px;  /* for vertical scrollbars */
+  }
 
-::-webkit-scrollbar-track
-{
-  background: rgba(0, 0, 0, 0.1);
-}
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
 
-::-webkit-scrollbar-thumb
-{
-  background: rgba(0, 0, 0, 0.5);
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
 }

@@ -1,41 +1,45 @@
-<div class="bbn-widget bbn-postit">
-  <div id="creation" style="width:100%">
-    <input type="hidden" name="id_note" v-model="uid">
-    <div id="bbn-block-left" class="bbn-block-left">
-      <i v-show="editing"
-         @click="update_note"
-         title="Update Note"
-         class="fa fa-save cursor"
+<div class="bbn-postit" :style="getStyle">
+  <div style="width:100%">
+    <div class="bbn-block-left">
+      <i v-if="editing"
+         @click="edit"
+         title="<?=_('Update Note')?>"
+         class="fa fa-save bbn-p"
       ></i>
-      <i v-show="editing"
+      <i v-if="editing"
          @click="showColorPicker = !showColorPicker"
-         title="Choose Color"
-         class="fa fa-paint-brush"
+         title="<?=_('Choose Color')?>"
+         class="fa fa-paint-brush bbn-p"
       ></i>
       <bbn-colorpicker v-if="showColorPicker"
                        :preview="true"
-                       name="color"
-                       @change="colorIsChanged = true; showColorPicker = false"
+                       @change="isModified = true; showColorPicker = false"
                        :cfg="{
                         palette: palette,
-                        columns:5,
-                        tileSize:32
+                        columns: 5,
+                        tileSize: 32
                        }"
                        v-model="actualColor"
-                       ref="colorpicker">
-
-      </bbn-colorpicker>
+                       ref="colorpicker"
+      ></bbn-colorpicker>
     </div>
-    <div class="bbn-block-right cursor"
-         title="Edit Date"
+    <div class="bbn-block-right bbn-c"
          v-html="fdate(creation)"
     ></div>
   </div>
-  <div v-if="title" title="Edit Title" class="appui-c cursor appui-b bbn-w-100" v-html="title" @click="editTitle"></div>
-  <div title="Edit Content"
-       class="cursor bbn-w-100"
-       v-html="content"
-       @click="editContent"
+  <div v-if="title"
+       title="<?=_('Edit Title')?>"
+       class="bbn-c bbn-p bbn-b bbn-w-100"
+       v-text="html2text(title)"
+       @click="editMode"
        :contenteditable="editing"
-       ></div>
+       @blur="changeText('title', $event)"
+  ></div>
+  <div title="<?=_('Edit Content')?>"
+       class="bbn-p bbn-w-100"
+       v-text="html2text(content)"
+       @click="editMode"
+       :contenteditable="editing"
+       @blur="changeText('content', $event)"
+   ></div>
 </div>

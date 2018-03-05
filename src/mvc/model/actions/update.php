@@ -4,15 +4,14 @@
  * User: Loredana Bruno
  * Date: 20/07/17
  * Time: 17.09
+ *
+ * @var $model \bbn\mvc\model
  */
 $res = [
   'success' => false
 ];
-$notes = new \appui\notes($model->db);
+$notes = new \bbn\appui\notes($model->db);
 if ( isset($model->data['id_note'], $model->data['content']) ){
-  $res['success'] = $notes->update($model->data['id_note'], [
-    'content' => $model->data['content'],
-    'title' => $model->data['title']
-  ]);
+  $res['success'] = $notes->update($model->data['id_note'], $model->data['title'], $model->data['content']);
 }
 return $res;
