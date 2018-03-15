@@ -28,7 +28,7 @@
         });
       },
       renderUser(row){
-        return appui.app.userName(row.id_user);
+        return appui.app.getUserName(row.id_user);
       },
       getButtons(row){
         let btns = [

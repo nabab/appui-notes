@@ -10,7 +10,7 @@
     props: ['source'],
     computed: {
       userName(){
-        return appui.userName(this.source.id_user);
+        return appui.getUserName(this.source.id_user);
       },
       creationDate(){
         return moment(this.source.creation).format('DD/MM/YYYY');

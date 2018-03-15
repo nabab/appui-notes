@@ -6,7 +6,6 @@
       <bbn-initial width="20"
                    height="20"
                    :user-id="source.id_user"
-                   style="padding-right: 3px; margin-bottom: 0"
       ></bbn-initial>
       <span v-text="userName"></span>
       <span style="margin-left: 1em"><i class="fa fa-calendar"></i> {{creationDate}} <i class="fa fa-clock-o"></i> {{creationTime}}</span>
