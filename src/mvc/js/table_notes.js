@@ -25,10 +25,10 @@
         return this.$refs.table.edit(row, bbn._("Modification d'un mailing"));
       },
       creator(row){
-        return  appui.getUserName(row.creator);
+        return  appui.app.getUserName(row.creator);
       },
       last_mod_user(row){
-        return  appui.getUserName(row.id_user);
+        return  appui.app.getUserName(row.id_user);
       },
       title(row){
         if ( !row.title || row.title === ''){

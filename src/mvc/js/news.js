@@ -32,7 +32,7 @@
         });
       },
       rendertAuthor(row){
-        return appui.getUserName(row.id_user);
+        return appui.app.getUserName(row.id_user);
       }
     },
     beforeMount(){
