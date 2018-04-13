@@ -23,7 +23,7 @@
 		</div>
 		<!-- Main -->
 		<div class="bbn-w-100 bbn-flex-fill">
-			<bbn-scroll>
+			<bbn-scroll v-if="!isLoading">
 				<div v-for="(d, i) in currentData"
 						 :key="i"
              class="bbn-w-100"
@@ -33,8 +33,13 @@
               <bbn-initial :user-id="d.creator"></bbn-initial>
             </div>
             <div class="bbn-flex-fill bbn-spadded"
-                 v-html="d.content"
-            ></div>
+            >
+              <div v-if="d.title"
+                   v-text="d.title"
+                   class="bbn-b"
+              ></div>
+              <div v-html="d.content"></div>
+            </div>
             <div v-if="d.creator === currentUser()"
                  class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                  style="margin-left: 1rem"
