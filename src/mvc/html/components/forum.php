@@ -28,7 +28,7 @@
 						 :key="i"
              class="bbn-w-100"
 				>
-          <div :class="['bbn-flex-width', 'k-widget', {'k-alt': !!(i%2)}]">
+          <div :class="['bbn-flex-width', 'k-widget', 'appui-notes-forum-topic', {'k-alt': !!(i%2)}]">
             <div class="bbn-spadded">
               <bbn-initial :user-id="d.creator"></bbn-initial>
             </div>
@@ -175,6 +175,60 @@
                     <span v-text="fdate(r.parent_creation)"></span>
                   </div>
                   <div v-html="r.content"></div>
+                  <div v-if="r.medias && hasLinks(r.medias)">
+                    <fieldset class="k-widget">
+                      <legend><?=_("Links:")?></legend>
+                      <div v-for="m in r.medias"
+                           v-if="m.type === mediaLinkType"
+                           style="margin-top: 10px">
+                        <div class="bbn-flex-width"
+                             style="margin-left: 0.5em"
+                        >
+                          <div style="height: 96px">
+                            <img v-if="m.name && imageDom" :src="imageDom + m.id + '/' + m.name">
+                            <i v-else class="fa fa-link"></i>
+                          </div>
+                          <div class="appui-notes-forum-link-title bbn-flex-fill bbn-vmiddle">
+                            <div>
+                              <strong>
+                                <a :href="m.content.url"
+                                   v-text="m.title || m.content.url"
+                                   target="_blank"
+                                ></a>
+                              </strong>
+                              <br>
+                              <a v-if="m.title"
+                                 :href="m.content.url"
+                                 v-text="m.content.url"
+                                 target="_blank"
+                              ></a>
+                              <br v-if="m.title">
+                              <span v-if="m.content.description" v-text="m.content.description"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <div v-if="r.medias && hasFiles(r.medias)">
+                    <fieldset class="k-widget">
+                      <legend><?=_("Files:")?></legend>
+                      <div v-for="m in r.medias"
+                           v-if="m.type === mediaFileType"
+                      >
+										<span style="margin-left: 0.5em"
+                          :title="m.title"
+                    >
+											<a class="media bbn-p"
+                         @click="downloadMedia(m.id)"
+                      >
+												<i class="fa fa-download" style="margin-right: 5px"></i>
+												<span v-text="m.name"></span>
+											</a>
+										</span>
+                      </div>
+                    </fieldset>
+                  </div>
                 </div>
                 <div v-if="r.creator === currentUser()"
                      class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
