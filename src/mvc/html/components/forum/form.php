@@ -5,11 +5,13 @@
           @success="source.props.formSuccess"
 >
   <div class="bbn-grid-fields bbn-padded">
-    <label><?=_("Title")?></label>
-    <bbn-input v-model="source.row.title"></bbn-input>
+    <label v-if="source.row.title !== undefined"><?=_("Title")?></label>
+    <bbn-input v-if="source.row.title !== undefined"
+							 v-model="source.row.title"
+	  ></bbn-input>
 
-    <label v-if="source.props.showCategories && source.props.categories"><?=_("Category")?></label>
-    <bbn-dropdown v-if="source.props.showCategories && source.props.categories"
+    <label v-if="(source.row.category !== undefined) && source.props.categories"><?=_("Category")?></label>
+    <bbn-dropdown v-if="(source.row.category !== undefined) && source.props.categories"
                   :required="source.props.showCategories"
                   v-model="source.row.category"
                   :source="source.props.categories"

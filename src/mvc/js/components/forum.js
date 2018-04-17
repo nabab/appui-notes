@@ -37,6 +37,12 @@
 					return [];
 				}
 			},
+			imageDom: {
+				type: String
+			},
+			downloadUrl: {
+				type: String
+			},
 			toolbar: {
         type: [String, Array, Function, Object]
       },
@@ -48,10 +54,17 @@
 			},
 			reply: {
 				type: Function
-			}
+			},
+			editReply: {
+				type: Function
+			},
+			removeReply: {
+				type: Function
+			},
 		},
 		data(){
 			return {
+				currentPager: null,
 				currentData: [],
 				currentLimit: this.limit,
 				currentFilters: $.extend({}, this.filters),
@@ -60,7 +73,9 @@
         total: 0,
 				limits: [10, 25, 50, 100, 250, 500],
 				isLoading: false,
-        isAjax: typeof this.source === 'string'
+        isAjax: typeof this.source === 'string',
+				mediaFileType: appui.options.media_types.file.id,
+        mediaLinkType: appui.options.media_types.link.id
 			}
 		},
 		computed: {
@@ -100,21 +115,24 @@
       }
 		},
 		methods: {
-      _execCommand(button, data, col, index){
+      _execCommand(button, data, index){
         if ( button.command ){
           if ( $.isFunction(button.command) ){
-            return button.command(data, col, index);
+            return button.command(data, index);
           }
           else if ( typeof(button.command) === 'string' ){
+						this.currentPager = 'appui-notes-forum-pager-' + index;
             switch ( button.command ){
               case 'insert':
-                return this.insert(data, {title: bbn._('New row creation')});
+                return this.insert(data, index);
               case 'edit':
-                return this.edit(data, {title: bbn._('Row edition')}, index);
+                return this.edit(data, index);
               case 'delete':
                 return this.remove(index);
               case 'reply':
-                return this.reply(index);
+                return this.reply(data, index);
+							case 'editReply':
+                return this.editReply(data, index);
             }
           }
         }
@@ -179,10 +197,28 @@
 			    if ( row.showReplies ){
             row.showReplies = false;
             row.replies = false;
+						this.currentPager = null;
           }
           else {
             this.$set(row, 'showReplies', true);
           }
+        }
+      },
+			hasFiles(medias){
+        if ( Array.isArray(medias) && this.mediaFileType ){
+          return bbn.fn.search(medias, 'type', this.mediaFileType) > -1;
+        }
+        return false;
+      },
+      hasLinks(medias){
+        if ( Array.isArray(medias) && this.mediaLinkType ){
+          return bbn.fn.search(medias, 'type', this.mediaLinkType) > -1;
+        }
+        return false;
+      },
+			downloadMedia(id){
+        if ( id && this.downloadUrl ){
+          bbn.fn.post_out(this.downloadUrl + id);
         }
       }
 		},

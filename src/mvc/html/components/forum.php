@@ -39,20 +39,86 @@
                    class="bbn-b"
               ></div>
               <div v-html="d.content"></div>
+							<div v-if="d.medias && hasLinks(d.medias)">
+								<fieldset class="k-widget">
+						      <legend><?=_("Links:")?></legend>
+									<div v-for="m in d.medias"
+											 v-if="m.type === mediaLinkType"
+											 style="margin-top: 10px">
+										<div class="bbn-flex-width"
+												 style="margin-left: 0.5em"
+										>
+											<div style="height: 96px">
+												<img v-if="m.name && imageDom" :src="imageDom + m.id + '/' + m.name">
+												<i v-else class="fa fa-link"></i>
+											</div>
+											<div class="appui-notes-forum-link-title bbn-flex-fill bbn-vmiddle">
+												<div>
+													<strong>
+														<a :href="m.content.url"
+															 v-text="m.title || m.content.url"
+															 target="_blank"
+														></a>
+													</strong>
+													<br>
+													<a v-if="m.title"
+														 :href="m.content.url"
+														 v-text="m.content.url"
+														 target="_blank"
+													></a>
+													<br v-if="m.title">
+													<span v-if="m.content.description" v-text="m.content.description"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+							<div v-if="d.medias && hasFiles(d.medias)">
+								<fieldset class="k-widget">
+						      <legend><?=_("Files:")?></legend>
+									<div v-for="m in d.medias"
+											 v-if="m.type === mediaFileType"
+									>
+										<span style="margin-left: 0.5em"
+													:title="m.title"
+										>
+											<a class="media bbn-p"
+												 @click="downloadMedia(m.id)"
+											>
+												<i class="fa fa-download" style="margin-right: 5px"></i>
+												<span v-text="m.name"></span>
+											</a>
+										</span>
+									</div>
+								</fieldset>
+							</div>
             </div>
             <div v-if="d.creator === currentUser()"
                  class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                  style="margin-left: 1rem"
                  title="<?=_('Actions')?>"
             >
-              <i class="fa fa-ellipsis-h bbn-xl bbn-p"></i>
+							<bbn-context class="fa fa-ellipsis-h bbn-xl bbn-p"
+													 tabindex="-1"
+													 tag="i"
+													 :source="[{
+														 icon: 'fa fa-edit',
+														 text: '<?=_('Edit')?>',
+														 command: () => {_execCommand({command: 'edit'}, d, i)}
+													 }, {
+														 icon: 'fa fa-trash',
+														 text: '<?=_('Delete')?>',
+														 command: () => {_execCommand({command: 'delete'}, d, i)}
+													 }]"
+							></bbn-context>
             </div>
             <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                  style="margin-left: 1rem"
                  title="<?=_('Reply')?>"
             >
               <i class="fa fa-reply bbn-xl bbn-p"
-								 @click="reply ? reply(d) : false"
+								 @click="reply ? _execCommand({command: 'reply'}, d, i) : false"
 							></i>
             </div>
             <div class="bbn-spadded bbn-hmargin bbn-vmiddle bbn-p appui-notes-forum-hfixed"
@@ -120,10 +186,12 @@
                                tag="i"
                                :source="[{
                                  icon: 'fa fa-edit',
-                                 text: '<?=_('Edit')?>'
+                                 text: '<?=_('Edit')?>',
+																 command: () => {_execCommand({command: 'editReply'}, r, i)}
                                }, {
                                  icon: 'fa fa-trash',
-                                 text: '<?=_('Delete')?>'
+                                 text: '<?=_('Delete')?>',
+																 command: () => {_execCommand({command: 'deleteReply'}, r, i)}
                                }]"
                   ></bbn-context>
                 </div>
@@ -132,7 +200,7 @@
                      title="<?=_('Reply')?>"
                 >
                   <i class="fa fa-reply bbn-xl bbn-p"
-										 @click="reply ? reply(r) : false"
+										 @click="reply ? _execCommand({command: 'reply'}, r, i) : false"
 									></i>
                 </div>
                 <div v-if="r.num_replies"
@@ -167,6 +235,7 @@
 																		 :ajax-url="isAjax ? source : null"
 																		 :map="map"
 																		 :data="{id_alias: d.id}"
+																		 :key="'appui-notes-forum-pager-' + i"
 						>
 							<div class="appui-notes-forum-pager k-widget k-floatwrap appui-notes-forum-replies"
 									 v-if="pageable || isAjax"
