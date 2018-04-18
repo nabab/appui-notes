@@ -65,7 +65,10 @@
           <div class="bbn-flex-width">
             <div v-if="imageDom"
                  class="appui-notes-forum-link-image bbn-block">
-              <img v-if="cl.image" :src="imageDom + data.ref + '/' + cl.image">
+              <img v-if="cl.image"
+                   class="bbn-block"
+                   :src="imageDom + data.ref + '/' + cl.image"
+              >
               <i v-else class="fa fa-link"> </i>
             </div>
             <div class="appui-notes-forum-link-title bbn-flex-fill">

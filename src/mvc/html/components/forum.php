@@ -24,339 +24,347 @@
 		<!-- Main -->
 		<div class="bbn-w-100 bbn-flex-fill">
 			<bbn-scroll v-if="!isLoading">
-				<div v-for="(d, i) in currentData"
-						 :key="i"
-             class="bbn-w-100"
-				>
-          <div :class="['bbn-flex-width', 'k-widget', 'appui-notes-forum-topic', {'k-alt': !!(i%2)}]">
-            <div class="bbn-spadded">
-              <bbn-initial :user-id="d.creator"></bbn-initial>
-            </div>
-            <div class="bbn-flex-fill bbn-spadded"
-            >
-              <div v-if="d.title"
-                   v-text="d.title"
-                   class="bbn-b"
-              ></div>
-              <div v-html="d.content"></div>
-							<div v-if="d.medias && hasLinks(d.medias)">
-								<fieldset class="k-widget">
-						      <legend><?=_("Links:")?></legend>
-									<div v-for="m in d.medias"
-											 v-if="m.type === mediaLinkType"
-											 style="margin-top: 10px">
-										<div class="bbn-flex-width"
-												 style="margin-left: 0.5em"
-										>
-											<div style="height: 96px">
-												<img v-if="m.name && imageDom" :src="imageDom + m.id + '/' + m.name">
-												<i v-else class="fa fa-link"></i>
-											</div>
-											<div class="appui-notes-forum-link-title bbn-flex-fill bbn-vmiddle">
-												<div>
-													<strong>
-														<a :href="m.content.url"
-															 v-text="m.title || m.content.url"
-															 target="_blank"
-														></a>
-													</strong>
-													<br>
-													<a v-if="m.title"
-														 :href="m.content.url"
-														 v-text="m.content.url"
-														 target="_blank"
-													></a>
-													<br v-if="m.title">
-													<span v-if="m.content.description" v-text="m.content.description"></span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</fieldset>
-							</div>
-							<div v-if="d.medias && hasFiles(d.medias)">
-								<fieldset class="k-widget">
-						      <legend><?=_("Files:")?></legend>
-									<div v-for="m in d.medias"
-											 v-if="m.type === mediaFileType"
-									>
-										<span style="margin-left: 0.5em"
-													:title="m.title"
-										>
-											<a class="media bbn-p"
-												 @click="downloadMedia(m.id)"
-											>
-												<i class="fa fa-download" style="margin-right: 5px"></i>
-												<span v-text="m.name"></span>
-											</a>
-										</span>
-									</div>
-								</fieldset>
-							</div>
-            </div>
-            <div v-if="d.creator === currentUser()"
-                 class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
-                 style="margin-left: 1rem"
-                 title="<?=_('Actions')?>"
-            >
-							<bbn-context class="fa fa-ellipsis-h bbn-xl bbn-p"
-													 tabindex="-1"
-													 tag="i"
-													 :source="[{
-														 icon: 'fa fa-edit',
-														 text: '<?=_('Edit')?>',
-														 command: () => {_execCommand({command: 'edit'}, d, i)}
-													 }, {
-														 icon: 'fa fa-trash',
-														 text: '<?=_('Delete')?>',
-														 command: () => {_execCommand({command: 'delete'}, d, i)}
-													 }]"
-							></bbn-context>
-            </div>
-            <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
-                 style="margin-left: 1rem"
-                 title="<?=_('Reply')?>"
-            >
-              <i class="fa fa-reply bbn-xl bbn-p"
-								 @click="reply ? _execCommand({command: 'reply'}, d, i) : false"
-							></i>
-            </div>
-            <div class="bbn-spadded bbn-hmargin bbn-vmiddle bbn-p appui-notes-forum-hfixed"
-                 title="<?=_('Replies')?>"
-                 @click="toggleReplies(d)"
-            >
-              <i class="fa fa-comments-o bbn-xl"></i>
-              <span :class="['w3-badge', {'w3-red': !d.num_replies, 'w3-green': d.num_replies}]"
-                    v-text="d.num_replies"
-                    style="margin-left: 5px"
-              ></span>
-            </div>
-            <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
-                 :title="'<?=_('Created')?>: ' + fdate(d.creation) + ((d.creation !== d.last_edit) ? ('\n<?=_('Edited')?>: ' + fdate(d.last_edit)) : '')"
-            >
-              <i v-if="d.creation !== d.last_edit"
-                 class="fa fa-calendar-check-o bbn-xl"
-              ></i>
-              <i v-else
-                 class="fa fa-calendar-o bbn-xl"
-              ></i>
-              <div class="bbn-c bbn-s">
-                <div v-text="(d.creation !== d.last_edit) ? sdate(d.last_edit) : sdate(d.creation)"></div>
-                <div v-text="(d.creation !== d.last_edit) ? hour(d.last_edit) : hour(d.creation)"></div>
+        <appui-notes-forum-topic inline-template
+                                 v-for="(d, i) in currentData"
+                                 :key="i"
+                                 class="bbn-w-100"
+                                 :source="d"
+        >
+          <div class="bbn-w-100">
+            <div :class="['bbn-flex-width', 'k-widget', 'appui-notes-forum-topic', {'k-alt': !!($vnode.key%2)}]">
+              <div class="bbn-spadded">
+                <bbn-initial :user-id="source.creator"></bbn-initial>
               </div>
-            </div>
-          </div>
-					<!-- Replies -->
-          <div v-if="d.showReplies"
-               class="bbn-w-100"
-          >
-            <div v-if="!d.replies"
-                 class="bbn-middle bbn-padded"
-            ><?=_('LOADING')?>...</div>
-            <div v-else>
-              <div v-for="(r, k) in d.replies"
-                   :key="k"
-                   :class="['bbn-flex-width', 'k-widget', 'appui-notes-forum-replies', {'k-alt': !!(k%2)}]"
+              <div class="bbn-flex-fill bbn-spadded"
               >
-                <div class="bbn-spadded">
-                  <bbn-initial :user-id="r.creator"></bbn-initial>
-                </div>
-                <div class="bbn-flex-fill bbn-spadded"
-                >
-                  <div v-if="r.id_parent !== r.id_alias"
-                       class="bbn-vmiddle"
-                  >
-                    <i class="fa fa-reply bbn-large icon-flip"></i>
-                    <bbn-initial :user-id="r.parent_creator"
-                                 :height="20"
-                                 class="bbn-hsmargin"
-                    ></bbn-initial>
-                    <i class="fa fa-calendar-o bbn-large"></i>
-                    <span v-text="fdate(r.parent_creation)"></span>
-                  </div>
-                  <div v-html="r.content"></div>
-                  <div v-if="r.medias && hasLinks(r.medias)">
-                    <fieldset class="k-widget">
-                      <legend><?=_("Links:")?></legend>
-                      <div v-for="m in r.medias"
-                           v-if="m.type === mediaLinkType"
-                           style="margin-top: 10px">
-                        <div class="bbn-flex-width"
-                             style="margin-left: 0.5em"
-                        >
-                          <div style="height: 96px">
-                            <img v-if="m.name && imageDom" :src="imageDom + m.id + '/' + m.name">
-                            <i v-else class="fa fa-link"></i>
-                          </div>
-                          <div class="appui-notes-forum-link-title bbn-flex-fill bbn-vmiddle">
-                            <div>
-                              <strong>
-                                <a :href="m.content.url"
-                                   v-text="m.title || m.content.url"
-                                   target="_blank"
-                                ></a>
-                              </strong>
-                              <br>
-                              <a v-if="m.title"
-                                 :href="m.content.url"
-                                 v-text="m.content.url"
+                <div v-if="source.title"
+                     v-text="source.title"
+                     class="bbn-b"
+                ></div>
+                <div v-html="source.content"></div>
+                <div v-if="links.length">
+                  <fieldset class="k-widget">
+                    <legend><?=_("Links:")?></legend>
+                    <div v-for="l in links"
+                         style="margin-top: 10px"
+                    >
+                      <div class="bbn-flex-width"
+                           style="margin-left: 0.5em"
+                      >
+                        <div style="height: 96px">
+                          <img v-if="l.name && l.id && forum.imageDom"
+                               :src="forum.imageDom + l.id + '/' + l.name"
+                          >
+                          <i v-else class="fa fa-link"></i>
+                        </div>
+                        <div class="appui-notes-forum-link-title bbn-flex-fill bbn-vmiddle">
+                          <div>
+                            <strong>
+                              <a :href="l.content.url"
+                                 v-text="l.title || l.content.url"
                                  target="_blank"
                               ></a>
-                              <br v-if="m.title">
-                              <span v-if="m.content.description" v-text="m.content.description"></span>
-                            </div>
+                            </strong>
+                            <br>
+                            <a v-if="l.title"
+                               :href="l.content.url"
+                               v-text="l.content.url"
+                               target="_blank"
+                            ></a>
+                            <br v-if="l.title">
+                            <span v-if="l.content.description"
+                                  v-text="l.content.description"
+                            ></span>
                           </div>
                         </div>
                       </div>
-                    </fieldset>
-                  </div>
-                  <div v-if="r.medias && hasFiles(r.medias)">
-                    <fieldset class="k-widget">
-                      <legend><?=_("Files:")?></legend>
-                      <div v-for="m in r.medias"
-                           v-if="m.type === mediaFileType"
+                    </div>
+                  </fieldset>
+                </div>
+                <div v-if="files.length">
+                  <fieldset class="k-widget">
+                    <legend><?=_("Files:")?></legend>
+                    <div v-for="f in files">
+                      <span style="margin-left: 0.5em"
+                            :title="f.title"
                       >
-										<span style="margin-left: 0.5em"
-                          :title="m.title"
-                    >
-											<a class="media bbn-p"
-                         @click="downloadMedia(m.id)"
-                      >
-												<i class="fa fa-download" style="margin-right: 5px"></i>
-												<span v-text="m.name"></span>
-											</a>
-										</span>
-                      </div>
-                    </fieldset>
-                  </div>
+                        <a class="media bbn-p"
+                           @click="downloadMedia(f.id)"
+                        >
+                          <i class="fa fa-download" style="margin-right: 5px"></i>
+                          <span v-text="f.name"></span>
+                        </a>
+                      </span>
+                    </div>
+                  </fieldset>
                 </div>
-                <div v-if="r.creator === currentUser()"
-                     class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
-                     style="margin-left: 1rem"
-                     title="<?=_('Actions')?>"
-                >
-                  <bbn-context class="fa fa-ellipsis-h bbn-xl bbn-p"
-                               tabindex="-1"
-                               tag="i"
-                               :source="[{
-                                 icon: 'fa fa-edit',
-                                 text: '<?=_('Edit')?>',
-																 command: () => {_execCommand({command: 'editReply'}, r, i)}
-                               }, {
-                                 icon: 'fa fa-trash',
-                                 text: '<?=_('Delete')?>',
-																 command: () => {_execCommand({command: 'deleteReply'}, r, i)}
-                               }]"
-                  ></bbn-context>
-                </div>
-                <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
-                     style="margin-left: 1rem"
-                     title="<?=_('Reply')?>"
-                >
-                  <i class="fa fa-reply bbn-xl bbn-p"
-										 @click="reply ? _execCommand({command: 'reply'}, r, i) : false"
-									></i>
-                </div>
-                <div v-if="r.num_replies"
-                     class="bbn-spadded bbn-hmargin bbn-vmiddle appui-notes-forum-hfixed"
-                     title="<?=_('Replies')?>"
-                >
-                  <i class="fa fa-comments-o bbn-xl"></i>
-                  <span class="w3-badge w3-green"
-                        v-text="r.num_replies"
-                        style="margin-left: 5px"
-                  ></span>
-                </div>
-                <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
-                     :title="'<?=_('Created')?>: ' + fdate(r.creation) + ((r.creation !== r.last_edit) ? ('\n<?=_('Edited')?>: ' + fdate(r.last_edit)) : '')"
-                >
-                  <i v-if="r.creation !== r.last_edit"
-                     class="fa fa-calendar-check-o bbn-xl"
-                  ></i>
-                  <i v-else
-                     class="fa fa-calendar-o bbn-xl"
-                  ></i>
-                  <div class="bbn-c bbn-s">
-                    <div v-text="(r.creation !== r.last_edit) ? sdate(r.last_edit) : sdate(r.creation)"></div>
-                    <div v-text="(r.creation !== r.last_edit) ? hour(r.last_edit) : hour(r.creation)"></div>
-                  </div>
+              </div>
+              <div v-if="source.creator === forum.currentUser"
+                   class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                   style="margin-left: 1rem"
+                   title="<?=_('Actions')?>"
+              >
+                <bbn-context class="fa fa-ellipsis-h bbn-xl bbn-p"
+                             tabindex="-1"
+                             tag="i"
+                             :source="[{
+                               icon: 'fa fa-edit',
+                               text: '<?=_('Edit')?>',
+                               command: () => {forum.edit(source, _self)}
+                             }, {
+                               icon: 'fa fa-trash',
+                               text: '<?=_('Delete')?>',
+                               command: () => {forum.remove(source, _self)}
+                             }]"
+                ></bbn-context>
+              </div>
+              <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                   style="margin-left: 1rem"
+                   title="<?=_('Reply')?>"
+              >
+                <i class="fa fa-reply bbn-xl bbn-p"
+                   @click="forum.reply ? forum.reply(source, _self) : false"
+                ></i>
+              </div>
+              <div class="bbn-spadded bbn-hmargin bbn-vmiddle bbn-p appui-notes-forum-hfixed"
+                   title="<?=_('Replies')?>"
+                   @click="toggleReplies()"
+              >
+                <i class="fa fa-comments-o bbn-xl"></i>
+                <span :class="['w3-badge', {'w3-red': !source.num_replies, 'w3-green': source.num_replies}]"
+                      v-text="source.num_replies"
+                      style="margin-left: 5px"
+                ></span>
+              </div>
+              <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                   :title="'<?=_('Created')?>: ' + forum.fdate(source.creation) + ((source.creation !== source.last_edit) ? ('\n<?=_('Edited')?>: ' + forum.fdate(source.last_edit)) : '')"
+              >
+                <i v-if="source.creation !== source.last_edit"
+                   class="fa fa-calendar-check-o bbn-xl"
+                ></i>
+                <i v-else
+                   class="fa fa-calendar-o bbn-xl"
+                ></i>
+                <div class="bbn-c bbn-s">
+                  <div v-text="(source.creation !== source.last_edit) ? forum.sdate(source.last_edit) : forum.sdate(source.creation)"></div>
+                  <div v-text="(source.creation !== source.last_edit) ? forum.hour(source.last_edit) : forum.hour(source.creation)"></div>
                 </div>
               </div>
             </div>
-						<!-- Replies footer -->
-						<appui-notes-forum-pager inline-template
-																		 :source="d"
-																		 :ajax-url="isAjax ? source : null"
-																		 :map="map"
-																		 :data="{id_alias: d.id}"
-																		 :key="'appui-notes-forum-pager-' + i"
-						>
-							<div class="appui-notes-forum-pager k-widget k-floatwrap appui-notes-forum-replies"
-									 v-if="pageable || isAjax"
-							>
-								<div class="bbn-block"
-										 v-if="pageable"
-								>
-									<bbn-button icon="fa fa-angle-double-left"
-															:notext="true"
-															title="<?=_('Go to the first page')?>"
-															:disabled="isLoading || (currentPage == 1)"
-															@click="currentPage = 1"
-									></bbn-button>
-									<bbn-button icon="fa fa-angle-left"
-															:notext="true"
-															title="<?=_('Go to the previous page')?>"
-															:disabled="isLoading || (currentPage == 1)"
-															@click="currentPage--"
-									></bbn-button>
-									<?=_('Page')?>
-									<bbn-numeric v-if="source.replies && source.replies.length"
-															 v-model="currentPage"
-															 :min="1"
-															 :max="numPages"
-															 style="margin-right: 0.5em; width: 6em"
-															 :disabled="isLoading"
-									></bbn-numeric>
-									<?=_('de')?> {{numPages}}
-									<bbn-button icon="fa fa-angle-right"
-															:notext="true"
-															title="<?=_('Go to the next page')?>"
-															:disabled="isLoading || (currentPage == numPages)"
-															@click="currentPage++"
-									></bbn-button>
-									<bbn-button icon="fa fa-angle-double-right"
-															:notext="true"
-															title="<?=_('Go to the last page')?>"
-															@click="currentPage = numPages"
-															:disabled="isLoading || (currentPage == numPages)"
-									></bbn-button>
-									<span class="k-pager-sizes k-label">
+            <!-- Replies -->
+            <div v-if="showReplies"
+                 class="bbn-w-100"
+            >
+              <div v-if="!source.replies"
+                   class="bbn-middle bbn-padded"
+              ><?=_('LOADING')?>...</div>
+              <div v-else>
+                <appui-notes-forum-post inline-template
+                                        v-for="(r, k) in source.replies"
+                                        :source="r"
+                                        :key="k"
+                >
+                  <div :class="['bbn-flex-width', 'k-widget', 'appui-notes-forum-replies', {'k-alt': !!($vnode.key%2)}]">
+                    <div class="bbn-spadded">
+                      <bbn-initial :user-id="source.creator"></bbn-initial>
+                    </div>
+                    <div class="bbn-flex-fill bbn-spadded"
+                    >
+                      <div v-if="source.id_parent !== source.id_alias"
+                           class="bbn-vmiddle"
+                      >
+                        <i class="fa fa-reply bbn-large icon-flip"></i>
+                        <bbn-initial :user-id="source.parent_creator"
+                                     :height="20"
+                                     class="bbn-hsmargin"
+                        ></bbn-initial>
+                        <i class="fa fa-calendar-o bbn-large"></i>
+                        <span v-text="topic.forum.fdate(source.parent_creation)"></span>
+                      </div>
+                      <div v-html="source.content"></div>
+                      <div v-if="links.length">
+                        <fieldset class="k-widget">
+                          <legend><?=_("Links:")?></legend>
+                          <div v-for="l in links"
+                               style="margin-top: 10px"
+                          >
+                            <div class="bbn-flex-width"
+                                 style="margin-left: 0.5em"
+                            >
+                              <div style="height: 96px">
+                                <img v-if="l.name && topic.forum.imageDom"
+                                     :src="topic.forum.imageDom + l.id + '/' + l.name"
+                                >
+                                <i v-else class="fa fa-link"></i>
+                              </div>
+                              <div class="appui-notes-forum-link-title bbn-flex-fill bbn-vmiddle">
+                                <div>
+                                  <strong>
+                                    <a :href="l.content.url"
+                                       v-text="l.title || l.content.url"
+                                       target="_blank"
+                                    ></a>
+                                  </strong>
+                                  <br>
+                                  <a v-if="l.title"
+                                     :href="l.content.url"
+                                     v-text="l.content.url"
+                                     target="_blank"
+                                  ></a>
+                                  <br v-if="l.title">
+                                  <span v-if="l.content.description"
+                                        v-text="l.content.description"
+                                  ></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+                      <div v-if="files.length">
+                        <fieldset class="k-widget">
+                          <legend><?=_("Files:")?></legend>
+                          <div v-for="f in files">
+                            <span style="margin-left: 0.5em"
+                                  :title="f.title"
+                            >
+                              <a class="media bbn-p"
+                                 @click="topic.forum.downloadMedia(f.id)"
+                              >
+                                <i class="fa fa-download" style="margin-right: 5px"></i>
+                                <span v-text="f.name"></span>
+                              </a>
+                            </span>
+                          </div>
+                        </fieldset>
+                      </div>
+                    </div>
+                    <div v-if="source.creator === topic.forum.currentUser"
+                         class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                         style="margin-left: 1rem"
+                         title="<?=_('Actions')?>"
+                    >
+                      <bbn-context class="fa fa-ellipsis-h bbn-xl bbn-p"
+                                   tabindex="-1"
+                                   tag="i"
+                                   :source="[{
+                                     icon: 'fa fa-edit',
+                                     text: '<?=_('Edit')?>',
+                                     command: () => {topic.forum.editReply(source, _self)}
+                                   }, {
+                                     icon: 'fa fa-trash',
+                                     text: '<?=_('Delete')?>',
+                                     command: () => {topic.forum.removeReply(source, _self)}
+                                   }]"
+                      ></bbn-context>
+                    </div>
+                    <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                         style="margin-left: 1rem"
+                         title="<?=_('Reply')?>"
+                    >
+                      <i class="fa fa-reply bbn-xl bbn-p"
+                         @click="topic.forum.reply ? topic.forum.reply(source, _self) : false"
+                      ></i>
+                    </div>
+                    <div v-if="source.num_replies"
+                         class="bbn-spadded bbn-hmargin bbn-vmiddle appui-notes-forum-hfixed"
+                         title="<?=_('Replies')?>"
+                    >
+                      <i class="fa fa-comments-o bbn-xl"></i>
+                      <span class="w3-badge w3-green"
+                            v-text="source.num_replies"
+                            style="margin-left: 5px"
+                      ></span>
+                    </div>
+                    <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                         :title="'<?=_('Created')?>: ' + topic.forum.fdate(source.creation) + ((source.creation !== source.last_edit) ? ('\n<?=_('Edited')?>: ' + topic.forum.fdate(source.last_edit)) : '')"
+                    >
+                      <i v-if="source.creation !== source.last_edit"
+                         class="fa fa-calendar-check-o bbn-xl"
+                      ></i>
+                      <i v-else
+                         class="fa fa-calendar-o bbn-xl"
+                      ></i>
+                      <div class="bbn-c bbn-s">
+                        <div v-text="(source.creation !== source.last_edit) ? topic.forum.sdate(source.last_edit) : topic.forum.sdate(source.creation)"></div>
+                        <div v-text="(source.creation !== source.last_edit) ? topic.forum.hour(source.last_edit) : topic.forum.hour(source.creation)"></div>
+                      </div>
+                    </div>
+                  </div>
+                </appui-notes-forum-post>
+              </div>
+              <!-- Replies footer -->
+              <appui-notes-forum-pager inline-template
+                                       :source="source"
+                                       :key="'appui-notes-forum-pager-' + $vnode.key"
+              >
+                <div class="appui-notes-forum-pager k-widget k-floatwrap appui-notes-forum-replies"
+                     v-if="pageable || isAjax"
+                >
+                  <div class="bbn-block"
+                       v-if="pageable"
+                  >
+                    <bbn-button icon="fa fa-angle-double-left"
+                                :notext="true"
+                                title="<?=_('Go to the first page')?>"
+                                :disabled="isLoading || (currentPage == 1)"
+                                @click="currentPage = 1"
+                    ></bbn-button>
+                    <bbn-button icon="fa fa-angle-left"
+                                :notext="true"
+                                title="<?=_('Go to the previous page')?>"
+                                :disabled="isLoading || (currentPage == 1)"
+                                @click="currentPage--"
+                    ></bbn-button>
+                    <?=_('Page')?>
+                    <bbn-numeric v-if="source.replies && source.replies.length"
+                                 v-model="currentPage"
+                                 :min="1"
+                                 :max="numPages"
+                                 style="margin-right: 0.5em; width: 6em"
+                                 :disabled="isLoading"
+                    ></bbn-numeric>
+                    <?=_('de')?> {{numPages}}
+                    <bbn-button icon="fa fa-angle-right"
+                                :notext="true"
+                                title="<?=_('Go to the next page')?>"
+                                :disabled="isLoading || (currentPage == numPages)"
+                                @click="currentPage++"
+                    ></bbn-button>
+                    <bbn-button icon="fa fa-angle-double-right"
+                                :notext="true"
+                                title="<?=_('Go to the last page')?>"
+                                @click="currentPage = numPages"
+                                :disabled="isLoading || (currentPage == numPages)"
+                    ></bbn-button>
+                    <span class="k-pager-sizes k-label">
 										<bbn-dropdown :source="limits"
-																	v-model.number="currentLimit"
-																	@change="currentPage = 1"
-																	:disabled="!!isLoading"
-										></bbn-dropdown>
+                                  v-model.number="currentLimit"
+                                  @change="currentPage = 1"
+                                  :disabled="!!isLoading"
+                    ></bbn-dropdown>
 										<span><?=_('articles par page')?></span>
 									</span>
-								</div>
-								<div class="bbn-block" style="float: right">
+                  </div>
+                  <div class="bbn-block" style="float: right">
 									<span v-if="pageable"
-												v-text="_('Display items') + ' ' + (start+1) + '-' + (start + currentLimit > total ? total : start + currentLimit) + ' ' + _('of') + ' ' + total"
-									></span>
-									<span v-else
-												v-text="total ? _('Total') + ': ' + total + ' ' + _('items') : _('No item')"
-									></span>
-									&nbsp;
-									<bbn-button v-if="isAjax"
-															title="<?=_('Refresh')?>"
-															@click="updateData"
-															icon="fa fa-refresh"
-									></bbn-button>
-								</div>
-							</div>
-						</appui-notes-forum-pager>
+                        v-text="_('Display items') + ' ' + (start+1) + '-' + (start + currentLimit > total ? total : start + currentLimit) + ' ' + _('of') + ' ' + total"
+                  ></span>
+                    <span v-else
+                          v-text="total ? _('Total') + ': ' + total + ' ' + _('items') : _('No item')"
+                    ></span>
+                    &nbsp;
+                    <bbn-button v-if="isAjax"
+                                title="<?=_('Refresh')?>"
+                                @click="updateData"
+                                icon="fa fa-refresh"
+                    ></bbn-button>
+                  </div>
+                </div>
+              </appui-notes-forum-pager>
+            </div>
           </div>
-				</div>
+        </appui-notes-forum-topic>
 			</bbn-scroll>
 		</div>
 		<!-- Footer -->

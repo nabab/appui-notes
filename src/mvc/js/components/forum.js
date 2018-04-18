@@ -64,7 +64,7 @@
 		},
 		data(){
 			return {
-				currentPager: null,
+			  currentUser: appui.app.userId,
 				currentData: [],
 				currentLimit: this.limit,
 				currentFilters: $.extend({}, this.filters),
@@ -121,7 +121,6 @@
             return button.command(data, index);
           }
           else if ( typeof(button.command) === 'string' ){
-						this.currentPager = 'appui-notes-forum-pager-' + index;
             switch ( button.command ){
               case 'insert':
                 return this.insert(data, index);
@@ -141,11 +140,8 @@
       _map(data){
         return this.map ? $.map(data, this.map) : data;
       },
-		  currentUser(){
-		    return appui.app.userId;
-      },
-			sdate(d){
-			  return moment(d).format('DD/MM/YY')
+      sdate(d){
+        return moment(d).format('DD/MM/YY')
       },
       fdate(d){
         return moment(d).format('DD/MM/YY HH:mm:ss');
@@ -172,7 +168,7 @@
                 result.error ||
                 ((result.success !== undefined) && !result.success)
               ){
-                alert(result && result.error ? result.error : bbn._("Error in updateData"));
+                bbn.fn.alert(result && result.error ? result.error : bbn._("Error in updateData"));
               }
               else {
                 this.currentData = this._map(result.data || []);
@@ -192,35 +188,11 @@
           this.total = this.currentData.length;
         }
       },
-      toggleReplies(row){
-			  if ( row.num_replies ){
-			    if ( row.showReplies ){
-            row.showReplies = false;
-            row.replies = false;
-						this.currentPager = null;
-          }
-          else {
-            this.$set(row, 'showReplies', true);
-          }
-        }
-      },
-			hasFiles(medias){
-        if ( Array.isArray(medias) && this.mediaFileType ){
-          return bbn.fn.search(medias, 'type', this.mediaFileType) > -1;
-        }
-        return false;
-      },
-      hasLinks(medias){
-        if ( Array.isArray(medias) && this.mediaLinkType ){
-          return bbn.fn.search(medias, 'type', this.mediaLinkType) > -1;
-        }
-        return false;
-      },
-			downloadMedia(id){
+      downloadMedia(id){
         if ( id && this.downloadUrl ){
           bbn.fn.post_out(this.downloadUrl + id);
         }
-      }
+      },
 		},
 		mounted(){
 			this.$nextTick(() => {
@@ -229,101 +201,171 @@
       this.ready = true;
 		},
 		components: {
-      'appui-notes-forum-pager': {
-        name: 'appui-notes-forum-pager',
+		  'appui-notes-forum-topic': {
+        name: 'appui-notes-forum-topic',
         props: {
           source: {
             type: Object
-          },
-          pageable: {
-            type: Boolean,
-            default: true
-          },
-          ajaxUrl: {
-            type: String
-          },
-          map: {
-            type: Function
-          },
-          data: {
-            type: Object,
-            default(){
-              return {};
-            }
           }
         },
         data(){
           return {
-            currentLimit: 25,
-            originalData: null,
+            forum: bbn.vue.closest(this, 'appui-notes-forum'),
+            currentLimit: this.limit,
             start: 0,
             total: 0,
             limits: [10, 25, 50, 100, 250, 500],
             isLoading: false,
-            isAjax: !!this.ajaxUrl
+            showReplies: false
           }
         },
         computed: {
-          numPages(){
-            return Math.ceil(this.total / this.currentLimit);
-          },
-          currentPage: {
-            get(){
-              return Math.ceil((this.start + 1) / this.currentLimit);
-            },
-            set(val){
-              this.start = val > 1 ? (val - 1) * this.currentLimit : 0;
-              this.updateData();
+          files(){
+            if ( Array.isArray(this.source.medias) && this.forum.mediaFileType ){
+              return this.source.medias.filter(m => {
+                return m.type === this.forum.mediaFileType;
+              });
             }
+            return [];
+          },
+          links(){
+            if ( Array.isArray(this.source.medias) && this.forum.mediaLinkType ){
+              return this.source.medias.filter(m => {
+                return m.type === this.forum.mediaLinkType;
+              });
+            }
+            return [];
           }
         },
         methods: {
-          _map(data){
-            return this.map ? $.map(data, this.map) : data;
-          },
-          updateData(withoutOriginal){
-            if ( this.isAjax && !this.isLoading ){
-              this.isLoading = true;
-              this.$nextTick(() =>{
-                let data = {
-                  limit: this.currentLimit,
-                  start: this.start,
-                  data: this.data
-                };
-                bbn.fn.post(this.ajaxUrl, data, result =>{
-                  this.isLoading = false;
-                  if (
-                    !result ||
-                    result.error ||
-                    ((result.success !== undefined) && !result.success)
-                  ){
-                    alert(result && result.error ? result.error : bbn._("Error in updateData"));
-                  }
-                  else {
-                    this.$set(this.source, 'replies', this._map(result.data || []));
-                    if ( this.editable ){
-                      this.originalData = JSON.parse(JSON.stringify(this.source.replies));
-                    }
-                    this.total = result.total || result.data.length || 0;
-                  }
-                });
-              });
-            }
-            else if ( Array.isArray(this.source.replies) ){
-              this.source.replies = this._map(this.source.replies);
-              if ( this.isBatch && !withoutOriginal ){
-                this.originalData = JSON.parse(JSON.stringify(this.source.replies));
+          toggleReplies(){
+            if ( this.source.num_replies ){
+              if ( this.showReplies ){
+                this.showReplies = false;
+                this.source.replies = false;
               }
-              this.total = this.source.replies.length;
+              else {
+                this.showReplies = true;
+              }
             }
           }
         },
-        mounted(){
-          this.$nextTick(() =>{
-            this.updateData();
-          });
+        components: {
+          'appui-notes-forum-post': {
+            name: 'appui-notes-forum-post',
+            props: {
+              source: {
+                type: Object
+              }
+            },
+            data(){
+              return {
+                topic: bbn.vue.closest(this, 'appui-notes-forum-topic')
+              }
+            },
+            computed: {
+              files(){
+                if ( Array.isArray(this.source.medias) && this.topic.forum.mediaFileType ){
+                  return this.source.medias.filter(m => {
+                    return m.type === this.topic.forum.mediaFileType;
+                  });
+                }
+                return [];
+              },
+              links(){
+                if ( Array.isArray(this.source.medias) && this.topic.forum.mediaLinkType ){
+                  return this.source.medias.filter(m => {
+                    return m.type === this.topic.forum.mediaLinkType;
+                  });
+                }
+                return [];
+              }
+            }
+          },
+          'appui-notes-forum-pager': {
+            name: 'appui-notes-forum-pager',
+            props: {
+              source: {
+                type: Object
+              }
+            },
+            data(){
+              return {
+                topic: bbn.vue.closest(this, 'appui-notes-forum-topic'),
+                currentLimit: 25,
+                originalData: null,
+                start: 0,
+                total: 0,
+                limits: [10, 25, 50, 100, 250, 500],
+                isLoading: false
+              }
+            },
+            computed: {
+              numPages(){
+                return Math.ceil(this.total / this.currentLimit);
+              },
+              currentPage: {
+                get(){
+                  return Math.ceil((this.start + 1) / this.currentLimit);
+                },
+                set(val){
+                  this.start = val > 1 ? (val - 1) * this.currentLimit : 0;
+                  this.updateData();
+                }
+              },
+              isAjax(){
+                return this.topic.forum.isAjax;
+              },
+              pageable(){
+                return this.topic.forum.pageable;
+              }
+            },
+            methods: {
+              updateData(withoutOriginal){
+                if ( this.isAjax && !this.isLoading ){
+                  this.isLoading = true;
+                  this.$nextTick(() =>{
+                    let data = {
+                      limit: this.currentLimit,
+                      start: this.start,
+                      data: {id_alias: this.source.id}
+                    };
+                    bbn.fn.post(this.topic.forum.source, data, result =>{
+                      this.isLoading = false;
+                      if (
+                        !result ||
+                        result.error ||
+                        ((result.success !== undefined) && !result.success)
+                      ){
+                        bbn.fn.alert(result && result.error ? result.error : bbn._("Error in updateData"));
+                      }
+                      else {
+                        this.$set(this.source, 'replies', this.topic.forum._map(result.data || []));
+                        if ( this.editable ){
+                          this.originalData = JSON.parse(JSON.stringify(this.source.replies));
+                        }
+                        this.total = result.total || result.data.length || 0;
+                      }
+                    });
+                  });
+                }
+                else if ( Array.isArray(this.source.replies) ){
+                  this.source.replies = this._map(this.source.replies);
+                  if ( this.isBatch && !withoutOriginal ){
+                    this.originalData = JSON.parse(JSON.stringify(this.source.replies));
+                  }
+                  this.total = this.source.replies.length;
+                }
+              }
+            },
+            mounted(){
+              this.$nextTick(() =>{
+                this.updateData();
+              });
+            }
+          }
         }
-      },
+      }
     }
 	}
 })();

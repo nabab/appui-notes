@@ -41,9 +41,9 @@
           mode: 'less'
         }],
         editorType: 'bbn-textarea',
-        data: {
+        data: $.extend({
 					ref: moment().unix()
-				}
+				}, this.source.data ? this.source.data : {})
       }
     },
     methods: {
