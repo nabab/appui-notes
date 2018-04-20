@@ -63,9 +63,11 @@
                 this.$refs.link.$refs.element.value,
               idx = this.source.row.links.push({
                 inProgress: true,
-                url: link,
+                content: {
+                  url: link,
+                  description: false
+                },
                 image: false,
-                desc: false,
                 title: false,
                 error: false
               }) - 1;
@@ -82,7 +84,7 @@
 	              this.source.row.links[idx].title = d.data.title;
 	            }
 	            if ( d.data.desc ){
-	              this.source.row.links[idx].desc = d.data.desc;
+	              this.source.row.links[idx].content.description = d.data.desc;
 	            }
 	            this.source.row.links[idx].inProgress = false;
 	            this.$refs.link.$refs.element.value = '';

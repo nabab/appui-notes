@@ -54,13 +54,7 @@
 			},
 			reply: {
 				type: Function
-			},
-			editReply: {
-				type: Function
-			},
-			removeReply: {
-				type: Function
-			},
+			}
 		},
 		data(){
 			return {
@@ -115,23 +109,21 @@
       }
 		},
 		methods: {
-      _execCommand(button, data, index){
+      _execCommand(button, data){
         if ( button.command ){
           if ( $.isFunction(button.command) ){
-            return button.command(data, index);
+            return button.command(data);
           }
           else if ( typeof(button.command) === 'string' ){
             switch ( button.command ){
               case 'insert':
-                return this.insert(data, index);
+                return this.insert(data);
               case 'edit':
-                return this.edit(data, index);
+                return this.edit(data);
               case 'delete':
-                return this.remove(index);
+                return this.remove(data);
               case 'reply':
-                return this.reply(data, index);
-							case 'editReply':
-                return this.editReply(data, index);
+                return this.reply(data);
             }
           }
         }
@@ -219,24 +211,6 @@
             showReplies: false
           }
         },
-        computed: {
-          files(){
-            if ( Array.isArray(this.source.medias) && this.forum.mediaFileType ){
-              return this.source.medias.filter(m => {
-                return m.type === this.forum.mediaFileType;
-              });
-            }
-            return [];
-          },
-          links(){
-            if ( Array.isArray(this.source.medias) && this.forum.mediaLinkType ){
-              return this.source.medias.filter(m => {
-                return m.type === this.forum.mediaLinkType;
-              });
-            }
-            return [];
-          }
-        },
         methods: {
           toggleReplies(){
             if ( this.source.num_replies ){
@@ -261,24 +235,6 @@
             data(){
               return {
                 topic: bbn.vue.closest(this, 'appui-notes-forum-topic')
-              }
-            },
-            computed: {
-              files(){
-                if ( Array.isArray(this.source.medias) && this.topic.forum.mediaFileType ){
-                  return this.source.medias.filter(m => {
-                    return m.type === this.topic.forum.mediaFileType;
-                  });
-                }
-                return [];
-              },
-              links(){
-                if ( Array.isArray(this.source.medias) && this.topic.forum.mediaLinkType ){
-                  return this.source.medias.filter(m => {
-                    return m.type === this.topic.forum.mediaLinkType;
-                  });
-                }
-                return [];
               }
             }
           },
@@ -345,6 +301,7 @@
                           this.originalData = JSON.parse(JSON.stringify(this.source.replies));
                         }
                         this.total = result.total || result.data.length || 0;
+                        this.source.num_replies = this.total;
                       }
                     });
                   });
@@ -355,6 +312,7 @@
                     this.originalData = JSON.parse(JSON.stringify(this.source.replies));
                   }
                   this.total = this.source.replies.length;
+                  this.source.num_replies = this.total;
                 }
               }
             },

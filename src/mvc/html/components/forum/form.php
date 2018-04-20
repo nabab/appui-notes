@@ -55,26 +55,31 @@
            ref="linksContainer"
            v-if="source.row.links"
       >
-        <div v-for="(cl, idx) in source.row.links"
+        <div v-for="(l, idx) in source.row.links"
              :class="['k-file', {
-               'link-progress': cl.inProgress && !cl.error,
-               'link-success': !cl.inProgress && !cl.error,
-               'link-error': cl.error
+               'link-progress': l.inProgress && !l.error,
+               'link-success': !l.inProgress && !l.error,
+               'link-error': l.error
              }]"
         >
           <div class="bbn-flex-width">
             <div v-if="imageDom"
-                 class="appui-notes-forum-link-image bbn-block">
-              <img v-if="cl.image"
-                   class="bbn-block"
-                   :src="imageDom + data.ref + '/' + cl.image"
+                 class="appui-notes-forum-link-image">
+              <img v-if="l.image"
+                   :src="imageDom + data.ref + '/' + l.image"
               >
               <i v-else class="fa fa-link"> </i>
             </div>
             <div class="appui-notes-forum-link-title bbn-flex-fill">
-              <strong><a :href="cl.url" v-text="cl.title || cl.url"></a></strong>
+              <strong>
+                <a :href="l.content.url"
+                   v-text="l.title || l.content.url"
+                ></a>
+              </strong>
               <br>
-              <span v-if="cl.desc" v-text="cl.desc"></span>
+              <span v-if="l.content && l.content.description"
+                    v-text="l.content.description"
+              ></span>
             </div>
             <div class="appui-notes-forum-link-actions bbn-vmiddle">
               <bbn-button class="k-button-bare k-upload-action"

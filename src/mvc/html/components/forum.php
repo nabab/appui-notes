@@ -11,7 +11,7 @@
 										class="bbn-hsmargin"
 										:key="i"
 										v-bind="button"
-										@click="_execCommand(button, i)"
+										@click="_execCommand(button)"
 				></bbn-button>
 			</div>
 			<div v-else-if="typeof(toolbar) === 'function'"
@@ -42,10 +42,10 @@
                      class="bbn-b"
                 ></div>
                 <div v-html="source.content"></div>
-                <div v-if="links.length">
+                <div v-if="source.links.length">
                   <fieldset class="k-widget">
                     <legend><?=_("Links:")?></legend>
-                    <div v-for="l in links"
+                    <div v-for="l in source.links"
                          style="margin-top: 10px"
                     >
                       <div class="bbn-flex-width"
@@ -81,10 +81,10 @@
                     </div>
                   </fieldset>
                 </div>
-                <div v-if="files.length">
+                <div v-if="source.files.length">
                   <fieldset class="k-widget">
                     <legend><?=_("Files:")?></legend>
-                    <div v-for="f in files">
+                    <div v-for="f in source.files">
                       <span style="margin-left: 0.5em"
                             :title="f.title"
                       >
@@ -179,13 +179,19 @@
                                      class="bbn-hsmargin"
                         ></bbn-initial>
                         <i class="fa fa-calendar-o bbn-large"></i>
-                        <span v-text="topic.forum.fdate(source.parent_creation)"></span>
+                        <span v-text="topic.forum.fdate(source.parent_creation)"
+                              :style="{textDecoration: !source.parent_active ? 'line-through' : 'none'}"
+                              class="bbn-s"
+                        ></span>
+                        <span v-if="!source.parent_active"
+                              class="bbn-hsmargin bbn-i bbn-s"
+                        ><?=_('deleted')?></span>
                       </div>
                       <div v-html="source.content"></div>
-                      <div v-if="links.length">
+                      <div v-if="source.links.length">
                         <fieldset class="k-widget">
                           <legend><?=_("Links:")?></legend>
-                          <div v-for="l in links"
+                          <div v-for="l in source.links"
                                style="margin-top: 10px"
                           >
                             <div class="bbn-flex-width"
@@ -221,10 +227,10 @@
                           </div>
                         </fieldset>
                       </div>
-                      <div v-if="files.length">
+                      <div v-if="source.files.length">
                         <fieldset class="k-widget">
                           <legend><?=_("Files:")?></legend>
-                          <div v-for="f in files">
+                          <div v-for="f in source.files">
                             <span style="margin-left: 0.5em"
                                   :title="f.title"
                             >
@@ -250,11 +256,11 @@
                                    :source="[{
                                      icon: 'fa fa-edit',
                                      text: '<?=_('Edit')?>',
-                                     command: () => {topic.forum.editReply(source, _self)}
+                                     command: () => {topic.forum.edit(source, _self)}
                                    }, {
                                      icon: 'fa fa-trash',
                                      text: '<?=_('Delete')?>',
-                                     command: () => {topic.forum.removeReply(source, _self)}
+                                     command: () => {topic.forum.remove(source, _self)}
                                    }]"
                       ></bbn-context>
                     </div>
@@ -297,6 +303,7 @@
               <appui-notes-forum-pager inline-template
                                        :source="source"
                                        :key="'appui-notes-forum-pager-' + $vnode.key"
+                                       ref="pager"
               >
                 <div class="appui-notes-forum-pager k-widget k-floatwrap appui-notes-forum-replies"
                      v-if="pageable || isAjax"
