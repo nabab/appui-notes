@@ -140,7 +140,7 @@
                    :title="'<?=_('Created')?>: ' + forum.fdate(source.creation) + ((source.creation !== source.last_edit) ? ('\n<?=_('Edited')?>: ' + forum.fdate(source.last_edit)) : '')"
               >
                 <i v-if="source.creation !== source.last_edit"
-                   class="fa fa-calendar-check-o bbn-xl"
+                   class="fa fa-calendar-check-o bbn-xl bbn-orange"
                 ></i>
                 <i v-else
                    class="fa fa-calendar-o bbn-xl"
@@ -286,7 +286,7 @@
                          :title="'<?=_('Created')?>: ' + topic.forum.fdate(source.creation) + ((source.creation !== source.last_edit) ? ('\n<?=_('Edited')?>: ' + topic.forum.fdate(source.last_edit)) : '')"
                     >
                       <i v-if="source.creation !== source.last_edit"
-                         class="fa fa-calendar-check-o bbn-xl"
+                         class="fa fa-calendar-check-o bbn-xl bbn-orange"
                       ></i>
                       <i v-else
                          class="fa fa-calendar-o bbn-xl"
