@@ -30,6 +30,7 @@
                  ref="editor"
                  v-model="source.row.text"
                  style="min-height: 200px; width: 100%;"
+								 required="required"
       ></component>
     </div>
 

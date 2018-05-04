@@ -42,7 +42,7 @@
                      class="bbn-b"
                 ></div>
                 <div v-html="source.content"></div>
-                <div v-if="source.links.length">
+                <div v-if="source.links && source.links.length">
                   <fieldset class="k-widget">
                     <legend><?=_("Links:")?></legend>
                     <div v-for="l in source.links"
@@ -81,7 +81,7 @@
                     </div>
                   </fieldset>
                 </div>
-                <div v-if="source.files.length">
+                <div v-if="source.files && source.files.length">
                   <fieldset class="k-widget">
                     <legend><?=_("Files:")?></legend>
                     <div v-for="f in source.files">
@@ -132,7 +132,7 @@
               >
                 <i class="fa fa-comments-o bbn-xl"></i>
                 <span :class="['w3-badge', {'w3-red': !source.num_replies, 'w3-green': source.num_replies}]"
-                      v-text="source.num_replies"
+                      v-text="source.num_replies || 0"
                       style="margin-left: 5px"
                 ></span>
               </div>
