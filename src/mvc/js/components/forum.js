@@ -109,6 +109,7 @@
       }
 		},
 		methods: {
+		  shorten: bbn.fn.shorten,
       _execCommand(button, data){
         if ( button.command ){
           if ( $.isFunction(button.command) ){
@@ -133,13 +134,29 @@
         return this.map ? $.map(data, this.map) : data;
       },
       sdate(d){
-        return moment(d).format('DD/MM/YY')
+        //return moment(d).format('DD/MM/YY')
+        return bbn.fn.fdate(d, true);
       },
       fdate(d){
-        return moment(d).format('DD/MM/YY HH:mm:ss');
+        //return moment(d).format('DD/MM/YY HH:mm:ss');
+        return bbn.fn.fdate(d, true);
       },
       hour(d){
         return moment(d).format('HH:mm:ss')
+      },
+      usersNames(creator, users, number){
+        let ret = appui.app.getUserName(creator.toLowerCase()) || bbn._('Unknow'),
+            u;
+        if ( users ){
+          u = users.split(',');
+          if ( number ){
+            return u.length + 1;
+          }
+          u.forEach((v) => {
+            ret += ', ' + appui.app.getUserName(v.toLowerCase()) || bbn._('Unknow');
+          });
+        }
+        return number ? 0 : ret;
       },
 			updateData(withoutOriginal){
         if ( this.isAjax && !this.isLoading ){
@@ -208,7 +225,13 @@
             total: 0,
             limits: [10, 25, 50, 100, 250, 500],
             isLoading: false,
-            showReplies: false
+            showReplies: false,
+            contentContainerHeight: 'auto'
+          }
+        },
+        computed: {
+          cutContentContainer(){
+            return this.contentContainerHeight !== 'auto';
           }
         },
         methods: {
@@ -223,6 +246,13 @@
               }
             }
           }
+        },
+        mounted(){
+          this.$nextTick(() => {
+            if ( $(this.$refs.contentContainer).height() > 35 ){
+              this.contentContainerHeight = '35px';
+            }
+          });
         },
         components: {
           'appui-notes-forum-post': {

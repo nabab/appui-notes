@@ -97,7 +97,7 @@
       },
       linkRemove(idx){
         if ( idx !== undefined){
-          bbn.fn.confirm(bbn._('Are you sure you want to remove this link?'), () => {
+          this.confirm(bbn._('Are you sure you want to remove this link?'), () => {
             this.source.row.links.splice(idx, 1);
           });
         }

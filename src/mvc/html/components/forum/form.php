@@ -94,5 +94,13 @@
         </div>
       </div>
     </div>
+
+    <label><?=_("Locked")?></label>
+    <div>
+      <bbn-checkbox v-model="source.row.locked"
+                    :value="1"
+                    :novalue="0"
+      ></bbn-checkbox>
+    </div>
   </div>
 </bbn-form>

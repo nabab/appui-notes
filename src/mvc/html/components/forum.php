@@ -32,91 +32,121 @@
         >
           <div class="bbn-w-100">
             <div :class="['bbn-flex-width', 'k-widget', 'appui-notes-forum-topic', {'k-alt': !!($vnode.key%2)}]">
-              <div class="bbn-spadded">
-                <bbn-initial :user-id="source.creator"></bbn-initial>
-              </div>
-              <div class="bbn-flex-fill bbn-spadded"
+              <div class="bbn-spadded"
+                   style="height: 42px; width: 42px"
               >
+                <div class="bbn-100">
+                  <bbn-initial :user-id="source.creator"
+                               :title="forum.usersNames(source.creator, source.users)"
+                  ></bbn-initial>
+                  <span v-if="source.users"
+                        class="w3-badge w3-green appui-notes-forum-initial-badge bbn-s"
+                        v-text="forum.usersNames(source.creator, source.users, true)"
+                  ></span>
+                </div>
+              </div>
+              <div class="bbn-flex-fill bbn-spadded">
                 <div v-if="source.title"
-                     v-text="source.title"
+                     v-text="forum.shorten(source.title, 120)"
                      class="bbn-b"
+                     :title="source.title"
                 ></div>
-                <div v-html="source.content"></div>
-                <div v-if="source.links && source.links.length">
-                  <fieldset class="k-widget">
-                    <legend><?=_("Links:")?></legend>
-                    <div v-for="l in source.links"
-                         style="margin-top: 10px"
-                    >
-                      <div class="bbn-flex-width"
-                           style="margin-left: 0.5em"
-                      >
-                        <div style="height: 96px">
-                          <img v-if="l.name && l.id && forum.imageDom"
-                               :src="forum.imageDom + l.id + '/' + l.name"
+                <div ref="contentContainer"
+                     :style="{'height': contentContainerHeight, 'overflow': 'hidden'}"
+                >
+                  <div :class="{'bbn-flex-width': cutContentContainer}">
+                    <i v-if="cutContentContainer"
+                       class="fa fa-angle-right bbn-b bbn-p"
+                       title="<?=_('Show full text')?>"
+                       @click="contentContainerHeight = 'auto'"
+                       style="margin: 0.2rem 0.5rem 0 0"
+                    ></i>
+                    <div v-html="source.content"
+                         :style="{
+                          'height': contentContainerHeight,
+                          'text-overflow': cutContentContainer ? 'ellipsis' : 'unset',
+                          'white-space': cutContentContainer ? 'nowrap' : 'unset',
+                          'width': cutContentContainer ? '100px' : 'unset',
+                          'overflow': cutContentContainer ? 'hidden' : 'unset'
+                         }"
+                         :class="{'bbn-flex-fill': cutContentContainer}"
+                    ></div>
+                    <div v-if="source.links && source.links.length && !cutContentContainer">
+                      <fieldset class="k-widget">
+                        <legend><?=_("Links:")?></legend>
+                        <div v-for="l in source.links"
+                             style="margin-top: 10px"
+                        >
+                          <div class="bbn-flex-width"
+                               style="margin-left: 0.5em"
                           >
-                          <i v-else class="fa fa-link"></i>
-                        </div>
-                        <div class="appui-notes-forum-link-title bbn-flex-fill bbn-vmiddle">
-                          <div>
-                            <strong>
-                              <a :href="l.content.url"
-                                 v-text="l.title || l.content.url"
-                                 target="_blank"
-                              ></a>
-                            </strong>
-                            <br>
-                            <a v-if="l.title"
-                               :href="l.content.url"
-                               v-text="l.content.url"
-                               target="_blank"
-                            ></a>
-                            <br v-if="l.title">
-                            <span v-if="l.content.description"
-                                  v-text="l.content.description"
-                            ></span>
+                            <div style="height: 96px">
+                              <img v-if="l.name && l.id && forum.imageDom"
+                                   :src="forum.imageDom + l.id + '/' + l.name"
+                              >
+                              <i v-else class="fa fa-link"></i>
+                            </div>
+                            <div class="appui-notes-forum-link-title bbn-flex-fill bbn-vmiddle">
+                              <div>
+                                <strong>
+                                  <a :href="l.content.url"
+                                     v-text="l.title || l.content.url"
+                                     target="_blank"
+                                  ></a>
+                                </strong>
+                                <br>
+                                <a v-if="l.title"
+                                   :href="l.content.url"
+                                   v-text="l.content.url"
+                                   target="_blank"
+                                ></a>
+                                <br v-if="l.title">
+                                <span v-if="l.content.description"
+                                      v-text="l.content.description"
+                                ></span>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </fieldset>
                     </div>
-                  </fieldset>
-                </div>
-                <div v-if="source.files && source.files.length">
-                  <fieldset class="k-widget">
-                    <legend><?=_("Files:")?></legend>
-                    <div v-for="f in source.files">
-                      <span style="margin-left: 0.5em"
-                            :title="f.title"
+                    <div v-if="source.files && source.files.length && !cutContentContainer">
+                      <fieldset class="k-widget">
+                        <legend><?=_("Files:")?></legend>
+                        <div v-for="f in source.files">
+                    <span style="margin-left: 0.5em"
+                          :title="f.title"
+                    >
+                      <a class="media bbn-p"
+                         @click="forum.downloadMedia(f.id)"
                       >
-                        <a class="media bbn-p"
-                           @click="downloadMedia(f.id)"
-                        >
-                          <i class="fa fa-download" style="margin-right: 5px"></i>
-                          <span v-text="f.name"></span>
-                        </a>
-                      </span>
+                        <i class="fa fa-download" style="margin-right: 5px"></i>
+                        <span v-text="f.name"></span>
+                      </a>
+                    </span>
+                        </div>
+                      </fieldset>
                     </div>
-                  </fieldset>
+                  </div>
                 </div>
               </div>
               <div v-if="source.creator === forum.currentUser"
                    class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                    style="margin-left: 1rem"
-                   title="<?=_('Actions')?>"
+                   title="<?=_('Delete')?>"
               >
-                <bbn-context class="fa fa-ellipsis-h bbn-xl bbn-p"
-                             tabindex="-1"
-                             tag="i"
-                             :source="[{
-                               icon: 'fa fa-edit',
-                               text: '<?=_('Edit')?>',
-                               command: () => {forum.edit(source, _self)}
-                             }, {
-                               icon: 'fa fa-trash',
-                               text: '<?=_('Delete')?>',
-                               command: () => {forum.remove(source, _self)}
-                             }]"
-                ></bbn-context>
+                <i class="fa fa-trash bbn-xl bbn-p"
+                   @click="forum.remove ? forum.remove(source, _self) : false"
+                ></i>
+              </div>
+              <div v-if="(source.creator === forum.currentUser) || !source.locked"
+                   class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                   style="margin-left: 1rem"
+                   title="<?=_('Edit')?>"
+              >
+                <i class="fa fa-edit bbn-xl bbn-p"
+                   @click="forum.edit ? forum.edit(source, _self) : false"
+                ></i>
               </div>
               <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                    style="margin-left: 1rem"
@@ -139,15 +169,10 @@
               <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                    :title="'<?=_('Created')?>: ' + forum.fdate(source.creation) + ((source.creation !== source.last_edit) ? ('\n<?=_('Edited')?>: ' + forum.fdate(source.last_edit)) : '')"
               >
-                <i v-if="source.creation !== source.last_edit"
-                   class="fa fa-calendar-check-o bbn-xl bbn-orange"
-                ></i>
-                <i v-else
-                   class="fa fa-calendar-o bbn-xl"
-                ></i>
+                <i :class="['fa', 'fa-calendar-o', 'bbn-xl', {'bbn-orange': source.creation !== source.last_edit}]"></i>
                 <div class="bbn-c bbn-s">
                   <div v-text="(source.creation !== source.last_edit) ? forum.sdate(source.last_edit) : forum.sdate(source.creation)"></div>
-                  <div v-text="(source.creation !== source.last_edit) ? forum.hour(source.last_edit) : forum.hour(source.creation)"></div>
+                  <!--<div v-text="(source.creation !== source.last_edit) ? forum.hour(source.last_edit) : forum.hour(source.creation)"></div>-->
                 </div>
               </div>
             </div>
@@ -165,11 +190,20 @@
                                         :key="k"
                 >
                   <div :class="['bbn-flex-width', 'k-widget', 'appui-notes-forum-replies', {'k-alt': !!($vnode.key%2)}]">
-                    <div class="bbn-spadded">
-                      <bbn-initial :user-id="source.creator"></bbn-initial>
-                    </div>
-                    <div class="bbn-flex-fill bbn-spadded"
+                    <div class="bbn-spadded"
+                         style="height: 42px; width: 42px"
                     >
+                      <div class="bbn-100">
+                        <bbn-initial :user-id="source.creator"
+                                     :title="topic.forum.usersNames(source.creator, source.users)"
+                        ></bbn-initial>
+                        <span v-if="source.users"
+                              class="w3-badge w3-green appui-notes-forum-initial-badge bbn-s"
+                              v-text="topic.forum.usersNames(source.creator, source.users, true)"
+                        ></span>
+                      </div>
+                    </div>
+                    <div class="bbn-flex-fill bbn-spadded">
                       <div v-if="source.id_parent !== source.id_alias"
                            class="bbn-vmiddle"
                       >
@@ -245,24 +279,23 @@
                         </fieldset>
                       </div>
                     </div>
-                    <div v-if="source.creator === topic.forum.currentUser"
+                    <div v-if="(source.creator === topic.forum.currentUser) && !source.num_replies"
                          class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                          style="margin-left: 1rem"
-                         title="<?=_('Actions')?>"
+                         title="<?=_('Delete')?>"
                     >
-                      <bbn-context class="fa fa-ellipsis-h bbn-xl bbn-p"
-                                   tabindex="-1"
-                                   tag="i"
-                                   :source="[{
-                                     icon: 'fa fa-edit',
-                                     text: '<?=_('Edit')?>',
-                                     command: () => {topic.forum.edit(source, _self)}
-                                   }, {
-                                     icon: 'fa fa-trash',
-                                     text: '<?=_('Delete')?>',
-                                     command: () => {topic.forum.remove(source, _self)}
-                                   }]"
-                      ></bbn-context>
+                      <i class="fa fa-trash bbn-xl bbn-p"
+                         @click="topic.forum.remove ? topic.forum.remove(source, _self) : false"
+                      ></i>
+                    </div>
+                    <div v-if="(source.creator === topic.forum.currentUser) || !source.locked"
+                         class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                         style="margin-left: 1rem"
+                         title="<?=_('Edit')?>"
+                    >
+                      <i class="fa fa-edit bbn-xl bbn-p"
+                         @click="topic.forum.edit ? topic.forum.edit(source, _self) : false"
+                      ></i>
                     </div>
                     <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                          style="margin-left: 1rem"
@@ -285,15 +318,10 @@
                     <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                          :title="'<?=_('Created')?>: ' + topic.forum.fdate(source.creation) + ((source.creation !== source.last_edit) ? ('\n<?=_('Edited')?>: ' + topic.forum.fdate(source.last_edit)) : '')"
                     >
-                      <i v-if="source.creation !== source.last_edit"
-                         class="fa fa-calendar-check-o bbn-xl bbn-orange"
-                      ></i>
-                      <i v-else
-                         class="fa fa-calendar-o bbn-xl"
-                      ></i>
+                      <i :class="['fa', 'fa-calendar-o', 'bbn-xl', {'bbn-orange': source.creation !== source.last_edit}]"></i>
                       <div class="bbn-c bbn-s">
                         <div v-text="(source.creation !== source.last_edit) ? topic.forum.sdate(source.last_edit) : topic.forum.sdate(source.creation)"></div>
-                        <div v-text="(source.creation !== source.last_edit) ? topic.forum.hour(source.last_edit) : topic.forum.hour(source.creation)"></div>
+                        <!--<div v-text="(source.creation !== source.last_edit) ? topic.forum.hour(source.last_edit) : topic.forum.hour(source.creation)"></div>-->
                       </div>
                     </div>
                   </div>
