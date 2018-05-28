@@ -177,7 +177,7 @@
                 result.error ||
                 ((result.success !== undefined) && !result.success)
               ){
-                bbn.fn.alert(result && result.error ? result.error : bbn._("Error in updateData"));
+                appui.alert(result && result.error ? result.error : bbn._("Error in updateData"));
               }
               else {
                 this.currentData = this._map(result.data || []);
@@ -323,7 +323,7 @@
                         result.error ||
                         ((result.success !== undefined) && !result.success)
                       ){
-                        bbn.fn.alert(result && result.error ? result.error : bbn._("Error in updateData"));
+                        appui.alert(result && result.error ? result.error : bbn._("Error in updateData"));
                       }
                       else {
                         this.$set(this.source, 'replies', this.topic.forum._map(result.data || []));
