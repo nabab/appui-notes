@@ -9,7 +9,7 @@
         //var r contains the new property to assign to the object
         var r = {
           title: v.myid/*v.title ? v.title : 'no-title',,
-          icon: v.num_children ? 'fa fa-folder-o' : 'fa fa-sticky-note-o' ,
+          icon: v.num_children ? 'far fa-folder' : 'far fa-sticky-note' ,
           data: {},
           folder: v.num_children ? true : false,
           id: v.myid,
@@ -49,7 +49,7 @@
               //var r contains the new property to assign to the object
               var r = {
                 title: v.myid/*v.title ? v.title : 'no-title',*/,
-                icon: v.num_children ? 'fa fa-folder-o' : 'fa fa-sticky-note-o' ,
+                icon: v.num_children ? 'far fa-folder' : 'far fa-sticky-note' ,
                 data: {},
                 folder: v.num_children ? true : false,
                 id: v.myid,

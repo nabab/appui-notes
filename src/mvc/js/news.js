@@ -35,11 +35,6 @@
         return appui.app.getUserName(row.id_user);
       }
     },
-    beforeMount(){
-      bbn.vue.setComponentRule(this.source.root + 'components/', 'appui-notes');
-      bbn.vue.addComponent('popup/note');
-      bbn.vue.unsetComponentRule();
-    },
     components: {
       'appui-notes-news-new': {
         props: ['source'],

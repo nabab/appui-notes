@@ -4,10 +4,5 @@
 
 (() => {
   return {
-    created(){
-      bbn.vue.setComponentRule(this.source.root + 'components/', 'appui-notes');
-      bbn.vue.addComponent('postit');
-      bbn.vue.unsetComponentRule();
-    }
   }
 })();

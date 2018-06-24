@@ -1,0 +1,319 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: BBN Solutions <support@bbn.solutions>\n"
+"Language-Team: EN <EN@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2018-05-07 17:49+0200\n"
+"PO-Revision-Date: 2018-05-07 17:49+0200\n"
+"Language: en\n"
+"X-Domain: appui-notes\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/form_markdown.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/form_rte.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php:1
+msgid "Êtes-vous sûr de vouloir quitter ce formulaire sans enregistrer vos modifications?"
+msgstr "Êtes-vous sûr de vouloir quitter ce formulaire sans enregistrer vos modifications?"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php:1
+msgid "New message"
+msgstr "New message"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum/form.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/public/list.php:1
+msgid "Title"
+msgstr "Title"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php:1
+msgid "Author"
+msgstr "Author"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum/form.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/public/list.php:1
+msgid "Text"
+msgstr "Text"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php:1
+msgid "Creation date"
+msgstr "Creation Date"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum2.php:1
+msgid "Actions"
+msgstr "Actions"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php:1
+msgid "See"
+msgstr "See"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php:1
+msgid "Mod."
+msgstr "Mod."
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php:1
+msgid "Titre"
+msgstr "Titre"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/notes.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/post-it.php:1
+msgid "Rechercher"
+msgstr "Rechercher"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php:1
+msgid "Creator"
+msgstr "Creator"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php:1
+msgid "Last version user"
+msgstr "Last version user"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php:1
+msgid "Creation"
+msgstr "Creation"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php:1
+msgid "Version"
+msgstr "Version"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php:1
+msgid "Catégorie"
+msgstr "Catégorie"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php:1
+msgid "Texte"
+msgstr "Texte"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php:1
+msgid "Bloqué"
+msgstr "Bloqué"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+msgid "Links:"
+msgstr "Links:"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+msgid "Files:"
+msgstr "Files:"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+msgid "Edit"
+msgstr "Edit"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+msgid "Delete"
+msgstr "Delete"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum2.php:1
+msgid "Reply"
+msgstr "Reply"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum2.php:1
+msgid "Replies"
+msgstr "Replies"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum2.php:1
+msgid "Created"
+msgstr "Created"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum2.php:1
+msgid "Edited"
+msgstr "Edited"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum2.php:1
+msgid "LOADING"
+msgstr "LOADING"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum2.php:1
+msgid "Go to the first page"
+msgstr "Go to the first page"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum2.php:1
+msgid "Go to the previous page"
+msgstr "Go to the previous page"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+msgid "Page"
+msgstr "Page"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+msgid "de"
+msgstr "de"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum2.php:1
+msgid "Go to the next page"
+msgstr "Go to the next page"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum2.php:1
+msgid "Go to the last page"
+msgstr "Go to the last page"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum2.php:1
+msgid "articles par page"
+msgstr "articles par page"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum2.php:1
+msgid "Refresh"
+msgstr "Refresh"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum2.php:1
+msgid "Reset to original configuration"
+msgstr "Reset to original configuration"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum2.php:1
+msgid "Multi Filter"
+msgstr ""
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/postit.php:1
+msgid "Update Note"
+msgstr "Update Note"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/postit.php:1
+msgid "Choose Color"
+msgstr "Choose Color"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/postit.php:1
+msgid "Edit Title"
+msgstr "Edit Title"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/postit.php:1
+msgid "Edit Content"
+msgstr "Edit Content"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum/form.php:1
+msgid "Category"
+msgstr "Category"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum/form.php:1
+msgid "Files"
+msgstr "Files"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum/form.php:1
+msgid "Links"
+msgstr "Links"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum/form.php:1
+msgid "Type or paste your URL and press Enter to valid"
+msgstr "Type or paste your URL and press Enter to valid"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum/form.php:1
+msgid "Remove"
+msgstr "Remove"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/masks.js:1
+msgid "Souhaitez-vous vraiment supprimer cette lettre-type?"
+msgstr "Souhaitez-vous vraiment supprimer cette lettre-type?"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/masks.js:1
+msgid "Avertissement sur les lettres types"
+msgstr "Avertissement sur les lettres types"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/masks.js:1
+msgid "Création d'une lettre-type pour "
+msgstr "Création d'une lettre-type pour"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/news.js:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/components/postit.js:1
+msgid "Saved"
+msgstr "Saved"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/news.js:1
+msgid "Error"
+msgstr "Error"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/table_notes.js:1
+msgid "Nouvelle Note"
+msgstr "Nouvelle Note"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/table_notes.js:1
+msgid "Modification d'un mailing"
+msgstr "Modification d'un mailing"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/components/forum.js:1
+msgid "Error in updateData"
+msgstr "Error in updateData"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/components/postit.js:1
+msgid "No changes"
+msgstr "No changes"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/components/forum/form.js:1
+msgid "Simple text"
+msgstr "Simple text"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/components/forum/form.js:1
+msgid "Rich text"
+msgstr "Rich text"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/components/forum/form.js:1
+msgid "Markdown"
+msgstr "Markdown"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/components/forum/form.js:1
+msgid "PHP code"
+msgstr "PHP code"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/components/forum/form.js:1
+msgid "JavaScript code"
+msgstr "JavaScript code"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/components/forum/form.js:1
+msgid "CSS code"
+msgstr "CSS code"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/components/forum/form.js:1
+msgid "Are you sure you want to remove this link?"
+msgstr "Are you sure you want to remove this link?"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/public/form_markdown.php:1
+msgid "Markdown editor"
+msgstr "Markdown editor"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/public/form_rte.php:1
+msgid "Note Editor (Markdown)"
+msgstr "Note Editor (Markdown)"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/public/news.php:1
+msgid "News"
+msgstr "News"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/public/notes.php:1
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/public/post-it.php:1
+msgid "My post-it"
+msgstr "My post-it"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/public/prove_notes.php:1
+msgid "Notes' tree"
+msgstr "Notes' tree"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/public/table_notes.php:1
+msgid "Notes"
+msgstr "Notes"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/public/actions/get.php:1
+msgid "Impossible to find the note"
+msgstr "Impossible to find the note"
+
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/components/forum.php:1
+msgid "deleted"
+msgstr "Deleted"

@@ -15,33 +15,34 @@
              root: source.root
            }"
 >
-  <bbn-column :hidden="true"
+  <bbns-column :hidden="true"
               field="id_note"
               :editable="false"
-  ></bbn-column>
-  <bbn-column field="title"
-              title="<i class='fa fa-newspaper-o bbn-xl'></i>"
+  ></bbns-column>
+  <bbns-column field="title"
+              title="<i class='far fa-newspaper bbn-xl'></i>"
               ftitle="<?=_("Title")?>"
-  ></bbn-column>
-  <bbn-column field="id_user"
+  ></bbns-column>
+  <bbns-column field="id_user"
               title="<i class='fa fa-user bbn-xl'></i>"
               ftitle="<?=_("Author")?>"
               :width="300"
               :render="rendertAuthor"
-  ></bbn-column>
-  <bbn-column field="content"
+  ></bbns-column>
+  <bbns-column field="content"
               title="<i class='fa fa-comment bbn-xl'></i>"
               ftitle="<?=_("Text")?>"
               :hidden="true"
-  ></bbn-column>
-  <bbn-column field="creation"
+  ></bbns-column>
+  <bbns-column field="creation"
               title="<i class='fa fa-calendar bbn-xl'></i>"
               ftitle="<?=_("Creation date")?>"
               :width="120"
               type="date"
               cls="bbn-c"
-  ></bbn-column>
-  <bbn-column :width="100"
+  ></bbns-column>
+  <bbns-column :width="100"
+              cls="bbn-c"
               ftitle="<?=_("Actions")?>"
               :buttons="[{
                 command: see,
@@ -54,7 +55,7 @@
                 text: '<?=_("Mod.")?>',
                 notext: true
               }]"
-  ></bbn-column>
+  ></bbns-column>
 </bbn-table>
 
 

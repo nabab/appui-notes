@@ -86,7 +86,7 @@
               <bbn-button class="k-button-bare k-upload-action"
                           style="display: inline-block;"
                           @click="linkRemove(idx)"
-                          icon="fa fa-close"
+                          icon="fas fa-times"
                           title="<?=_('Remove')?>"
               ></bbn-button>
             </div>

@@ -9,7 +9,7 @@
                    style="margin-right: 5px"
       ></bbn-initial>
       <span v-text="userName"></span>
-      <span style="margin-left: 1em"><i class="fa fa-calendar"></i> {{creationDate}} <i class="fa fa-clock-o"></i> {{creationTime}}</span>
+      <span style="margin-left: 1em"><i class="fa fa-calendar"></i> {{creationDate}} <i class="far fa-clock"></i> {{creationTime}}</span>
     </div>
     <div class="bbn-flex-fill k-block">
       <bbn-scroll>

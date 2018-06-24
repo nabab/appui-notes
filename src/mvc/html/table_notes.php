@@ -17,48 +17,48 @@
            :expander="$options.components['apst-notes-content']"
            :editor="$options.components['apst-new-note']"
 >
-  <bbn-column field="id_note"
+  <bbns-column field="id_note"
               hidden="true"
-  ></bbn-column>
+  ></bbns-column>
 
-  <bbn-column field="creator"
+  <bbns-column field="creator"
               title="<?=_("Creator")?>"
               :render="creator"
               :width="160"
               class="bbn-c"
-  ></bbn-column>
+  ></bbns-column>
 
-  <bbn-column field="id_user"
+  <bbns-column field="id_user"
               title="<?=_("Last version user")?>"
               :render="last_mod_user"
               :width="160"
               class="bbn-c"
-  ></bbn-column>
+  ></bbns-column>
 
-  <bbn-column field="creation"
+  <bbns-column field="creation"
               title="<?=_("Creation")?>"
               type="date"
               class="bbn-c"
               :width="120"
-  ></bbn-column>
+  ></bbns-column>
   
-  <bbn-column field="version"
+  <bbns-column field="version"
               title="<?=_("Version")?>"
               :width="70"
               class="bbn-c"
-  ></bbn-column>
+  ></bbns-column>
 
-  <bbn-column field="title"
+  <bbns-column field="title"
               title="<?=_("Title")?>"
               :render="title"
               class="bbn-c"
-  ></bbn-column>
+  ></bbns-column>
 
-  <bbn-column :width="160"
+  <bbns-column :width="160"
               title="<?=_("Actions")?>"
               :render="title"
               :buttons="[{text:'Markdown', command: markdown}, {text:'RichTextEditor', command: rte}]"
-  ></bbn-column>
+  ></bbns-column>
 
 </bbn-table>
 
