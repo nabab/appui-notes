@@ -58,7 +58,7 @@
 		},
 		data(){
 			return {
-			  currentUser: appui.app.userId,
+			  currentUser: appui.app.user.id,
 				currentData: [],
 				currentLimit: this.limit,
 				currentFilters: $.extend({}, this.filters),
