@@ -35,15 +35,24 @@
               <div class="bbn-spadded"
                    style="height: 42px; width: 42px"
               >
-                <div class="bbn-100">
+                <div class="bbn-100 bbn-middle">
                   <bbn-initial :user-id="source.creator"
                                :title="forum.usersNames(source.creator, source.users)"
                   ></bbn-initial>
-                  <span v-if="source.users"
-                        class="w3-badge w3-green appui-notes-forum-initial-badge bbn-s"
+                  <span v-if="forum.hasEditUsers(source.users)"
+                        class="w3-badge w3-blue appui-notes-forum-initial-badge bbn-s"
                         v-text="forum.usersNames(source.creator, source.users, true)"
                   ></span>
                 </div>
+              </div>
+              <div class="bbn-spadded bbn-vmiddle bbn-p appui-notes-forum-hfixed appui-notes-forum-replies-badge"
+                   title="<?=_('Replies')?>"
+                   @click="toggleReplies()"
+              >
+                <i class="far fa-comments bbn-xl bbn-hsmargin"></i>
+                <span :class="['w3-badge', {'w3-red': !source.num_replies, 'w3-green': source.num_replies}]"
+                      v-text="source.num_replies || 0"
+                ></span>
               </div>
               <div class="bbn-flex-fill bbn-spadded">
                 <div v-if="source.title"
@@ -56,12 +65,24 @@
                 >
                   <div :class="{'bbn-flex-width': cutContentContainer}">
                     <i v-if="cutContentContainer"
-                       class="fas fa-angle-right bbn-b bbn-p bbn-lg"
+                       class="fas fa-angle-right bbn-b bbn-p"
                        title="<?=_('Show full text')?>"
                        @click="contentContainerHeight = 'auto'"
                        style="margin: 0.2rem 0.5rem 0 0"
                     ></i>
-                    <div v-html="source.content"
+                    <div v-if="cutContentContainer"
+                         v-text="cutContent"
+                         :style="{
+                          'height': contentContainerHeight,
+                          'text-overflow': cutContentContainer ? 'ellipsis' : 'unset',
+                          'white-space': cutContentContainer ? 'nowrap' : 'unset',
+                          'width': cutContentContainer ? '100px' : 'unset',
+                          'overflow': cutContentContainer ? 'hidden' : 'unset'
+                         }"
+                         :class="{'bbn-flex-fill': cutContentContainer}"
+                    ></div>
+                    <div v-else
+                         v-html="source.content"
                          :style="{
                           'height': contentContainerHeight,
                           'text-overflow': cutContentContainer ? 'ellipsis' : 'unset',
@@ -156,17 +177,10 @@
                    @click="forum.reply ? forum.reply(source, _self) : false"
                 ></i>
               </div>
-              <div class="bbn-spadded bbn-hsmargin bbn-vmiddle bbn-p appui-notes-forum-hfixed"
-                   title="<?=_('Replies')?>"
-                   @click="toggleReplies()"
-              >
-                <i class="far fa-comments bbn-xl"></i>
-                <span :class="['bbn-hsmargin', 'w3-badge', {'w3-red': !source.num_replies, 'w3-green': source.num_replies}]"
-                      v-text="source.num_replies || 0"
-                ></span>
-              </div>
+
               <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                    :title="'<?=_('Created')?>: ' + forum.fdate(source.creation) + ((source.creation !== source.last_edit) ? ('\n<?=_('Edited')?>: ' + forum.fdate(source.last_edit)) : '')"
+                   style="margin-left: 0.5rem"
               >
                 <i :class="['far', 'fa-calendar-alt', 'bbn-xl', {'bbn-orange': source.creation !== source.last_edit}]"></i>
                 <div class="bbn-c bbn-s" style="margin-left: 0.3rem">
@@ -192,12 +206,12 @@
                     <div class="bbn-spadded"
                          style="height: 42px; width: 42px"
                     >
-                      <div class="bbn-100">
+                      <div class="bbn-100 bbn-middle">
                         <bbn-initial :user-id="source.creator"
                                      :title="topic.forum.usersNames(source.creator, source.users)"
                         ></bbn-initial>
-                        <span v-if="source.users"
-                              class="w3-badge w3-green appui-notes-forum-initial-badge bbn-s"
+                        <span v-if="topic.forum.hasEditUsers(source.users)"
+                              class="w3-badge w3-blu appui-notes-forum-initial-badge bbn-s"
                               v-text="topic.forum.usersNames(source.creator, source.users, true)"
                         ></span>
                       </div>
@@ -308,7 +322,7 @@
                       ></i>
                     </div>
                     <div v-if="source.num_replies"
-                         class="bbn-spadded bbn-hmargin bbn-vmiddle appui-notes-forum-hfixed"
+                         class="bbn-spadded bbn-hsmargin bbn-vmiddle appui-notes-forum-hfixed appui-notes-forum-replies-badge"
                          title="<?=_('Replies')?>"
                     >
                       <i class="far fa-comments bbn-xl bbn-hsmargin"></i>
@@ -318,6 +332,7 @@
                     </div>
                     <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                          :title="'<?=_('Created')?>: ' + topic.forum.fdate(source.creation) + ((source.creation !== source.last_edit) ? ('\n<?=_('Edited')?>: ' + topic.forum.fdate(source.last_edit)) : '')"
+                         style="margin-left: 0.5rem"
                     >
                       <i :class="['far', 'fa-calendar-alt', 'bbn-xl', {'bbn-orange': source.creation !== source.last_edit}]"></i>
                       <div class="bbn-c bbn-s" style="margin-left: 0.3rem">

@@ -144,17 +144,30 @@
       hour(d){
         return moment(d).format('HH:mm:ss')
       },
+      hasEditUsers(users){
+		    if ( users ){
+          let u = users.split(',');
+          if ( u.length > 1 ){
+            return true;
+          }
+        }
+        return false;
+      },
       usersNames(creator, users, number){
         let ret = appui.app.getUserName(creator.toLowerCase()) || bbn._('Unknow'),
             u;
         if ( users ){
           u = users.split(',');
           if ( number ){
-            return u.length + 1;
+            return u.length;
           }
-          u.forEach((v) => {
-            ret += ', ' + appui.app.getUserName(v.toLowerCase()) || bbn._('Unknow');
-          });
+          if ( u.length > 1 ){
+            u.forEach((v) => {
+              if ( v !== creator ){
+                ret += ', ' + appui.app.getUserName(v.toLowerCase()) || bbn._('Unknow');
+              }
+            });
+          }
         }
         return number ? 0 : ret;
       },
@@ -232,6 +245,9 @@
         computed: {
           cutContentContainer(){
             return this.contentContainerHeight !== 'auto';
+          },
+          cutContent(){
+            return bbn.fn.html2text(this.source.content).replace(/\n/g, ' ');
           }
         },
         methods: {

@@ -40,7 +40,7 @@
           value: 'bbn-code',
           mode: 'less'
         }],
-        editorType: 'bbn-textarea',
+        editorType: 'bbn-rte',
         data: $.extend({
 					ref: moment().unix()
 				}, this.source.data ? this.source.data : {})

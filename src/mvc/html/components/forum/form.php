@@ -19,11 +19,11 @@
 
     <div style="text-align: right">
       <div><?=_("Text")?></div>
-      <br>
+      <!--<br>
       <bbn-dropdown :source="editorTypes"
                     ref="editorType"
                     @change="switchEditorType"
-      ></bbn-dropdown>
+      ></bbn-dropdown>-->
     </div>
     <div>
       <component :is="editorType"
