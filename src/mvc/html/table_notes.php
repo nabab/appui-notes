@@ -18,46 +18,51 @@
            :editor="$options.components['apst-new-note']"
 >
   <bbns-column field="id_note"
-              hidden="true"
+               :hidden="true"
   ></bbns-column>
 
   <bbns-column field="creator"
-              title="<?=_("Creator")?>"
-              :render="creator"
-              :width="160"
-              class="bbn-c"
+               title="<?=_("Creator")?>"
+               :render="creator"
+               :width="160"
   ></bbns-column>
 
   <bbns-column field="id_user"
-              title="<?=_("Last version user")?>"
-              :render="last_mod_user"
-              :width="160"
-              class="bbn-c"
+               title="<?=_("Last version user")?>"
+               :render="last_mod_user"
+               :width="160"
   ></bbns-column>
 
   <bbns-column field="creation"
-              title="<?=_("Creation")?>"
-              type="date"
-              class="bbn-c"
-              :width="120"
+               title="<?=_("Creation")?>"
+               type="date"
+               cls="bbn-c"
+               :width="100"
   ></bbns-column>
   
   <bbns-column field="version"
-              title="<?=_("Version")?>"
-              :width="70"
-              class="bbn-c"
+               title="<?=_("Version")?>"
+               :width="70"
+               cls="bbn-c"
   ></bbns-column>
 
   <bbns-column field="title"
-              title="<?=_("Title")?>"
-              :render="title"
-              class="bbn-c"
+               title="<?=_("Title")?>"
+               :render="title"
+               class="bbn-c"
   ></bbns-column>
 
-  <bbns-column :width="160"
-              title="<?=_("Actions")?>"
-              :render="title"
-              :buttons="[{text:'Markdown', command: markdown}, {text:'RichTextEditor', command: rte}]"
+  <bbns-column :width="220"
+               title="<?=_("Actions")?>"
+               :render="title"
+               cls="bbn-c"
+               :buttons="[{
+                text: '<?=_('Markdown')?>',
+                command: markdown
+               }, {
+                text: '<?=_('RichTextEditor')?>',
+                command: rte
+               }]"
   ></bbns-column>
 
 </bbn-table>
