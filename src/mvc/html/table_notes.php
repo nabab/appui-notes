@@ -1,6 +1,6 @@
 <bbn-table class="bbn-w-100"
            ref="table"
-           source="notes/table_notes"
+           :source="root + 'table_notes'"
            :limit="25"
            :info="true"
            :pageable="true"
@@ -9,11 +9,11 @@
            :editable="true"
            :toolbar="[{
                      text: 'Nouvel note',
-                     icon: 'fa fa-plus',
+                     icon: 'fas fa-plus',
                      notext: false,
                      command: insert
                      }]"
-           :order="[{field: 'creation', dir: 'DESC'}]"
+
            :expander="$options.components['apst-notes-content']"
            :editor="$options.components['apst-new-note']"
 >
@@ -35,6 +35,13 @@
 
   <bbns-column field="creation"
                title="<?=_("Creation")?>"
+               type="date"
+               cls="bbn-c"
+               :width="100"
+  ></bbns-column>
+
+  <bbns-column field="last_edit"
+               title="<?=_("Last edit")?>"
                type="date"
                cls="bbn-c"
                :width="100"

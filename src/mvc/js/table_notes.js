@@ -3,7 +3,8 @@
   return {
     data(){
       return {
-        span: '<span title="Click on the first column of this row to view full content">...</span>'
+        root: appui.plugins['appui-notes'] + '/',
+        span: '<span title="' + bbn._('Click on the first column of this row to view full content') + '">...</span>'
       }
     },
     methods: {

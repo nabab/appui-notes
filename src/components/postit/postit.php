@@ -4,12 +4,12 @@
       <i v-if="editing"
          @click="edit"
          title="<?=_('Update Note')?>"
-         class="fa fa-save bbn-p"
+         class="fas fa-save bbn-p"
       ></i>
       <i v-if="editing"
          @click="showColorPicker = !showColorPicker"
          title="<?=_('Choose Color')?>"
-         class="fa fa-paint-brush bbn-p"
+         class="fas fa-paint-brush bbn-p"
       ></i>
       <bbn-colorpicker v-if="showColorPicker"
                        :preview="true"

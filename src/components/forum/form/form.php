@@ -69,7 +69,7 @@
               <img v-if="l.image"
                    :src="imageDom + data.ref + '/' + l.image"
               >
-              <i v-else class="fa fa-link"> </i>
+              <i v-else class="fas fa-link"> </i>
             </div>
             <div class="appui-notes-forum-link-title bbn-flex-fill">
               <strong>

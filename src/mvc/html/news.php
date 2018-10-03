@@ -1,11 +1,11 @@
-<bbn-table :source="source.root + 'news'"
+<bbn-table :source="source.root + 'data/news'"
            :pageable="true"
            ref="table"
            :info="true"
            :limit="10"
            :toolbar="[{
              text: '<?=_('New message')?>',
-             icon: 'fa fa-plus',
+             icon: 'fas fa-plus',
              command: insert
            }]"
            :editable="true"
@@ -24,18 +24,18 @@
               ftitle="<?=_("Title")?>"
   ></bbns-column>
   <bbns-column field="id_user"
-              title="<i class='fa fa-user bbn-xl'></i>"
+              title="<i class='fas fa-user bbn-xl'></i>"
               ftitle="<?=_("Author")?>"
               :width="300"
               :render="rendertAuthor"
   ></bbns-column>
   <bbns-column field="content"
-              title="<i class='fa fa-comment bbn-xl'></i>"
+              title="<i class='fas fa-comment bbn-xl'></i>"
               ftitle="<?=_("Text")?>"
               :hidden="true"
   ></bbns-column>
   <bbns-column field="creation"
-              title="<i class='fa fa-calendar bbn-xl'></i>"
+              title="<i class='fas fa-calendar-alt bbn-xl'></i>"
               ftitle="<?=_("Creation date")?>"
               :width="120"
               type="date"
@@ -46,12 +46,12 @@
               ftitle="<?=_("Actions")?>"
               :buttons="[{
                 command: see,
-                icon: 'fa fa-eye',
+                icon: 'fas fa-eye',
                 text: '<?=_("See")?>',
                 notext: true
               }, {
                 command: edit,
-                icon: 'fa fa-edit',
+                icon: 'fas fa-edit',
                 text: '<?=_("Mod.")?>',
                 notext: true
               }]"

@@ -53,7 +53,7 @@
                 data: {},
                 folder: v.num_children ? true : false,
                 id: v.myid,
-                //icon: v.icon && (v.icon.indexOf(" ") > -1) ? v.icon : 'fa fa-cog',
+                //icon: v.icon && (v.icon.indexOf(" ") > -1) ? v.icon : 'fas fa-cog',
               };
               //setting of lazy attribute
               if ( v.num_children ){

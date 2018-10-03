@@ -156,7 +156,7 @@
                    style="margin-left: 0.5rem"
                    title="<?=_('Delete')?>"
               >
-                <i class="far fa-trash-atl bbn-xl bbn-p"
+                <i class="far fa-trash-alt bbn-xl bbn-p"
                    @click="forum.remove ? forum.remove(source, _self) : false"
                 ></i>
               </div>
