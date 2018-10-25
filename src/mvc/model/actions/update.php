@@ -11,7 +11,7 @@ $res = [
   'success' => false
 ];
 $notes = new \bbn\appui\notes($model->db);
-if ( isset($model->data['id_note'], $model->data['content']) ){
-  $res['success'] = $notes->update($model->data['id_note'], $model->data['title'], $model->data['content']);
+if ( !empty($model->data['id_note']) && isset($model->data['content']) ){
+  $res['success'] = $notes->update($model->data['id_note'], $model->data['title'] ?? '', $model->data['content']);
 }
 return $res;

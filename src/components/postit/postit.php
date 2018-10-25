@@ -7,6 +7,11 @@
          class="fas fa-save bbn-p"
       ></i>
       <i v-if="editing"
+         @click="removeNote"
+         title="<?=_('Remove Note')?>"
+         class="fas fa-trash-alt bbn-p"
+      ></i>
+      <i v-if="editing"
          @click="showColorPicker = !showColorPicker"
          title="<?=_('Choose Color')?>"
          class="fas fa-paint-brush bbn-p"

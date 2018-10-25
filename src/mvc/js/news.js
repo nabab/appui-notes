@@ -7,6 +7,11 @@
 (() => {
   return {
     props: ['source'],
+    data(){
+      return {
+        users: bbn.fn.order(appui.app.users, 'text', 'ASC')
+      }
+    },
     methods: {
       insert(){
         this.$refs.table.insert({}, {
@@ -23,16 +28,13 @@
         }, idx);
       },
       see(row){
-        appui.$refs.tabnav.activeTab.popup().open({
+        this.getPopup().open({
           title: row.title,
           width: 800,
           height: 600,
           component: 'appui-notes-popup-note',
           source: row
         });
-      },
-      rendertAuthor(row){
-        return appui.app.getUserName(row.id_user);
       }
     },
     components: {

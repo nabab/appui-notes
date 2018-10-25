@@ -2,7 +2,7 @@
            :pageable="true"
            ref="table"
            :info="true"
-           :limit="10"
+           :limit="25"
            :toolbar="[{
              text: '<?=_('New message')?>',
              icon: 'fas fa-plus',
@@ -11,50 +11,52 @@
            :editable="true"
            :editor="$options.components['appui-notes-news-new']"
            :data="{
-             type: source.type,
-             root: source.root
+             type: source.type
            }"
+           :filterable="true"
 >
   <bbns-column :hidden="true"
-              field="id_note"
-              :editable="false"
+               field="id_note"
+               :editable="false"
+               :filterable="false"
   ></bbns-column>
   <bbns-column field="title"
-              title="<i class='far fa-newspaper bbn-xl'></i>"
-              ftitle="<?=_("Title")?>"
+               title="<i class='far fa-newspaper bbn-xl'></i>"
+               ftitle="<?=_("Title")?>"
   ></bbns-column>
   <bbns-column field="id_user"
-              title="<i class='fas fa-user bbn-xl'></i>"
-              ftitle="<?=_("Author")?>"
-              :width="300"
-              :render="rendertAuthor"
+               title="<i class='fas fa-user bbn-xl'></i>"
+               ftitle="<?=_("Author")?>"
+               :width="300"
+               :source="users"
   ></bbns-column>
   <bbns-column field="content"
-              title="<i class='fas fa-comment bbn-xl'></i>"
-              ftitle="<?=_("Text")?>"
-              :hidden="true"
+               title="<i class='fas fa-comment bbn-xl'></i>"
+               ftitle="<?=_("Text")?>"
+               :hidden="true"
   ></bbns-column>
   <bbns-column field="creation"
-              title="<i class='fas fa-calendar-alt bbn-xl'></i>"
-              ftitle="<?=_("Creation date")?>"
-              :width="120"
-              type="date"
-              cls="bbn-c"
+               title="<i class='fas fa-calendar-alt bbn-xl'></i>"
+               ftitle="<?=_("Creation date")?>"
+               :width="120"
+               type="date"
+               cls="bbn-c"
   ></bbns-column>
   <bbns-column :width="100"
-              cls="bbn-c"
-              ftitle="<?=_("Actions")?>"
-              :buttons="[{
-                command: see,
-                icon: 'fas fa-eye',
-                text: '<?=_("See")?>',
-                notext: true
-              }, {
-                command: edit,
-                icon: 'fas fa-edit',
-                text: '<?=_("Mod.")?>',
-                notext: true
-              }]"
+               cls="bbn-c"
+               ftitle="<?=_("Actions")?>"
+               :buttons="[{
+                 command: see,
+                 icon: 'fas fa-eye',
+                 text: '<?=_("See")?>',
+                 notext: true
+               }, {
+                 command: edit,
+                 icon: 'fas fa-edit',
+                 text: '<?=_("Mod.")?>',
+                 notext: true
+               }]"
+               :filterable="false"
   ></bbns-column>
 </bbn-table>
 

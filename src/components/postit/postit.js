@@ -17,7 +17,7 @@
       icon:{
         type: Boolean,
         default: false
-      },
+      }
     },
     data(){
       return {
@@ -53,7 +53,7 @@
       edit(){
         this.$nextTick(() => {
           if ( this.isModified ){
-            bbn.fn.post(this.source.root + 'actions/update', $.extend({}, this.newData, {
+            bbn.fn.post(appui.plugins['appui-notes'] + '/actions/update', $.extend({}, this.newData, {
               id_note: this.id_note,
               color: this.actualColor
             }), (d) => {
@@ -80,6 +80,19 @@
         setTimeout(() => {
           $(e.target).focus();
         }, 200);
+      },
+      removeNote(){
+        bbn.fn.post(appui.plugins['appui-notes'] + '/actions/delete',{id_note: this.id_note}, d =>{
+          if ( d.success ){
+            appui.success(bbn._('Delete'));
+            this.$nextTick(()=>{
+              bbn.vue.closest(this, 'bbns-tab').reload();
+            });
+          }
+          else{
+            appui.error(bbn._('Error delete'));
+          }
+        });
       },
       changeText(field, e){
         let newVal = this.html2text($(e.target).html());

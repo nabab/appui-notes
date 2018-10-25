@@ -4,14 +4,15 @@
                autocomplete="off"
                style="width: 75%"
                class="bbn-xl"
+               v-model="rechercher"
     ></bbn-input>
   </div>
   <div class="bbn-flex-fill">
     <bbn-scroll>
       <div class="bbn-postit-container">
-        <appui-notes-postit v-for="(note, index) in source.notes"
+        <appui-notes-postit v-for="(note, index) in notes"
                             v-bind="note"
-                            :key="index"
+                            :key="index"                                                        
         ></appui-notes-postit>
       </div>
     </bbn-scroll>
