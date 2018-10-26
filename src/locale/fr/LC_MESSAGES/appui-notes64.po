@@ -1,0 +1,335 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1\n"
+"Report-Msgid-Bugs-To: info@bbn.so\n"
+"last-Translator: BBN Solutions <support@bbn.solutions>\n"
+"Language-Team: FR <FR@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2018-10-26 17:40+0200\n"
+"POT-Revision-Date: 2018-10-26 17:40+0200\n"
+"Language: fr\n"
+"X-Domain: appui-notes64\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.js
+msgid "Unknown"
+msgstr "Inconnu"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.js
+msgid "Error while updating the data"
+msgstr "Erreur pendant la mise à jour des données"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "Replies"
+msgstr "Réponses"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "Show full text"
+msgstr "Voir tout le texte"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "Links:"
+msgstr "Liens:"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "Files:"
+msgstr "Fichiers:"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.js
+msgid "Delete"
+msgstr "Supprimer"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "Edit"
+msgstr "Modifier"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "Reply"
+msgstr "Répondre"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "Created"
+msgstr "Créé"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "Edited"
+msgstr "Modifié"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "LOADING"
+msgstr "CHARGEMENT"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "deleted"
+msgstr "Supprimé"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "Go to the first page"
+msgstr "Aller à la première page"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "Go to the previous page"
+msgstr "Aller à la page précédente"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "Page"
+msgstr "Page"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "of"
+msgstr "de"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "Go to the next page"
+msgstr "Aller à la page suivante"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "Go to the last page"
+msgstr "Aller à la dernière page"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "items per page"
+msgstr "éléments par page"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "Refresh"
+msgstr "Rafraîchir"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "de"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
+msgid "Reset to original configuration"
+msgstr "Mettre à la configuration originale"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
+msgid "Simple text"
+msgstr "Texte simple"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
+msgid "Rich text"
+msgstr "Texte riche (HTML)"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
+msgid "Markdown"
+msgstr "Texte riche (Markdown)"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
+msgid "PHP code"
+msgstr "Code PHP"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
+msgid "JavaScript code"
+msgstr "Code JavaScript"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
+msgid "CSS code"
+msgstr "Code CSS"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
+msgid "Are you sure you want to remove this link?"
+msgstr "Êtes-vous sûr de vouloir supprimer ce lien?"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/list.php
+msgid "Title"
+msgstr "Titre"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
+msgid "Category"
+msgstr "Catégorie"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/list.php
+msgid "Text"
+msgstr "Texte"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
+msgid "Files"
+msgstr "Fichiers"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
+msgid "Links"
+msgstr "Liens"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
+msgid "Type or paste your URL and press Enter to valid"
+msgstr "Entrez ou collez une URL et pressez Entrée"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
+msgid "Remove"
+msgstr "Supprimer"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
+msgid "Locked"
+msgstr "Verrouillé"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/news.js
+msgid "Saved"
+msgstr "Sauvegardé"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.js
+msgid "No changes"
+msgstr "Pas de changement"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.js
+msgid "Error while deleting"
+msgstr ""
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.php
+msgid "Update Note"
+msgstr "Modifier la note"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.php
+msgid "Remove Note"
+msgstr "Enlever la note"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.php
+msgid "Choose Color"
+msgstr "Choisir une couleur"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.php
+msgid "Edit Title"
+msgstr "Modifier le titre"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.php
+msgid "Edit Content"
+msgstr "Modifier le contenu"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/form_markdown.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/form_rte.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
+msgid ""
+"Êtes-vous sûr de vouloir quitter ce formulaire sans enregistrer vos modification"
+"s?"
+msgstr ""
+"Êtes-vous sûr de vouloir quitter ce formulaire sans enregistrer vos modification"
+"s?"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
+msgid "New message"
+msgstr "Nouveau message"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
+msgid "Author"
+msgstr "Auteur"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
+msgid "Creation date"
+msgstr "Date de création"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
+msgid "Actions"
+msgstr "Actions"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
+msgid "See"
+msgstr "Voir"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
+msgid "Mod."
+msgstr "Mod."
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
+msgid "Titre"
+msgstr "Titre"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/notes.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/post-it.php
+msgid "Rechercher"
+msgstr "Rechercher"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
+msgid "Creator"
+msgstr "Créateur"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
+msgid "Last version user"
+msgstr "Dernier éditeur"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
+msgid "Creation"
+msgstr "Création"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
+msgid "Last edit"
+msgstr "Dernière modification"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
+msgid "Version"
+msgstr "Version"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
+msgid "Catégorie"
+msgstr "Catégorie"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
+msgid "Texte"
+msgstr "Texte"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
+msgid "Bloqué"
+msgstr "Bloqué"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/masks.js
+msgid "Souhaitez-vous vraiment supprimer cette lettre-type?"
+msgstr "Souhaitez-vous vraiment supprimer cette lettre-type?"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/masks.js
+msgid "Avertissement sur les lettres types"
+msgstr "Avertissement sur les lettres types"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/masks.js
+msgid "Création d'une lettre-type pour "
+msgstr "Création d'une lettre-type pour"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/news.js
+msgid "Error"
+msgstr "Erreur"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/table_notes.js
+msgid "Click on the first column of this row to view full content"
+msgstr "Cliquer sur la première colonne de cette ligne pour voir tout le contenu"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/table_notes.js
+msgid "Nouvelle Note"
+msgstr "Nouvelle Note"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/table_notes.js
+msgid "Modification d'un mailing"
+msgstr "Modification d'un mailing"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/form_markdown.php
+msgid "Markdown editor"
+msgstr "Éditeur markdown"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/form_rte.php
+msgid "Note Editor (Markdown)"
+msgstr "Éditeur de note (Markdown)"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/news.php
+msgid "News"
+msgstr "Nouvelles"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/notes.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/post-it.php
+msgid "My post-it"
+msgstr "Mes post-it"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/prove_notes.php
+msgid "Notes' tree"
+msgstr "Arbre des notes"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/table_notes.php
+msgid "Notes"
+msgstr "Notes"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/actions/get.php
+msgid "Impossible to find the note"
+msgstr "Impossible de trouver la note"
