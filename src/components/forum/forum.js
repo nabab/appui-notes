@@ -154,7 +154,7 @@
         return false;
       },
       usersNames(creator, users, number){
-        let ret = appui.app.getUserName(creator.toLowerCase()) || bbn._('Unknow'),
+        let ret = appui.app.getUserName(creator.toLowerCase()) || bbn._('Unknown'),
             u;
         if ( users ){
           u = users.split(',');
@@ -164,7 +164,7 @@
           if ( u.length > 1 ){
             u.forEach((v) => {
               if ( v !== creator ){
-                ret += ', ' + appui.app.getUserName(v.toLowerCase()) || bbn._('Unknow');
+                ret += ', ' + appui.app.getUserName(v.toLowerCase()) || bbn._('Unknown');
               }
             });
           }
@@ -190,7 +190,7 @@
                 result.error ||
                 ((result.success !== undefined) && !result.success)
               ){
-                appui.alert(result && result.error ? result.error : bbn._("Error in updateData"));
+                appui.alert(result && result.error ? result.error : bbn._("Error while updating the data"));
               }
               else {
                 this.currentData = this._map(result.data || []);
@@ -339,7 +339,7 @@
                         result.error ||
                         ((result.success !== undefined) && !result.success)
                       ){
-                        appui.alert(result && result.error ? result.error : bbn._("Error in updateData"));
+                        appui.alert(result && result.error ? result.error : bbn._("Error while updating the data"));
                       }
                       else {
                         this.$set(this.source, 'replies', this.topic.forum._map(result.data || []));

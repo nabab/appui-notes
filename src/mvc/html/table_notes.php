@@ -67,7 +67,7 @@
                 text: '<?=_('Markdown')?>',
                 command: markdown
                }, {
-                text: '<?=_('RichTextEditor')?>',
+                text: 'R.T.E.',
                 command: rte
                }]"
   ></bbns-column>

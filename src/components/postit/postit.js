@@ -90,7 +90,7 @@
             });
           }
           else{
-            appui.error(bbn._('Error delete'));
+            appui.error(bbn._('Error while deleting'));
           }
         });
       },

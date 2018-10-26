@@ -375,7 +375,7 @@
                                  style="margin-right: 0.5em; width: 6em"
                                  :disabled="isLoading"
                     ></bbn-numeric>
-                    <?=_('de')?> {{numPages}}
+                    <?=_('of')?> {{numPages}}
                     <bbn-button icon="fas fa-angle-right"
                                 :notext="true"
                                 title="<?=_('Go to the next page')?>"
@@ -394,7 +394,7 @@
                                   @change="currentPage = 1"
                                   :disabled="!!isLoading"
                     ></bbn-dropdown>
-										<span><?=_('articles par page')?></span>
+										<span><?=_('items per page')?></span>
 									</span>
                   </div>
                   <div class="bbn-block" style="float: right">
@@ -464,7 +464,7 @@
                         @change="currentPage = 1"
                         :disabled="!!isLoading"
           ></bbn-dropdown>
-          <span><?=_('articles par page')?></span>
+          <span><?=_('items per page')?></span>
         </span>
       </div>
       <div class="bbn-block" style="float: right">
