@@ -1,6 +1,6 @@
 <bbn-form :source="source"
           ref="form"
-          confirm-leave="<?=_("Êtes-vous sûr de vouloir quitter ce formulaire sans enregistrer vos modifications?")?>"
+          confirm-leave="<?=_("Are you sure you want to leave this form without saving your changes?")?>"
           action="/bbn/appui/notes/insert"
           :buttons="['submit']"
 >

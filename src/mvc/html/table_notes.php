@@ -85,7 +85,7 @@
 <script type="text/x-template" id="apst-new-note">
   <bbn-form :data="source"
             ref="form"
-            confirm-leave="<?=_("Êtes-vous sûr de vouloir quitter ce formulaire sans enregistrer vos modifications?")?>"
+            confirm-leave="<?=_("Are you sure you want to leave this form without saving your changes?")?>"
             :action="'adherent/actions/notes/' + ( source.id ? 'update' : 'insert')"
             :buttons="['submit', 'cancel', 'close']"
             @success="success"
@@ -95,7 +95,7 @@
 
 
       <label class="bbn-form-label" >
-        <?=_("Catégorie")?>
+        <?=_("Category")?>
       </label>
       <div class="bbn-form-field">
         <bbn-dropdown name="id_type_note"
@@ -118,7 +118,7 @@
       </div>
 
       <label class="bbn-form-label" v-if="isOwner">
-        <?=_("Bloqué")?>
+        <?=_("Blocked")?>
       </label>
       <div class="bbn-form-field" v-if="isOwner">
         <bbn-checkbox v-model="source.confidentiel"

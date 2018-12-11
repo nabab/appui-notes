@@ -18,12 +18,12 @@
         this.popup().open({
             width: 800,
             height: 600,
-            title: bbn._("Nouvelle Note") ,
+            title: bbn._("New Note") ,
             component: 'apst-adherent-form-note',
         })
       },
       edit(row){
-        return this.$refs.table.edit(row, bbn._("Modification d'un mailing"));
+        return this.$refs.table.edit(row, bbn._("Editing a mailing"));
       },
       creator(row){
         return  appui.app.getUserName(row.creator);

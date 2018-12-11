@@ -215,7 +215,25 @@
           bbn.fn.post_out(this.downloadUrl + id);
         }
       },
-		},
+    },
+    watch: {
+      currentFilters: {
+        deep: true,
+        handler(){
+          this.$nextTick(() => {
+            this.updateData();
+          });
+        }
+      },
+      filters: {
+        deep: true,
+        handler(){
+          this.$nextTick(() => {
+            this.updateData();
+          });
+        }
+      }
+    },
 		mounted(){
 			this.$nextTick(() => {
         this.updateData();
@@ -239,7 +257,8 @@
             limits: [10, 25, 50, 100, 250, 500],
             isLoading: false,
             showReplies: false,
-            contentContainerHeight: 'auto'
+            contentContainerHeight: 'auto',
+						possibleHiddenContent: false
           }
         },
         computed: {
@@ -251,6 +270,9 @@
           }
         },
         methods: {
+					showContentContainer(val){
+						this.contentContainerHeight = val;
+					},
           toggleReplies(){
             if ( this.source.num_replies ){
               if ( this.showReplies ){
@@ -267,6 +289,7 @@
           this.$nextTick(() => {
             if ( $(this.$refs.contentContainer).height() > 35 ){
               this.contentContainerHeight = '35px';
+							this.possibleHiddenContent = true;
             }
           });
         },

@@ -6,13 +6,13 @@
     methods: {
       edit(row){
         this.$refs.table.edit(row, {
-          title: 'Modification de la lettre-type',
+          title: _('Modification of the standard letter'),
           width: '100%',
           height: '100%'
         });
       },
       remove(row){
-        this.popup().confirm(bbn._("Souhaitez-vous vraiment supprimer cette lettre-type?"), () => {
+        this.popup().confirm(bbn._("Are you sure you want to delete this standard letter?"), () => {
           bbn.fn.post(this.source.root + 'actions/mask/delete', {id_note: row.id_note}, (d) => {
             if ( d.success ){
               this.$refs.table.remove(row);
@@ -22,7 +22,7 @@
       },
       insert(id_type){
         this.$refs.table.insert({id_type: id_type}, {
-          title: 'Création d\'une lettre-type',
+          title: _('Creation of a standard letter'),
           width: '100%',
           height: '100%'
         });
@@ -32,10 +32,10 @@
       },
       getButtons(row){
         let btns = [
-          {command: this.edit, icon: 'fas fa-edit', text: 'Mod.', notext: false}
+          {command: this.edit, icon: 'fas fa-edit', text: 'Edit', notext: true}
         ];
         if ( !row.default ){
-          btns.push({command: this.remove, icon: 'fas fa-trash', text: 'Suppr.', notext: false});
+          btns.push({command: this.remove, icon: 'fas fa-trash', text: 'Delete', notext: true});
         }
         return btns;
       }
@@ -45,11 +45,11 @@
     },
     mounted(){
       this.$nextTick(() => {
-        this.popup({
+        this.getPopup().open({
           width: 850,
           height: 200,
-          title: bbn._("Avertissement sur les lettres types"),
-          content: '<div class="bbn-padded"><div class="bbn-b">Attention!</div><br>Ici vous pouvez modifier les lettres types mais elles utilisent un système de "templates" avec lequel il vous faut être très précautionneu. Le mieux est de dupliquer une lettre-type existante et de la modifier. Une fois terminée, mettez-là en défaut si elle est utilisée sur une fonctionnalité sans choix (ex: attestations), et allez la tester dans son contexte. Alors vous pourrez effacer l\'ancienne ou bien la refaire passer en défaut si votre modification renvoie une erreur.</div>'
+          title: bbn._("Warning on standard letters"),
+          content: '<div class="bbn-padded"><div class="bbn-b">Warning!</div><br>Here you can modify the standard letters but they use a system of "templates" with which you have to be very cautious. The best is to duplicate an existing standard letter and modify it. Once finished, put it in default if it is used on a feature without choice (eg certificates), and will test it in context. Then you can erase the old one or else redo it if your modification returns an error.</div>'
         });
       });
     },
@@ -104,7 +104,7 @@
             return bbn.vue.closest(this, 'bbn-table');
           },
           insert(){
-        		this.getTable().insert({id_type: this.source.id_type}, bbn._('Création d\'une lettre-type pour ') + this.source.type, {
+        		this.getTable().insert({id_type: this.source.id_type}, bbn._('Creation of a standard letter for') + this.source.type, {
               width: '100%',
               height: '100%'
             });

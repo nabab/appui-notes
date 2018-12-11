@@ -1,6 +1,6 @@
 <div class="bbn-flex-height">
   <div class="bbn-w-100 bbn-block bbn-c bbn-vmargin" style="height: 80px">
-    <input type="text" class="k-input k-textbox" placeholder="<?=_("Rechercher")?>" autocomplete="off" style="width: 75%; font-size: x-large">
+    <input type="text" class="k-input k-textbox" placeholder="<?=_("Search")?>" autocomplete="off" style="width: 75%; font-size: x-large">
   </div>
   <div class="bbn-content bbn-postit-container bbn-w-100 bbn-flex-fill">
     <appui-notes-postit v-for="note in source.notes"

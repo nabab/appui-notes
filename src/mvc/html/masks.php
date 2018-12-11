@@ -33,6 +33,9 @@
               :editable="false"
               :component="$options.components.cat"
               ></bbns-column>
+  <bbns-column :title="_('Name')"
+               field="name"
+  ></bbns-column>
   <bbns-column :title="_('Objet')"
               field="title"
               ></bbns-column>

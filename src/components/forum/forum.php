@@ -64,12 +64,19 @@
                      :style="{'height': contentContainerHeight, 'overflow': 'hidden'}"
                 >
                   <div :class="{'bbn-flex-width': cutContentContainer}">
-                    <i v-if="cutContentContainer"
-                       class="fas fa-angle-right bbn-b bbn-p"
-                       title="<?=_('Show full text')?>"
-                       @click="contentContainerHeight = 'auto'"
+										<i v-if="cutContentContainer && possibleHiddenContent"
+	                     class="fas fa-angle-right bbn-b bbn-p"
+	                     title="<?=_('Show full text')?>"
+	                     @click="showContentContainer('auto')"
+	                     style="margin: 0.2rem 0.5rem 0 0"
+	                   ></i>
+										 <i v-else-if="!cutContentContainer && possibleHiddenContent"
+                       class="fas fa-angle-left bbn-b bbn-p"
+                       title="<?=_('Hidden full text')?>"
+                       @click="showContentContainer('no_auto')"
                        style="margin: 0.2rem 0.5rem 0 0"
                     ></i>
+
                     <div v-if="cutContentContainer"
                          v-text="cutContent"
                          :style="{
@@ -445,7 +452,7 @@
                      style="margin-right: 0.5em; width: 6em"
                      :disabled="isLoading"
         ></bbn-numeric>
-        <?=_('de')?> {{numPages}}
+        <?=_('of')?> {{numPages}}
         <bbn-button icon="fas fa-angle-right"
                     :notext="true"
                     title="<?=_('Go to the next page')?>"
@@ -475,12 +482,6 @@
               v-text="total ? _('Total') + ': ' + total + ' ' + _('items') : _('No item')"
         ></span>
         &nbsp;
-        <bbn-button v-if="filterable"
-                    :disabled="!isChanged"
-                    title="<?=_('Reset to original configuration')?>"
-                    @click="reset"
-                    icon="zmdi zmdi-time-restore-setting"
-        ></bbn-button>
         <bbn-button v-if="isAjax"
                     title="<?=_('Refresh')?>"
                     @click="updateData"

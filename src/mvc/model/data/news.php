@@ -8,15 +8,38 @@
 
 if ( isset($model->data['limit'], $model->data['start']) ){
   $grid = new \bbn\appui\grid($model->db, $model->data, [
-    'tables' => 'bbn_notes',
+    'table' => 'bbn_notes',
     'fields' => [
       'versions1.id_note',
-      'note_title' => 'versions1.title',
-      'note_content' => 'versions1.content',
-      'note_id_user' => 'versions1.id_user',
-      'note_creation' => 'versions1.creation'
+      'versions1.version',
+      'versions1.title',
+      'versions1.content',
+      'versions1.id_user',
+      'versions1.creation',
+      'bbn_events.start',
+      'bbn_events.end'
     ],
     'join' => [[
+      'table' => 'bbn_notes_events',
+      'on' => [
+        'conditions' => [[
+          'field' =>  'bbn_notes_events.id_note',
+          'operator' => '=',
+          'exp' => 'bbn_notes.id'
+        ]]
+      ]
+    ], [
+      'table' => 'bbn_events',
+      'on' => [
+        'conditions' => [[
+          'field' => 'bbn_events.id_type',
+          'value' => $model->inc->options->from_code('NEWS', 'evenements')
+        ], [
+          'field' => 'bbn_events.id',
+          'exp' => 'bbn_notes_events.id_event'
+        ]]
+      ]
+    ], [
       'table' => 'bbn_notes_versions',
       'type' => 'left',
       'alias' => 'versions1',
@@ -41,7 +64,7 @@ if ( isset($model->data['limit'], $model->data['start']) ){
         ]]
       ]
     ]],
-    'filters' => [
+    'where' => [
       'conditions' => [[
         'field' => 'bbn_notes.id_type',
         'value' => $model->inc->options->from_code('news', 'types', 'notes', 'appui')

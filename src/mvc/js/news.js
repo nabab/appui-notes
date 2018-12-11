@@ -9,20 +9,20 @@
     props: ['source'],
     data(){
       return {
-        users: bbn.fn.order(appui.app.users, 'text', 'ASC')
+        users: bbn.fn.order(appui.app.users, 'text', 'ASC'),
       }
     },
     methods: {
       insert(){
         this.$refs.table.insert({}, {
-          title: 'New message',
+          title: bbn._('New message'),
           width: '70%',
           height: '70%'
         });
       },
       edit(row, col, idx){
         this.$refs.table.edit(row, {
-          title: 'Edit message',
+          title: bbn._('Edit message'),
           width: 800,
           height: 600
         }, idx);
@@ -40,6 +40,11 @@
     components: {
       'appui-notes-news-new': {
         props: ['source'],
+        data(){
+          return {
+            root: appui.plugins['appui-notes'],
+          }
+        },
         template: '#appui-notes-news-new',
         methods: {
           success(d){

@@ -42,6 +42,20 @@
                type="date"
                cls="bbn-c"
   ></bbns-column>
+  <bbns-column field="start"
+               title="<i class='fas fa-calendar-check bbn-xl'></i>"
+               ftitle="<?=_("Start date")?>"
+               :width="120"
+               type="date"
+               cls="bbn-c"
+  ></bbns-column>
+  <bbns-column field="end"
+               title="<i class='fas fa-calendar-times bbn-xl'></i>"
+               ftitle="<?=_("End date")?>"
+               :width="120"
+               type="date"
+               cls="bbn-c"
+  ></bbns-column>
   <bbns-column :width="100"
                cls="bbn-c"
                ftitle="<?=_("Actions")?>"
@@ -66,20 +80,34 @@
             :source="source.row"
             :data="source.data"
             ref="form"
-            :action="source.data.root + 'actions/' + ( source.row.id_note ? 'update' : 'insert')"
+            :action="root + '/actions/' + ( source.row.id_note ? 'update' : 'insert')"
             @success="success"
   >
-    <div class="bbn-padded bbn-grid-fields">
+    <div class="bbn-grid-fields">
       <label>
-        <?=_("Titre")?>
+        <?=_("Title")?>
       </label>
       <bbn-input required="required"
                  v-model="source.row.title"
       ></bbn-input>
       <label>
-        <?=_("Text")?>
+        <?=_("Publication date")?>
       </label>
       <div>
+        <bbn-datetimepicker v-model="source.row.start"
+                            required="required"
+        ></bbn-datetimepicker>
+      </div>
+      <label>
+        <?=_("End date")?>
+      </label>
+      <div>
+        <bbn-datetimepicker v-model="source.row.end"></bbn-datetimepicker>
+      </div>
+      <label>
+        <?=_("Text")?>
+      </label>
+      <div style="overflow: inherit; height: 500px">
         <bbn-rte v-model="source.row.content"
                  required="required"
         ></bbn-rte>

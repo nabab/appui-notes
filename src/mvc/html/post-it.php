@@ -1,6 +1,6 @@
 <div class="appui-notes-postit bbn-full-screen bbn-flex-height">
   <div class="bbn-c bbn-vmargin">
-    <bbn-input placeholder="<?=_("Rechercher")?>"
+    <bbn-input placeholder="<?=_("Search")?>"
                autocomplete="off"
                style="width: 75%"
                class="bbn-xl"

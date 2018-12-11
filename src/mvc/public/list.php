@@ -1,6 +1,6 @@
 <?php
 if ( empty($ctrl->post) ){
-  echo $ctrl->combo("My notes", [
+  $ctrl->combo("My notes", [
     'lng' => [
       'text' => _("Text"),
       'title' => _("Title")

@@ -12,7 +12,7 @@
 
     <label v-if="(source.row.category !== undefined) && source.props.categories"><?=_("Category")?></label>
     <bbn-dropdown v-if="(source.row.category !== undefined) && source.props.categories"
-                  :required="source.props.showCategories"
+                  required="required"
                   v-model="source.row.category"
                   :source="source.props.categories"
     ></bbn-dropdown>
