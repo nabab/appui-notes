@@ -7,10 +7,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2018-12-05 09:46+0100\n"
-"POT-Revision-Date: 2018-12-05 09:46+0100\n"
+"POT-Creation-Date: 2018-12-26 12:25+0100\n"
+"POT-Revision-Date: 2018-12-26 12:25+0100\n"
 "Language: en\n"
-"X-Domain: appui-notes68\n"
+"X-Domain: appui-notes2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/components/forum/forum.js
@@ -102,10 +102,6 @@ msgstr "items per page"
 msgid "Refresh"
 msgstr "Refresh"
 
-#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
-msgid "de"
-msgstr "de"
-
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
 msgid "Simple text"
 msgstr "Simple text"
@@ -114,6 +110,7 @@ msgstr "Simple text"
 msgid "Rich text"
 msgstr "Rich text"
 
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Markdown"
 msgstr "Markdown"
@@ -134,6 +131,9 @@ msgstr "CSS code"
 msgid "Are you sure you want to remove this link?"
 msgstr "Are you sure you want to remove this link?"
 
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/components/widget/news/news.php
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/components/widget/personal/personal.php
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/public/list.php
@@ -141,9 +141,11 @@ msgid "Title"
 msgstr "Title"
 
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Category"
 msgstr "Category"
 
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/public/list.php
 msgid "Text"
@@ -169,6 +171,8 @@ msgstr "Remove"
 msgid "Locked"
 msgstr "Locked"
 
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/components/postit/postit.js
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/form_markdown.js
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/news.js
 msgid "Saved"
 msgstr "Saved"
@@ -209,6 +213,7 @@ msgstr "Enter a title for the note"
 msgid "Pub. date"
 msgstr "Pub. date"
 
+#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/components/widget/news/news.php
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 msgid "End date"
 msgstr "End date"
@@ -226,12 +231,8 @@ msgstr "Cancel"
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/form_markdown.php
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/form_rte.php
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
-msgid ""
-"Êtes-vous sûr de vouloir quitter ce formulaire sans enregistrer vos modification"
-"s?"
-msgstr ""
-"Êtes-vous sûr de vouloir quitter ce formulaire sans enregistrer vos modification"
-"s?"
+msgid "Are you sure you want to leave this form without saving your changes?"
+msgstr "Are you sure you want to leave this form without saving your changes?"
 
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/news.js
@@ -269,8 +270,8 @@ msgstr "Publication date"
 
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/notes.php
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/post-it.php
-msgid "Rechercher"
-msgstr "Rechercher"
+msgid "Search"
+msgstr "Search"
 
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Creator"
@@ -282,7 +283,7 @@ msgstr "Last version user"
 
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Creation"
-msgstr "Création"
+msgstr "Creation"
 
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Last edit"
@@ -293,16 +294,12 @@ msgid "Version"
 msgstr "Version"
 
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
-msgid "Catégorie"
-msgstr "Catégorie"
-
-#: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Texte"
 msgstr "Texte"
 
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
-msgid "Bloqué"
-msgstr "Bloqué"
+msgid "Blocked"
+msgstr "Blocked"
 
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/masks.js
 msgid "Modification of the standard letter"
@@ -317,8 +314,8 @@ msgid "Creation of a standard letter"
 msgstr "Creation of a standard letter"
 
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/masks.js
-msgid "Avertissement sur les lettres types"
-msgstr "Avertissement sur les lettres types"
+msgid "Warning on standard letters"
+msgstr "Warning on standard letters"
 
 #: /home/thomas/domains/apstapp2.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/masks.js
 msgid "Creation of a standard letter for"

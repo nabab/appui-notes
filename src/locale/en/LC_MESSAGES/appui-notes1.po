@@ -7,10 +7,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2018-12-11 06:23+0100\n"
-"POT-Revision-Date: 2018-12-11 06:23+0100\n"
+"POT-Creation-Date: 2018-12-18 12:34+0100\n"
+"POT-Revision-Date: 2018-12-18 12:34+0100\n"
 "Language: en\n"
-"X-Domain: appui-notes75\n"
+"X-Domain: appui-notes1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.js
@@ -102,10 +102,6 @@ msgstr "items per page"
 msgid "Refresh"
 msgstr "Refresh"
 
-#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
-msgid "de"
-msgstr "de"
-
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
 msgid "Simple text"
 msgstr "Simple text"
@@ -114,6 +110,7 @@ msgstr "Simple text"
 msgid "Rich text"
 msgstr "Rich text"
 
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Markdown"
 msgstr "Markdown"
@@ -134,16 +131,21 @@ msgstr "CSS code"
 msgid "Are you sure you want to remove this link?"
 msgstr "Are you sure you want to remove this link?"
 
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/widget/news/news.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/widget/personal/personal.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/list.php
 msgid "Title"
 msgstr "Title"
 
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Category"
 msgstr "Category"
 
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/list.php
 msgid "Text"
@@ -169,6 +171,7 @@ msgstr "Remove"
 msgid "Locked"
 msgstr "Locked"
 
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.js
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/news.js
 msgid "Saved"
 msgstr "Saved"
@@ -209,6 +212,7 @@ msgstr "Enter a title for the note"
 msgid "Pub. date"
 msgstr "Pub. date"
 
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/widget/news/news.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 msgid "End date"
 msgstr "End date"

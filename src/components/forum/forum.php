@@ -158,7 +158,7 @@
                   </div>
                 </div>
               </div>
-              <div v-if="source.creator === forum.currentUser"
+              <div v-if="!source.locked"
                    class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                    style="margin-left: 0.5rem"
                    title="<?=_('Delete')?>"
@@ -302,7 +302,7 @@
                         </fieldset>
                       </div>
                     </div>
-                    <div v-if="(source.creator === topic.forum.currentUser) && !source.num_replies"
+                    <div v-if="!source.locked && !source.num_replies"
                          class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                          style="margin-left: 0.5rem"
                          title="<?=_('Delete')?>"
