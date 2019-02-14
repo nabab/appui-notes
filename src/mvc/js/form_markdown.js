@@ -7,7 +7,8 @@
     },
     methods: {
       afterSubmit(d){
-        if ( d.success ){
+        bbn.fn.log('fa',d)
+        if ( d.data.success || d.success ){
           appui.success(bbn._('Saved'));
         }
         else {

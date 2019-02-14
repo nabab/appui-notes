@@ -11,11 +11,11 @@
                      text: 'Nouvel note',
                      icon: 'fas fa-plus',
                      notext: false,
-                     command: insert
+                     command: markdown
                      }]"
 
            :expander="$options.components['apst-notes-content']"
-           :editor="$options.components['apst-new-note']"
+          
 >
   <bbns-column field="id_note"
                :hidden="true"

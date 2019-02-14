@@ -158,6 +158,18 @@
                   </div>
                 </div>
               </div>
+              <template v-if="forum.topicButtons && forum.topicButtons.length"
+                        v-for="tbtn in forum.topicButtons"
+              >
+                <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                     style="margin-left: 0.5rem"
+                     :title="tbtn.title || ''"
+                >
+                  <i :class="['bbn-xl', 'bbn-p', tbtn.icon]"
+                     @click="tbtn.command ? tbtn.command(source, _self) : false"
+                  ></i>
+                </div>  
+              </template>
               <div v-if="!source.locked"
                    class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                    style="margin-left: 0.5rem"
@@ -302,6 +314,18 @@
                         </fieldset>
                       </div>
                     </div>
+                    <template v-if="topic.forum.replyButtons && topic.forum.replyButtons.length"
+                              v-for="rbtn in topic.forum.replyButtons"
+                    >
+                      <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                          style="margin-left: 0.5rem"
+                          :title="rbtn.title || ''"
+                      >
+                        <i :class="['bbn-xl', 'bbn-p', rbtn.icon]"
+                          @click="rbtn.command ? rbtn.command(source, topic.source, _self) : false"
+                        ></i>
+                      </div>  
+                    </template>
                     <div v-if="!source.locked && !source.num_replies"
                          class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                          style="margin-left: 0.5rem"

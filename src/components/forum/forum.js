@@ -54,7 +54,19 @@
 			},
 			reply: {
 				type: Function
-			}
+      },
+      topicButtons: {
+        type: Array,
+        default(){
+          return [];
+        }
+      },
+      replyButtons: {
+        type: Array,
+        default(){
+          return [];
+        }
+      }
 		},
 		data(){
 			return {

@@ -3,80 +3,199 @@ msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: info@bbn.so\n"
 "last-Translator: BBN Solutions <support@bbn.solutions>\n"
-"Language-Team: FR <FR@li.org>\n"
+"Language-Team: EN <EN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2018-12-18 12:34+0100\n"
-"POT-Revision-Date: 2018-12-18 12:34+0100\n"
-"Language: fr\n"
-"X-Domain: appui-notes1\n"
+"POT-Creation-Date: 2019-02-14 03:59+0100\n"
+"POT-Revision-Date: 2019-02-14 03:59+0100\n"
+"Language: en\n"
+"X-Domain: appui-notes4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/folder/folder.js
+msgid "The name of the folder cannot be 'ROOT'"
+msgstr "The name of the folder cannot be 'ROOT'"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/folder/folder.js
+msgid "The name of the folder cannot be an empty string"
+msgstr "The name of the folder cannot be an empty string"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/folder/folder.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/link/link.php
+msgid "Create the link at root"
+msgstr "Create the link at root"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/folder/folder.php
+msgid "Create the folder in"
+msgstr "Create the folder in"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/folder/folder.php
+msgid "Create the folder at root or select a folder from the tree"
+msgstr "Create the folder at root or select a folder from the tree"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/folder/folder.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/bookmarks.php
+msgid "New folder"
+msgstr "New folder"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/folder/folder.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/link/link.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/widget/news/news.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/widget/personal/personal.php
+msgid "Cancel"
+msgstr "Cancel"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/folder/folder.php
+msgid "Create folder"
+msgstr "Create folder"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/link/link.js
+msgid "Insert the link in the folder"
+msgstr "Insert the link in the folder"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/link/link.js
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/show/show.php
+msgid "Edit this link"
+msgstr "Edit this link"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/link/link.js
+msgid "Are you sure you want to save changes?"
+msgstr "Are you sure you want to save changes?"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/link/link.js
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
+msgid "Are you sure you want to remove this link?"
+msgstr "Are you sure you want to remove this link?"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/link/link.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/show/show.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/list.php
+msgid "Text"
+msgstr "Text"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/link/link.php
+msgid "Link title"
+msgstr "Link title"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/link/link.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/show/show.php
+msgid "Description"
+msgstr "Description"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/link/link.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/show/show.php
+msgid "Url"
+msgstr "URL"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/link/link.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
+msgid "Type or paste your URL and press Enter to valid"
+msgstr "Type or paste your URL and press Enter to valid"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/link/link.php
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
+msgid "Remove"
+msgstr "Remove"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/link/link.php
+msgid "Save"
+msgstr "Save"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/show/show.php
+msgid "Delete this link"
+msgstr "Delete this link"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/show/show.php
+msgid "Delete this"
+msgstr "Delete this"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/show/show.php
+msgid "Edit this"
+msgstr "Edit this"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/show/show.php
+msgid "Path"
+msgstr "Path"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/show/show.php
+msgid "This folder is empty"
+msgstr "This folder is empty"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/show/show.php
+msgid "Folder name"
+msgstr "Folder name"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/bookmarks/show/show.php
+msgid "Parent"
+msgstr "Parent"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.js
 msgid "Unknown"
-msgstr "Inconnu"
+msgstr "Unknown"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.js
 msgid "Error while updating the data"
-msgstr "Erreur pendant la mise à jour des données"
+msgstr "Error while updating the data"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "Replies"
-msgstr "Réponses"
+msgstr "Replies"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "Show full text"
-msgstr "Voir tout le texte"
+msgstr "Show full text"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "Hidden full text"
-msgstr "Texte entier caché"
+msgstr "Hidden full text"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "Links:"
-msgstr "Liens:"
+msgstr "Links:"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "Files:"
-msgstr "Fichiers:"
+msgstr "Files:"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.js
 msgid "Delete"
-msgstr "Supprimer"
+msgstr "Delete"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "Edit"
-msgstr "Modifier"
+msgstr "Edit"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "Reply"
-msgstr "Répondre"
+msgstr "Reply"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "Created"
-msgstr "Créé"
+msgstr "Created"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "Edited"
-msgstr "Modifié"
+msgstr "Edited"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "LOADING"
-msgstr "CHARGEMENT"
+msgstr "LOADING"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "deleted"
-msgstr "Supprimé"
+msgstr "Deleted"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "Go to the first page"
-msgstr "Aller à la première page"
+msgstr "Go to the first page"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "Go to the previous page"
-msgstr "Aller à la page précédente"
+msgstr "Go to the previous page"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "Page"
@@ -84,52 +203,48 @@ msgstr "Page"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "of"
-msgstr "de"
+msgstr "of"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "Go to the next page"
-msgstr "Aller à la page suivante"
+msgstr "Go to the next page"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "Go to the last page"
-msgstr "Aller à la dernière page"
+msgstr "Go to the last page"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "items per page"
-msgstr "éléments par page"
+msgstr "items per page"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/forum.php
 msgid "Refresh"
-msgstr "Rafraîchir"
+msgstr "Refresh"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
 msgid "Simple text"
-msgstr "Texte simple"
+msgstr "Simple text"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
 msgid "Rich text"
-msgstr "Texte riche (HTML)"
+msgstr "Rich text"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Markdown"
-msgstr "Texte riche (Markdown)"
+msgstr "Markdown"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
 msgid "PHP code"
-msgstr "Code PHP"
+msgstr "PHP code"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
 msgid "JavaScript code"
-msgstr "Code JavaScript"
+msgstr "JavaScript code"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
 msgid "CSS code"
-msgstr "Code CSS"
-
-#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.js
-msgid "Are you sure you want to remove this link?"
-msgstr "Êtes-vous sûr de vouloir supprimer ce lien?"
+msgstr "CSS code"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/widget/news/news.php
@@ -138,119 +253,103 @@ msgstr "Êtes-vous sûr de vouloir supprimer ce lien?"
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/list.php
 msgid "Title"
-msgstr "Titre"
+msgstr "Title"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Category"
-msgstr "Catégorie"
-
-#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
-#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
-#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/list.php
-msgid "Text"
-msgstr "Texte"
+msgstr "Category"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
 msgid "Files"
-msgstr "Fichiers"
+msgstr "Files"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
 msgid "Links"
-msgstr "Liens"
-
-#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
-msgid "Type or paste your URL and press Enter to valid"
-msgstr "Entrez ou collez une URL et pressez Entrée"
-
-#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
-msgid "Remove"
-msgstr "Supprimer"
+msgstr "Links"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/forum/form/form.php
 msgid "Locked"
-msgstr "Verrouillé"
+msgstr "Locked"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.js
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/form_markdown.js
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/news.js
 msgid "Saved"
-msgstr "Sauvegardé"
+msgstr "Saved"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.js
 msgid "No changes"
-msgstr "Pas de changement"
+msgstr "No changes"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.js
 msgid "Error while deleting"
-msgstr "Erreur pendant la suppression"
+msgstr "Error while deleting"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.php
 msgid "Update Note"
-msgstr "Modifier la note"
+msgstr "Update Note"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.php
 msgid "Remove Note"
-msgstr "Enlever la note"
+msgstr "Remove Note"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.php
 msgid "Choose Color"
-msgstr "Choisir une couleur"
+msgstr "Choose Color"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.php
 msgid "Edit Title"
-msgstr "Modifier le titre"
+msgstr "Edit Title"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/postit/postit.php
 msgid "Edit Content"
-msgstr "Modifier le contenu"
+msgstr "Edit Content"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/widget/news/news.js
 msgid "Enter a title for the note"
-msgstr "Entrer un titre pour la note"
+msgstr "Enter a title for the note"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/widget/news/news.php
 msgid "Pub. date"
-msgstr "Publication"
+msgstr "Pub. date"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/widget/news/news.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 msgid "End date"
-msgstr "Fin de publ."
+msgstr "End date"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/widget/news/news.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/components/widget/personal/personal.php
 msgid "Add"
-msgstr "Ajouter"
+msgstr "Add"
 
-#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/widget/news/news.php
-#: /home/app2/_appui/vendor/bbn/appui-notes/src/components/widget/personal/personal.php
-msgid "Cancel"
-msgstr "Annuler"
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/bookmarks.php
+msgid "New bookmark"
+msgstr "New bookmark"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/form_markdown.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/form_rte.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Are you sure you want to leave this form without saving your changes?"
-msgstr ""
-"Êtes-vous sûr de vouloir quitter ce formulaire sans enregistrer vos modification"
-"s?"
+msgstr "Are you sure you want to leave this form without saving your changes?"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/news.js
 msgid "New message"
-msgstr "Nouveau message"
+msgstr "New message"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 msgid "Author"
-msgstr "Auteur"
+msgstr "Author"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 msgid "Creation date"
-msgstr "Date de création"
+msgstr "Creation date"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 msgid "Start date"
-msgstr "Date de début"
+msgstr "Start date"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
@@ -259,7 +358,7 @@ msgstr "Actions"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 msgid "See"
-msgstr "Voir"
+msgstr "See"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 msgid "Mod."
@@ -267,28 +366,28 @@ msgstr "Mod."
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/news.php
 msgid "Publication date"
-msgstr "Date de publication"
+msgstr "Publication date"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/notes.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/post-it.php
 msgid "Search"
-msgstr "Recherche"
+msgstr "Search"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Creator"
-msgstr "Créateur"
+msgstr "Creator"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Last version user"
-msgstr "Dernier éditeur"
+msgstr "Last version user"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Creation"
-msgstr "Création"
+msgstr "Creation"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Last edit"
-msgstr "Dernière modification"
+msgstr "Last edit"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Version"
@@ -296,72 +395,116 @@ msgstr "Version"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Texte"
-msgstr ""
+msgstr "Texte"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/html/table_notes.php
 msgid "Blocked"
-msgstr "Bloquée"
+msgstr "Blocked"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/bookmarks.js
+msgid "Folder"
+msgstr "Folder"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/bookmarks.js
+msgid "Link"
+msgstr "Link"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/bookmarks.js
+msgid "correctly inserted"
+msgstr "correctly inserted"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/bookmarks.js
+msgid "Are you sure you want to delete this folder"
+msgstr "Are you sure you want to delete this folder"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/bookmarks.js
+msgid "and all it's content?"
+msgstr "and all it's content?"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/bookmarks.js
+msgid "Folder successfully deleted"
+msgstr "Folder successfully deleted"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/bookmarks.js
+msgid "Something went wrong while deleting the folder"
+msgstr "Something went wrong while deleting the folder"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/bookmarks.js
+msgid "Are you sure you want to delete this link?"
+msgstr "Are you sure you want to delete this link?"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/bookmarks.js
+msgid "Link successfully deleted"
+msgstr "Link successfully deleted"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/bookmarks.js
+msgid "Something went wrong while deleting the link"
+msgstr "Something went wrong while deleting the link"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/masks.js
 msgid "Modification of the standard letter"
-msgstr "Modification de la lettre-type"
+msgstr "Modification of the standard letter"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/masks.js
 msgid "Are you sure you want to delete this standard letter?"
-msgstr "Souhaitez-vous vraiment supprimer cette lettre-type?"
+msgstr "Are you sure you want to delete this standard letter?"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/masks.js
 msgid "Creation of a standard letter"
-msgstr "Création d'une lettre-type"
+msgstr "Creation of a standard letter"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/masks.js
 msgid "Warning on standard letters"
-msgstr "Avertissement sur les lettres types"
+msgstr "Warning on standard letters"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/masks.js
 msgid "Creation of a standard letter for"
-msgstr "Création d'une lettre-type"
+msgstr "Creation of a standard letter for"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/news.js
 msgid "Edit message"
-msgstr "Modifier le message"
+msgstr "Edit message"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/news.js
 msgid "Error"
-msgstr "Erreur"
+msgstr "Error"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/table_notes.js
 msgid "Click on the first column of this row to view full content"
-msgstr "Cliquer sur la première colonne de cette ligne pour voir tout le contenu"
+msgstr "Click on the first column of this row to view full content"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/table_notes.js
 msgid "New Note"
-msgstr "Nouvelle note"
+msgstr "New Note"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/js/table_notes.js
 msgid "Editing a mailing"
-msgstr "Modifier un mailing"
+msgstr "Editing a mailing"
+
+#: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/model/actions/bookmarks/insert.php
+msgid "The "
+msgstr "The"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/form_markdown.php
 msgid "Markdown editor"
-msgstr "Éditeur markdown"
+msgstr "Markdown editor"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/form_rte.php
 msgid "Note Editor (Markdown)"
-msgstr "Éditeur de note (Markdown)"
+msgstr "Note Editor (Markdown)"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/news.php
 msgid "News"
-msgstr "Nouvelles"
+msgstr "News"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/notes.php
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/post-it.php
 msgid "My post-it"
-msgstr "Mes post-it"
+msgstr "My post-it"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/prove_notes.php
 msgid "Notes' tree"
-msgstr "Arbre des notes"
+msgstr "Notes' tree"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/table_notes.php
 msgid "Notes"
@@ -369,4 +512,4 @@ msgstr "Notes"
 
 #: /home/app2/_appui/vendor/bbn/appui-notes/src/mvc/public/actions/get.php
 msgid "Impossible to find the note"
-msgstr "Impossible de trouver la note"
+msgstr "Impossible to find the note"

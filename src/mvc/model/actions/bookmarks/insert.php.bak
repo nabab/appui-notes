@@ -1,0 +1,194 @@
+<?php
+if ( ($model->data['type'] === 'folder') || ( $model->data['url'] ) ){
+  $success = false;
+  $parent = $model->data['parent'];
+  
+  $file = BBN_DATA_PATH.'bookmarks.json';
+  $data = $model->data;
+  
+  //if the file exists it takes the content
+  if ( file_exists($file) ){
+  
+    $bookmarks = json_decode(file_get_contents($file), true);
+    //if ! $parent 
+    if ( empty($parent) ){
+      
+      $bookmarks[] = ($model->data['type'] === 'link') ? [
+        'type' => $model->data['type'],
+        'text' => $model->data['text'],
+        'url' => $model->data['url'],
+        'description' => $model->data['description'],
+        'image' => $model->data['link']
+      ] : [
+        'type' => $model->data['type'],
+        'text' => $model->data['text'],
+        'items' => []
+      ];
+    }
+    else {
+      //if $parent 
+      $tmp = explode('/', $parent);
+  
+      array_pop($tmp); 
+     
+        function recursive(&$items, $data, $tmp, $ip ){
+          foreach ( $items as $i => $item ){
+            
+            if ( ( $item['text'] === $tmp[$ip]) && ( $item['type'] === 'folder' ) ){
+              //die(var_dump($tmp[$ip+1]));
+              $items[$i]['items'][] = ($data['type'] === 'link') ? [
+                'type' => $data['type'],
+                'text' => $data['text'],
+                'url' => $data['url'],
+                'image' => $data['link'],
+                'description' => $data['description'],
+              ] : [
+                'type' => $data['type'],
+                'text' => $data['text'],
+                'items' => []
+              ];
+             
+            }
+            else {
+              recursive($item['items'], $data, $tmp, $ip + 1);
+            }
+          }
+        }
+      
+       
+      if ( !empty($tmp) ){
+        function recursion(&$bookmarks, $key,$array, $tmp,$i, $data){
+        
+          foreach($array as $a => $it ){
+            if (( $it['text'] === $tmp[$i]) && ($it['type'] === 'folder')){
+              $array[$a]['items'][] =  ($data['type'] === 'link') ? [
+                'type' => $data['type'],
+                'text' => $data['text'],
+                'url' => $data['url'],
+                'image' => $data['link'],
+                'description' => $data['description'],
+              ] : [
+                'type' => $data['type'],
+                'text' => $data['text'],
+                'items' => []
+              ];
+              $bookmarks[$key]['items'][$a]['items'] = $array[$a]['items'];
+              return $bookmarks;  
+            }
+            else{
+              recursion($bookmarks, $key, $array[$a]['items'], $i+1, $data);
+            }
+          }
+           
+        }
+        $rootIdx = false;
+       
+        foreach( $tmp as $i => $word ){
+          foreach ( $bookmarks as $key => $val ){
+            
+            if ( ( $val['type'] === 'folder' ) && ( $val['text'] === $word ) && ( $i + 1 < count($tmp ) ) ){
+              
+              recursion($bookmarks, $key, $val['items'], $tmp,$i+1,$model->data);
+            }
+            else if (( $val['type'] === 'folder' ) && ( $val['text'] === $word ) && ( $i + 1 === count($tmp))){
+              
+              $bookmarks[$key]['items'][] = ($model->data['type'] === 'link') ? [
+                'type' => $model->data['type'],
+                'text' => $model->data['text'],
+                'url' => $model->data['url'],
+                'image' => $model->data['link'],
+                'description' => $model->data['description'],
+              ] : [
+                'type' => $model->data['type'],
+                'text' => $model->data['text'],
+                'items' => []
+              ];
+              
+              
+            }
+          }
+        }
+      /*  foreach ( $bookmarks as $key => $val ){
+          if (($val['text'] === $tmp[0]) && ( $val['type'] === "folder") ){
+            $rootIdx = $key;    
+            
+            if( ( count($tmp) === 1 ) ){
+              $bookmarks[$key]['items'][] = [
+                'type' => $model->data['type'],
+                'text' => $model->data['text'],
+                'url' => $model->data['url'],
+                'description' => $model->data['description'],
+              ];
+            }
+            else if ( count($tmp) > 1 ) { 
+              foreach($tmp as $ip => $p ){
+                
+                recursive( $bookmarks[$key]['items'], $data, $tmp, $ip );
+              }  
+                 
+            }
+
+        }
+        }*/
+    }  
+      
+      
+        /* 
+        function recursion($array, $value, $idx, $tmp, $data){
+          foreach ( $array as $key => $val ){
+            
+            if ( $val['text'] === $value ){
+              
+              if ( isset($tmp[$idx+1]) ){
+                //die(\bbn\x::hdump($val['items']));
+                recursion($bookmarks[$key]['items'], $tmp[$idx+1], $idx+1, $tmp, $data);
+              }
+              else {
+                $array[0]['items'][] = [
+                  'type' => $data['type'],
+                  'text' => $data['text'],
+                  'url' => $data['url'],
+                  'description' => $data['description'],
+                ];
+               
+              }
+            }
+            
+          }
+        }
+        foreach ( $tmp as $idx => $val ){
+          recursion($bookmarks, $val, $idx, $tmp, $model->data);
+        }*/
+        //die(\bbn\x::hdump($key, $array[$key]['items']));
+        
+      
+
+        
+    }
+      
+      
+    
+  }
+  //if the file does not exist it creates the file 
+  else{
+    $bookmarks[] = ($model->data['type'] === 'link') ? [
+                'type' => $model->data['type'],
+                'text' => $model->data['text'],
+                'url' => $model->data['url'],
+                'image' => $model->data['link'],
+                'description' => $model->data['description'],
+              ] : [
+                'type' => $model->data['type'],
+                'text' => $model->data['text'],
+                'items' => []
+              ];
+  }
+        
+ // die(var_dump(count($parent), $parent));
+  $success = file_put_contents($file, json_encode($bookmarks));
+  return [
+    'success' => $success,
+    'bookmarks' => json_decode(file_get_contents($file), true)
+  ];
+
+}

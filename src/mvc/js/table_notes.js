@@ -3,19 +3,28 @@
   return {
     data(){
       return {
+        action: '',
         root: appui.plugins['appui-notes'] + '/',
         span: '<span title="' + bbn._('Click on the first column of this row to view full content') + '">...</span>'
       }
     },
     methods: {
       markdown(row){
-        bbn.fn.link('notes/form_markdown/' + row.id_note);
+        bbn.fn.log('roooooooooooooooooow')
+        if(row){
+          
+          bbn.fn.link('notes/form_markdown/' + row.id);
+        }
+        else{
+          
+          bbn.fn.link('notes/form_markdown/');
+        }
       },
       rte(row){
         bbn.fn.link('notes/form_rte/' + row.id_note);
       },
       insert(){
-        this.popup().open({
+        this.getPopup().open({
             width: 800,
             height: 600,
             title: bbn._("New Note") ,
@@ -32,7 +41,11 @@
         return  appui.app.getUserName(row.id_user);
       },
       title(row){
-        if ( !row.title || row.title === ''){
+        //return row.title
+        if (!row.title || (row.title === '') && row.content) {
+          if ( bbn.fn.isNumber(row.content) ){
+            row.content = row.content.toString();
+          }
           return row.content.substr(0,50)+ this.span;
         }
         else{

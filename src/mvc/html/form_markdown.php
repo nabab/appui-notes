@@ -1,7 +1,7 @@
 <bbn-form :source="source"
           ref="form"
           confirm-leave="<?=_("Are you sure you want to leave this form without saving your changes?")?>"
-          :action="root + '/actions/update'"
+          :action="root + '/form_markdown/' + (source.id_note ? source.id_note : '')"
           :buttons="['submit']"
           @success="afterSubmit"
 >
