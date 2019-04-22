@@ -5,7 +5,7 @@
           >
   <div class="bbn-padded bbn-grid-fields">
     <div class="bbn-grid-full">
-      <i class="fas fa-times bbn-p" v-if="parent !== 'ROOT'" @click="removeParent" title="<?=_("Create the link at root")?>"></i> 
+      <i class="nf nf-fa-times bbn-p" v-if="parent !== 'ROOT'" @click="removeParent" title="<?=_("Create the link at root")?>"></i> 
       <span class="bbn-green bbn-b" v-text="( parent !== 'ROOT' ) ? '<?=_('Create the folder in')?>' +  ' ' + path : '<?=_('Create the folder at root or select a folder from the tree')?>'"></span>   
                
     </div>
@@ -21,12 +21,12 @@
   </div>
   <div class="bbn-l bbn-padded">
     <bbn-button text="<?=_("Cancel")?>" 
-                icon="fas fa-times"
+                icon="nf nf-fa-times"
                 @click="closeForm"
     >
     </bbn-button>
     <bbn-button text="<?=_("Create folder")?>" 
-                icon="fas fa-check"
+                icon="nf nf-fa-check"
                 @click="submit"
     >
     </bbn-button>

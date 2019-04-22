@@ -5,13 +5,13 @@
     >
 			<div class="bbn-100">
         <div class="bbn-padded button-container">
-          <bbn-button icon="fas fa-star" 
+          <bbn-button icon="nf nf-fa-star" 
                       class="bbn-padded star"  
                       @click="showFormLinkM" 
                       title="<?=_('New bookmark')?>"
                       text="<?=_('New bookmark')?>"
                       ></bbn-button>
-          <bbn-button icon="fas fa-folder-plus" 
+          <bbn-button icon="nf nf-fa-folder_plus" 
                       class="bbn-padded"  
                       @click="showFormFolderM" 
                       title="<?=_('New folder')?>"

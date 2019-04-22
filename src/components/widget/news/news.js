@@ -10,15 +10,7 @@
       return {
         showForm: false,
         notesRoot: appui.plugins['appui-notes'],
-        formData: {
-          title: '',
-          content: '',
-          private: 0,
-          locked: 0,
-          type: this.source.id_type,
-          start: moment().format('YYYY-MM-DD HH:mm:ss'),
-          end: ''
-        }
+        formData:{}
       }
     },
     methods: {
@@ -34,13 +26,13 @@
       shorten: bbn.fn.shorten,
       afterSubmit(d){
         if ( d.success ){
-          appui.success('Saved');
+          appui.success(bbn._('Saved'));
+          this.closest('bbn-widget').reload();
           this.closeForm();
-          bbn.vue.closest(this, 'bbns-widget').reload();
         }
         else {
           appui.error();
-        }  
+        }
       },
       closeForm(){
         this.$refs.form.reset();
@@ -59,19 +51,21 @@
         bbn.fn.link(appui.plugins['appui-notes'] + '/news');
       },
       toggleForm(){
-        this.showForm = !this.showForm;
-        if ( this.showForm ){
-          this.formData.start = moment().format('YYYY-MM-DD HH:mm:ss');
-        }
+        let obj = {
+          title: '',
+          content: '',
+          private: 0,
+          locked: 0,
+          type: this.source.id_type,
+          start: moment().format('YYYY-MM-DD HH:mm:ss'),
+          end: moment().add(10, 'minutes').format('YYYY-MM-DD HH:mm:ss')
+        };
+        this.$set(this, 'formData', obj);
+        this.showForm = !this.showForm;        
       },
       userName(usr){
         return appui.app.getUserName(usr);
       }
-    },
-    beforeMount(){
-      bbn.vue.setComponentRule('notes/components/', 'appui-notes');
-      bbn.vue.addComponent('popup/note');
-      bbn.vue.unsetComponentRule();
     }
   };
 })();

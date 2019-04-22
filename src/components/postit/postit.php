@@ -4,17 +4,17 @@
       <i v-if="editing"
          @click="edit"
          title="<?=_('Update Note')?>"
-         class="fas fa-save bbn-p"
+         class="nf nf-fa-save bbn-p"
       ></i>
       <i v-if="editing"
          @click="removeNote"
          title="<?=_('Remove Note')?>"
-         class="fas fa-trash-alt bbn-p"
+         class="nf nf-fa-trash bbn-p"
       ></i>
       <i v-if="editing"
          @click="showColorPicker = !showColorPicker"
          title="<?=_('Choose Color')?>"
-         class="fas fa-paint-brush bbn-p"
+         class="nf nf-fa-paint_brush bbn-p"
       ></i>
       <bbn-colorpicker v-if="showColorPicker"
                        :preview="true"

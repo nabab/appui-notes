@@ -19,7 +19,7 @@
         <bbn-checkbox v-model="formData.postit"
                       value="1"
                       novalue="0"
-                      label="<i class='fas fa-eye-slash'></i> <?/*=_('Post-it')*/?>"
+                      label="<i class='nf nf-fa-eye_slash'></i> <?/*=_('Post-it')*/?>"
         ></bbn-checkbox>
       </div>-->
       <div class="bbn-w-100" style="width: 100%; height: 400px">
@@ -33,10 +33,10 @@
 		  >
         <bbn-button style="margin-right:0.5em"
                     @click="$refs.form.submit()"
-										icon="fas fa-save"
+										icon="nf nf-fa-save"
         ><?=_('Add')?></bbn-button>
         <bbn-button @click="closeForm"
-										icon="fas fa-times"
+										icon="nf nf-fa-times"
 				><?=_('Cancel')?></bbn-button>
       </div>
 
@@ -53,14 +53,15 @@
                      :user-id="item.id_user"
                      :title="userName(item.id_user)"
         ></bbn-initial>
-        <span v-if="shorten(item.title)"
+        <span v-if="shorten(item.title, 50)"
               v-text="item.title"
+              title="item.title"
               @click="openNote(item)"
               class="bbn-p"
               style="margin-left: 5px"
         ></span>
         <span v-else
-              v-text="html2text(shorten(item.content))"
+              v-text="html2text(shorten(item.content, 50))"
               @click="openNote(item)"
               class="bbn-p"
               style="margin-left: 5px"

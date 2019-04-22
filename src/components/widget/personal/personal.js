@@ -9,12 +9,13 @@
     data(){
       return {
         showForm: false,
-        formData: {
-          title: '',
-          content: '',
-          postit: 0,
-          type: this.source.id_type
-        }
+        // formData: {
+        //   title: '',
+        //   content: '',
+        //   postit: 0,
+        //   type: this.source.id_type
+        // }
+        formData: {}
       }
     },
     methods: {
@@ -22,9 +23,9 @@
       html2text: bbn.fn.html2text,
       afterSubmit(d){
         if ( d.success ){
-          appui.success('Saved');
+          appui.success(bbn._('Saved'));
+          this.closest('bbn-widget').reload();
           this.closeForm();
-          bbn.vue.closest(this, 'bbns-widget').reload();
         }
         else {
           appui.error();
@@ -47,16 +48,18 @@
         bbn.fn.link(appui.plugins['appui-notes'] + '/post-it');
       },
       toggleForm(){
+        let obj = {
+          title: '',
+          content: '',
+          postit: 0,
+          type: this.source.id_type
+        };
+        this.$set(this, 'formData', obj);
         this.showForm = !this.showForm;
       },
       userName(usr){
         return appui.app.getUserName(usr);
       }
-    },
-    beforeMount(){
-      bbn.vue.setComponentRule('notes/components/', 'appui-notes');
-      bbn.vue.addComponent('popup/note');
-      bbn.vue.unsetComponentRule();
-    }
+    }    
   };
 })();

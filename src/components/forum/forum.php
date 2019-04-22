@@ -40,7 +40,7 @@
                                :title="forum.usersNames(source.creator, source.users)"
                   ></bbn-initial>
                   <span v-if="forum.hasEditUsers(source.users)"
-                        class="w3-badge w3-blue appui-notes-forum-initial-badge bbn-s"
+                        class="bbn-badge bbn-bg-webblue bbn-white appui-notes-forum-initial-badge bbn-s"
                         v-text="forum.usersNames(source.creator, source.users, true)"
                   ></span>
                 </div>
@@ -49,8 +49,8 @@
                    title="<?=_('Replies')?>"
                    @click="toggleReplies()"
               >
-                <i class="far fa-comments bbn-xl bbn-hsmargin"></i>
-                <span :class="['w3-badge', {'w3-red': !source.num_replies, 'w3-green': source.num_replies}]"
+                <i class="nf nf-fa-comments bbn-xl bbn-hsmargin"></i>
+                <span :class="['bbn-badge', 'bbn-white', {'bbn-bg-red': !source.num_replies, 'bbn-bg-green': source.num_replies}]"
                       v-text="source.num_replies || 0"
                 ></span>
               </div>
@@ -65,13 +65,13 @@
                 >
                   <div :class="{'bbn-flex-width': cutContentContainer}">
 										<i v-if="cutContentContainer && possibleHiddenContent"
-	                     class="fas fa-angle-right bbn-b bbn-p"
+	                     class="nf nf-fa-angle_right bbn-b bbn-p"
 	                     title="<?=_('Show full text')?>"
 	                     @click="showContentContainer('auto')"
 	                     style="margin: 0.2rem 0.5rem 0 0"
 	                   ></i>
 										 <i v-else-if="!cutContentContainer && possibleHiddenContent"
-                       class="fas fa-angle-left bbn-b bbn-p"
+                       class="nf nf-fa-angle_left bbn-b bbn-p"
                        title="<?=_('Hidden full text')?>"
                        @click="showContentContainer('no_auto')"
                        style="margin: 0.2rem 0.5rem 0 0"
@@ -112,7 +112,7 @@
                               <img v-if="l.name && l.id && forum.imageDom"
                                    :src="forum.imageDom + l.id + '/' + l.name"
                               >
-                              <i v-else class="fas fa-link"></i>
+                              <i v-else class="nf nf-fa-link"></i>
                             </div>
                             <div class="appui-notes-forum-link-title bbn-flex-fill bbn-vmiddle">
                               <div>
@@ -148,7 +148,7 @@
                       <a class="media bbn-p"
                          @click="forum.downloadMedia(f.id)"
                       >
-                        <i class="fas fa-download" style="margin-right: 5px"></i>
+                        <i class="nf nf-fa-download" style="margin-right: 5px"></i>
                         <span v-text="f.name"></span>
                       </a>
                     </span>
@@ -175,7 +175,7 @@
                    style="margin-left: 0.5rem"
                    title="<?=_('Delete')?>"
               >
-                <i class="far fa-trash-alt bbn-xl bbn-p"
+                <i class="nf nf-fa-trash bbn-xl bbn-p"
                    @click="forum.remove ? forum.remove(source, _self) : false"
                 ></i>
               </div>
@@ -184,7 +184,7 @@
                    style="margin-left: 0.5rem"
                    title="<?=_('Edit')?>"
               >
-                <i class="far fa-edit bbn-xl bbn-p"
+                <i class="nf nf-fa-edit bbn-xl bbn-p"
                    @click="forum.edit ? forum.edit(source, _self) : false"
                 ></i>
               </div>
@@ -192,7 +192,7 @@
                    style="margin-left: 0.5rem"
                    title="<?=_('Reply')?>"
               >
-                <i class="fas fa-reply bbn-xl bbn-p"
+                <i class="nf nf-fa-reply bbn-xl bbn-p"
                    @click="forum.reply ? forum.reply(source, _self) : false"
                 ></i>
               </div>
@@ -201,7 +201,7 @@
                    :title="'<?=_('Created')?>: ' + forum.fdate(source.creation) + ((source.creation !== source.last_edit) ? ('\n<?=_('Edited')?>: ' + forum.fdate(source.last_edit)) : '')"
                    style="margin-left: 0.5rem"
               >
-                <i :class="['far', 'fa-calendar-alt', 'bbn-xl', {'bbn-orange': source.creation !== source.last_edit}]"></i>
+                <i :class="['far', 'fa-calendar_alt', 'bbn-xl', {'bbn-orange': source.creation !== source.last_edit}]"></i>
                 <div class="bbn-c bbn-s" style="margin-left: 0.3rem">
                   <div v-text="(source.creation !== source.last_edit) ? forum.sdate(source.last_edit) : forum.sdate(source.creation)"></div>
                   <!--<div v-text="(source.creation !== source.last_edit) ? forum.hour(source.last_edit) : forum.hour(source.creation)"></div>-->
@@ -230,7 +230,7 @@
                                      :title="topic.forum.usersNames(source.creator, source.users)"
                         ></bbn-initial>
                         <span v-if="topic.forum.hasEditUsers(source.users)"
-                              class="w3-badge w3-blu appui-notes-forum-initial-badge bbn-s"
+                              class="bbn-badge bbn-bg-webblue appui-notes-forum-initial-badge bbn-s"
                               v-text="topic.forum.usersNames(source.creator, source.users, true)"
                         ></span>
                       </div>
@@ -239,12 +239,12 @@
                       <div v-if="source.id_parent !== source.id_alias"
                            class="bbn-vmiddle"
                       >
-                        <i class="fas fa-reply bbn-large icon-flip"></i>
+                        <i class="nf nf-fa-reply bbn-large icon-flip"></i>
                         <bbn-initial :user-id="source.parent_creator"
                                      :height="20"
                                      class="bbn-hsmargin"
                         ></bbn-initial>
-                        <i class="far fa-calendar-alt bbn-lg"></i>
+                        <i class="nf nf-fa-calendar_alt bbn-lg"></i>
                         <span v-text="topic.forum.fdate(source.parent_creation)"
                               :style="{
                                 textDecoration: !source.parent_active ? 'line-through' : 'none',
@@ -270,7 +270,7 @@
                                 <img v-if="l.name && topic.forum.imageDom"
                                      :src="topic.forum.imageDom + l.id + '/' + l.name"
                                 >
-                                <i v-else class="fas fa-link"></i>
+                                <i v-else class="nf nf-fa-link"></i>
                               </div>
                               <div class="appui-notes-forum-link-title bbn-flex-fill bbn-vmiddle">
                                 <div>
@@ -306,7 +306,7 @@
                               <a class="media bbn-p"
                                  @click="topic.forum.downloadMedia(f.id)"
                               >
-                                <i class="fas fa-download" style="margin-right: 5px"></i>
+                                <i class="nf nf-fa-download" style="margin-right: 5px"></i>
                                 <span v-text="f.name"></span>
                               </a>
                             </span>
@@ -331,7 +331,7 @@
                          style="margin-left: 0.5rem"
                          title="<?=_('Delete')?>"
                     >
-                      <i class="far fa-trash-alt bbn-xl bbn-p"
+                      <i class="nf nf-fa-trash bbn-xl bbn-p"
                          @click="topic.forum.remove ? topic.forum.remove(source, _self) : false"
                       ></i>
                     </div>
@@ -340,7 +340,7 @@
                          style="margin-left: 0.5rem"
                          title="<?=_('Edit')?>"
                     >
-                      <i class="far fa-edit bbn-xl bbn-p"
+                      <i class="nf nf-fa-edit bbn-xl bbn-p"
                          @click="topic.forum.edit ? topic.forum.edit(source, _self) : false"
                       ></i>
                     </div>
@@ -348,7 +348,7 @@
                          style="margin-left: 0.5rem"
                          title="<?=_('Reply')?>"
                     >
-                      <i class="fas fa-reply bbn-xl bbn-p"
+                      <i class="nf nf-fa-reply bbn-xl bbn-p"
                          @click="topic.forum.reply ? topic.forum.reply(source, _self) : false"
                       ></i>
                     </div>
@@ -356,8 +356,8 @@
                          class="bbn-spadded bbn-hsmargin bbn-vmiddle appui-notes-forum-hfixed appui-notes-forum-replies-badge"
                          title="<?=_('Replies')?>"
                     >
-                      <i class="far fa-comments bbn-xl bbn-hsmargin"></i>
-                      <span class="w3-badge w3-green"
+                      <i class="nf nf-fa-comments bbn-xl bbn-hsmargin"></i>
+                      <span class="bbn-badge bbn-bg-green bbn-white"
                             v-text="source.num_replies"
                       ></span>
                     </div>
@@ -365,7 +365,7 @@
                          :title="'<?=_('Created')?>: ' + topic.forum.fdate(source.creation) + ((source.creation !== source.last_edit) ? ('\n<?=_('Edited')?>: ' + topic.forum.fdate(source.last_edit)) : '')"
                          style="margin-left: 0.5rem"
                     >
-                      <i :class="['far', 'fa-calendar-alt', 'bbn-xl', {'bbn-orange': source.creation !== source.last_edit}]"></i>
+                      <i :class="['far', 'fa-calendar_alt', 'bbn-xl', {'bbn-orange': source.creation !== source.last_edit}]"></i>
                       <div class="bbn-c bbn-s" style="margin-left: 0.3rem">
                         <div v-text="(source.creation !== source.last_edit) ? topic.forum.sdate(source.last_edit) : topic.forum.sdate(source.creation)"></div>
                         <!--<div v-text="(source.creation !== source.last_edit) ? topic.forum.hour(source.last_edit) : topic.forum.hour(source.creation)"></div>-->
@@ -386,13 +386,13 @@
                   <div class="bbn-block"
                        v-if="pageable"
                   >
-                    <bbn-button icon="fas fa-angle-double-left"
+                    <bbn-button icon="nf nf-fa-angle_double_left"
                                 :notext="true"
                                 title="<?=_('Go to the first page')?>"
                                 :disabled="isLoading || (currentPage == 1)"
                                 @click="currentPage = 1"
                     ></bbn-button>
-                    <bbn-button icon="fas fa-angle-left"
+                    <bbn-button icon="nf nf-fa-angle_left"
                                 :notext="true"
                                 title="<?=_('Go to the previous page')?>"
                                 :disabled="isLoading || (currentPage == 1)"
@@ -407,13 +407,13 @@
                                  :disabled="isLoading"
                     ></bbn-numeric>
                     <?=_('of')?> {{numPages}}
-                    <bbn-button icon="fas fa-angle-right"
+                    <bbn-button icon="nf nf-fa-angle_right"
                                 :notext="true"
                                 title="<?=_('Go to the next page')?>"
                                 :disabled="isLoading || (currentPage == numPages)"
                                 @click="currentPage++"
                     ></bbn-button>
-                    <bbn-button icon="fas fa-angle-double-right"
+                    <bbn-button icon="nf nf-fa-angle_double_right"
                                 :notext="true"
                                 title="<?=_('Go to the last page')?>"
                                 @click="currentPage = numPages"
@@ -439,7 +439,7 @@
                     <bbn-button v-if="isAjax"
                                 title="<?=_('Refresh')?>"
                                 @click="updateData"
-                                icon="fas fa-sync"
+                                icon="nf nf-fa-refresh"
                     ></bbn-button>
                   </div>
                 </div>
@@ -456,13 +456,13 @@
       <div class="bbn-block"
            v-if="pageable"
       >
-        <bbn-button icon="fas fa-angle-double-left"
+        <bbn-button icon="nf nf-fa-angle_double_left"
                     :notext="true"
                     title="<?=_('Go to the first page')?>"
                     :disabled="isLoading || (currentPage == 1)"
                     @click="currentPage = 1"
         ></bbn-button>
-        <bbn-button icon="fas fa-angle-left"
+        <bbn-button icon="nf nf-fa-angle_left"
                     :notext="true"
                     title="<?=_('Go to the previous page')?>"
                     :disabled="isLoading || (currentPage == 1)"
@@ -477,13 +477,13 @@
                      :disabled="isLoading"
         ></bbn-numeric>
         <?=_('of')?> {{numPages}}
-        <bbn-button icon="fas fa-angle-right"
+        <bbn-button icon="nf nf-fa-angle_right"
                     :notext="true"
                     title="<?=_('Go to the next page')?>"
                     :disabled="isLoading || (currentPage == numPages)"
                     @click="currentPage++"
         ></bbn-button>
-        <bbn-button icon="fas fa-angle-double-right"
+        <bbn-button icon="nf nf-fa-angle_double_right"
                     :notext="true"
                     title="<?=_('Go to the last page')?>"
                     @click="currentPage = numPages"
@@ -509,7 +509,7 @@
         <bbn-button v-if="isAjax"
                     title="<?=_('Refresh')?>"
                     @click="updateData"
-                    icon="fas fa-sync"
+                    icon="nf nf-fa-refresh"
         ></bbn-button>
       </div>
     </div>

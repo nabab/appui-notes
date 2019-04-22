@@ -6,7 +6,7 @@
   <div class="bbn-grid-fields info-container">
     <bbn-input class="bbn-grid-full" type="hidden" :value="parent"></bbn-input>
     <div class="bbn-grid-full">
-      <i class="fas fa-times bbn-p" v-if="parent !== 'ROOT'" @click="removeParent" title="<?=_("Create the link at root")?>"></i>
+      <i class="nf nf-fa-times bbn-p" v-if="parent !== 'ROOT'" @click="removeParent" title="<?=_("Create the link at root")?>"></i>
       <span class="bbn-green bbn-b" v-text="formHeader">
       </span>  
       
@@ -62,7 +62,7 @@
             >
           </div>
            <div v-else class="appui-notes-bookmarks-link-noimage">
-            <i class="fas fa-link bbn-xl"></i>
+            <i class="nf nf-fa-link bbn-xl"></i>
           </div>
           <div class="appui-notes-bookmarks-link-title bbn-flex-fill">
             <strong>
@@ -80,7 +80,7 @@
             <bbn-button class="k-button-bare k-upload-action"
                         style="display: inline-block;"
                         @click="linkRemove"
-                        icon="fas fa-times"
+                        icon="nf nf-fa-times"
                         title="<?=_('Remove')?>"
             ></bbn-button>
           </div>
@@ -91,12 +91,12 @@
   </div>
   <div class="bbn-l bbn-padded">
     <bbn-button text="<?=_("Cancel")?>" 
-                icon="fas fa-times"
+                icon="nf nf-fa-times"
                 @click="closeForm"
     >
     </bbn-button>
     <bbn-button text="<?=_("Save")?>" 
-                icon="fas fa-check"
+                icon="nf nf-fa-check"
                 @click="submit"
     >
     </bbn-button>

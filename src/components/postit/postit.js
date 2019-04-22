@@ -86,7 +86,7 @@
           if ( d.success ){
             appui.success(bbn._('Delete'));
             this.$nextTick(()=>{
-              bbn.vue.closest(this, 'bbns-tab').reload();
+              bbn.vue.closest(this, 'bbns-container').reload();
             });
           }
           else{

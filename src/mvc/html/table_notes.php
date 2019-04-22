@@ -9,7 +9,7 @@
            :editable="true"
            :toolbar="[{
                      text: 'Nouvel note',
-                     icon: 'fas fa-plus',
+                     icon: 'nf nf-fa-plus',
                      notext: false,
                      command: markdown
                      }]"

@@ -32,10 +32,10 @@
       },
       getButtons(row){
         let btns = [
-          {command: this.edit, icon: 'fas fa-edit', text: 'Edit', notext: true}
+          {command: this.edit, icon: 'nf nf-fa-edit', text: 'Edit', notext: true}
         ];
         if ( !row.default ){
-          btns.push({command: this.remove, icon: 'fas fa-trash', text: 'Delete', notext: true});
+          btns.push({command: this.remove, icon: 'nf nf-fa-trash', text: 'Delete', notext: true});
         }
         return btns;
       }
@@ -57,8 +57,8 @@
       def: {
         props: ['source'],
         template: `
-<i v-if="source.default" class="fas fa-check bbn-lg bbn-green"></i>
-<bbn-button v-else icon="fas fa-check bbn-lg bbn-red" @click="makeDefault"></bbn-button>`,
+<i v-if="source.default" class="nf nf-fa-check bbn-lg bbn-green"></i>
+<bbn-button v-else icon="nf nf-fa-check bbn-lg bbn-red" @click="makeDefault"></bbn-button>`,
         methods: {
           getTable(){
             return bbn.vue.closest(this, 'bbn-table');
@@ -89,7 +89,7 @@
 	</div>
   <div class="bbn-block" style="float: right">
     <bbn-button @click="insert"
-                icon="fas fa-plus"
+                icon="nf nf-fa-plus"
                 :text="_('Ajouter une lettre type')"
     ></bbn-button>
   </div>

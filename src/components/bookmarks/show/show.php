@@ -3,13 +3,13 @@
 >
   <div class="bbn-w-100 bbn-padded">
     <bbn-button class="bbn-p"
-                icon="fas fa-trash "
+                icon="nf nf-fa-trash "
                 title="<?=_("Delete this link")?>"
                 @click="remove"
                 :text="'<?=_("Delete this")?>' + ' ' + selectedType"
     ></bbn-button>
     <bbn-button class="bbn-p"
-                icon="fas fa-edit "
+                icon="nf nf-fa-edit "
                 title="<?=_("Edit this link")?>"
                 @click="edit"
                 :text="'<?=_("Edit this")?>' + ' ' + selectedType"
@@ -67,7 +67,7 @@
             >
           </div>
           <div v-else class="appui-notes-bookmarks-link-noimage">
-            <i class="fas fa-link bbn-xl"></i>
+            <i class="nf nf-fa-link bbn-xl"></i>
           </div>
           <div class="appui-notes-bookmarks-link-title bbn-flex-fill">
             <strong>

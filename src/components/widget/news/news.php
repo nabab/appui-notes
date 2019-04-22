@@ -29,13 +29,13 @@
         <bbn-checkbox v-model="formData.private"
                       value="1"
                       novalue="0"
-                      label="<i class='fas fa-eye-slash'></i> <?/*=_('Private')*/?>"
+                      label="<i class='nf nf-fa-eye_slash'></i> <?/*=_('Private')*/?>"
                       style="margin-right: 2em"
         ></bbn-checkbox>
         <bbn-checkbox v-model="formData.locked"
                       value="1"
                       novalue="0"
-                      label="<i class='fas fa-lock'></i>  <?/*=_('Locked')*/?>"
+                      label="<i class='nf nf-fa-lock'></i>  <?/*=_('Locked')*/?>"
         ></bbn-checkbox>
       </div>-->
       </div>
@@ -50,10 +50,10 @@
 			>
         <bbn-button style="margin-right:0.5em"
                     @click="$refs.form.submit()"
-										icon="fas fa-save"
+										icon="nf nf-fa-save"
         ><?=_('Add')?></bbn-button>
         <bbn-button @click="closeForm"
-										icon="fas fa-times"
+										icon="nf nf-fa-times"
 				><?=_('Cancel')?></bbn-button>
       </div>
     </bbn-form>
@@ -69,7 +69,8 @@
                      :user-id="item.id_user"
                      :title="userName(item.id_user)"
         ></bbn-initial>
-        <span v-text="shorten(item.title)"
+        <span v-text="shorten(item.title, 50)"
+              :title="item.title"
               @click="openNote(item)"
               class="bbn-p"
               style="margin-left: 5px"

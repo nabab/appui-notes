@@ -69,7 +69,7 @@
               <img v-if="l.image"
                    :src="imageDom + data.ref + '/' + l.image"
               >
-              <i v-else class="fas fa-link"> </i>
+              <i v-else class="nf nf-fa-link"> </i>
             </div>
             <div class="appui-notes-forum-link-title bbn-flex-fill">
               <strong>
@@ -86,7 +86,7 @@
               <bbn-button class="k-button-bare k-upload-action"
                           style="display: inline-block;"
                           @click="linkRemove(idx)"
-                          icon="fas fa-times"
+                          icon="nf nf-fa-times"
                           title="<?=_('Remove')?>"
               ></bbn-button>
             </div>

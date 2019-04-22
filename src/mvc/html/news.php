@@ -5,7 +5,7 @@
            :limit="25"
            :toolbar="[{
              text: '<?=_('New message')?>',
-             icon: 'fas fa-plus',
+             icon: 'nf nf-fa-plus',
              command: insert
            }]"
            :editable="true"
@@ -21,36 +21,36 @@
                :filterable="false"
   ></bbns-column>
   <bbns-column field="title"
-               title="<i class='far fa-newspaper bbn-xl'></i>"
+               title="<i class='nf nf-fa-newspaper bbn-xl'></i>"
                ftitle="<?=_("Title")?>"
   ></bbns-column>
   <bbns-column field="id_user"
-               title="<i class='fas fa-user bbn-xl'></i>"
+               title="<i class='nf nf-fa-user bbn-xl'></i>"
                ftitle="<?=_("Author")?>"
                :width="300"
                :source="users"
   ></bbns-column>
   <bbns-column field="content"
-               title="<i class='fas fa-comment bbn-xl'></i>"
+               title="<i class='nf nf-fa-comment bbn-xl'></i>"
                ftitle="<?=_("Text")?>"
                :hidden="true"
   ></bbns-column>
   <bbns-column field="creation"
-               title="<i class='fas fa-calendar-alt bbn-xl'></i>"
+               title="<i class='nf nf-fa-calendar_alt bbn-xl'></i>"
                ftitle="<?=_("Creation date")?>"
                :width="120"
                type="date"
                cls="bbn-c"
   ></bbns-column>
   <bbns-column field="start"
-               title="<i class='fas fa-calendar-check bbn-xl'></i>"
+               title="<i class='nf nf-fa-calendar_check bbn-xl'></i>"
                ftitle="<?=_("Start date")?>"
                :width="120"
                type="date"
                cls="bbn-c"
   ></bbns-column>
   <bbns-column field="end"
-               title="<i class='fas fa-calendar-times bbn-xl'></i>"
+               title="<i class='nf nf-fa-calendar_times bbn-xl'></i>"
                ftitle="<?=_("End date")?>"
                :width="120"
                type="date"
@@ -61,12 +61,12 @@
                ftitle="<?=_("Actions")?>"
                :buttons="[{
                  command: see,
-                 icon: 'fas fa-eye',
+                 icon: 'nf nf-fa-eye',
                  text: '<?=_("See")?>',
                  notext: true
                }, {
                  command: edit,
-                 icon: 'fas fa-edit',
+                 icon: 'nf nf-fa-edit',
                  text: '<?=_("Mod.")?>',
                  notext: true
                }]"

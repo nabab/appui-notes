@@ -9,7 +9,7 @@
         //var r contains the new property to assign to the object
         var r = {
           title: v.myid/*v.title ? v.title : 'no-title',,
-          icon: v.num_children ? 'far fa-folder' : 'far fa-sticky-note' ,
+          icon: v.num_children ? 'nf nf-fa-folder' : 'nf nf-fa-sticky_note' ,
           data: {},
           folder: v.num_children ? true : false,
           id: v.myid,
@@ -49,11 +49,11 @@
               //var r contains the new property to assign to the object
               var r = {
                 title: v.myid/*v.title ? v.title : 'no-title',*/,
-                icon: v.num_children ? 'far fa-folder' : 'far fa-sticky-note' ,
+                icon: v.num_children ? 'nf nf-fa-folder' : 'nf nf-fa-sticky_note' ,
                 data: {},
                 folder: v.num_children ? true : false,
                 id: v.myid,
-                //icon: v.icon && (v.icon.indexOf(" ") > -1) ? v.icon : 'fas fa-cog',
+                //icon: v.icon && (v.icon.indexOf(" ") > -1) ? v.icon : 'nf nf-fa-cog',
               };
               //setting of lazy attribute
               if ( v.num_children ){

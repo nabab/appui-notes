@@ -169,7 +169,7 @@
               type: a.type,
               url: a.type === 'folder' ? false : a.url,
               image: (( a.type === 'folder' ) || ( !a.image)) ? false : a.image,
-              icon: a.type === 'folder' ? 'fas fa-folder' : 'fas fa-star',
+              icon: a.type === 'folder' ? 'nf nf-fa-folder' : 'nf nf-fa-star',
               path: a.path ? a.path : false,
               num:  bbn.fn.count(
                 this.source.bookmarks,
@@ -197,7 +197,7 @@
             b.text = b.text ? b.text : b.url;
             b.name = b.text ? b.text : b.url;
             b.items = this.filterItems(b.text);
-            b.icon = b.type === 'folder' ? 'fas fa-folder' : 'fas fa-star';
+            b.icon = b.type === 'folder' ? 'nf nf-fa-folder' : 'nf nf-fa-star';
             b.url = b.type === 'folder' ? false : b.url;
             b.image = ((b.type === 'folder') || (!b.image)) ? false : b.image;
             b.description = b.description ? b.description : '';

@@ -81,7 +81,7 @@
               url: this.url,
               text: this.source.text ? this.source.text : this.source.url,
               type: 'link',
-              icon: 'far fa-star',
+              icon: 'nf nf-fa-star',
               description: this.source.description,
               image: this.source.image ? this.source.image : false
             }
