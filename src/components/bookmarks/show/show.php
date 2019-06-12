@@ -1,4 +1,4 @@
-<div class="bbn-full-screen book-bottom" 
+<div class="bbn-overlay book-bottom" 
     
 >
   <div class="bbn-w-100 bbn-padded">
@@ -49,7 +49,7 @@
         class="bbn-medium"     
     ></div>
 
-    <div class="appui-notes-bookmarks-links-container k-widget bbn-grid-full"
+    <div class="appui-notes-bookmarks-links-container bbn-widget bbn-grid-full"
           ref="linksContainer"
           v-if="source.showLink.image"
           style="border:1px solid"

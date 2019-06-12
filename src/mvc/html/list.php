@@ -1,1 +1,1 @@
-<div class="bbn-notes-list bbn-full-screen"></div>
+<div class="bbn-notes-list bbn-overlay"></div>

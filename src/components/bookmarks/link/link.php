@@ -43,7 +43,7 @@
                 
       ></bbn-input>
     </div>          
-    <div class="appui-notes-bookmarks-links-container k-widget bbn-grid-full"
+    <div class="appui-notes-bookmarks-links-container bbn-widget bbn-grid-full"
          ref="linksContainer"
          v-if="source.image"
          :style="link  ? 'border:1px solid' : 'border:none'"

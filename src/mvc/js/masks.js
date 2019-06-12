@@ -49,7 +49,7 @@
           width: 850,
           height: 200,
           title: bbn._("Warning on standard letters"),
-          content: '<div class="bbn-padded"><div class="bbn-b">Warning!</div><br>Here you can modify the standard letters but they use a system of "templates" with which you have to be very cautious. The best is to duplicate an existing standard letter and modify it. Once finished, put it in default if it is used on a feature without choice (eg certificates), and will test it in context. Then you can erase the old one or else redo it if your modification returns an error.</div>'
+          content: '<div class="bbn-overlay bbn-padded"><div class="bbn-b">Warning!</div><br>Here you can modify the standard letters but they use a system of "templates" with which you have to be very cautious. The best is to duplicate an existing standard letter and modify it. Once finished, put it in default if it is used on a feature without choice (eg certificates), and will test it in context. Then you can erase the old one or else redo it if your modification returns an error.</div>'
         });
       });
     },

@@ -1,4 +1,4 @@
-<div class="bbn-full-screen">
+<div class="bbn-overlay">
   <bbn-list style="height:70%" :source="currentFolder" @click="selectList" @select="selectList">
 
   </bbn-list>

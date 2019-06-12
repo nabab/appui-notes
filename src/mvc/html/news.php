@@ -76,7 +76,7 @@
 
 
 <script type="text/x-template" id="appui-notes-news-new">
-  <bbn-form class="bbn-full-screen"
+  <bbn-form
             :source="source.row"
             :data="source.data"
             ref="form"

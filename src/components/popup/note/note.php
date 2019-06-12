@@ -1,4 +1,4 @@
-<div class="bbn-full-screen bbn-padded">
+<div class="bbn-overlay bbn-padded">
   <div class="bbn-flex-height">
     <div class="bbn-middle"
          style="padding-bottom: 1em"
@@ -11,7 +11,7 @@
       <span v-text="userName"></span>
       <span style="margin-left: 1em"><i class="nf nf-fa-calendar_alt"></i> {{creationDate}} <i class="nf nf-fa-clock"></i> {{creationTime}}</span>
     </div>
-    <div class="bbn-flex-fill k-block">
+    <div class="bbn-flex-fill bbn-block">
       <bbn-scroll>
         <div class="bbn-padded"
              v-html="source.content"

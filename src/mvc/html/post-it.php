@@ -1,4 +1,4 @@
-<div class="appui-notes-postit bbn-full-screen bbn-flex-height">
+<div class="appui-notes-postit bbn-overlay bbn-flex-height">
   <div class="bbn-c bbn-vmargin">
     <bbn-input placeholder="<?=_("Search")?>"
                autocomplete="off"

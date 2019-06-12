@@ -1,7 +1,7 @@
-<div class="bbn-full-screen appui-notes-forum">
-	<div class="bbn-full-screen bbn-flex-height">
+<div class="bbn-overlay appui-notes-forum">
+	<div class="bbn-overlay bbn-flex-height">
 		<div v-if="toolbar"
-				 class="k-header bbn-w-100"
+				 class="bbn-header bbn-w-100"
 				 ref="toolbar"
 				 style="min-height: 30px"
 		>
@@ -31,7 +31,7 @@
                                  :source="d"
         >
           <div class="bbn-w-100">
-            <div :class="['bbn-flex-width', 'k-widget', 'appui-notes-forum-topic', {'k-alt': !!($vnode.key%2)}]">
+            <div :class="['bbn-flex-width', 'bbn-widget', 'appui-notes-forum-topic', {'k-alt': !!($vnode.key%2)}]">
               <div class="bbn-spadded"
                    style="height: 42px; width: 42px"
               >
@@ -100,7 +100,7 @@
                          :class="{'bbn-flex-fill': cutContentContainer}"
                     ></div>
                     <div v-if="source.links && source.links.length && !cutContentContainer">
-                      <fieldset class="k-widget">
+                      <fieldset class="bbn-widget">
                         <legend><?=_("Links:")?></legend>
                         <div v-for="l in source.links"
                              style="margin-top: 10px"
@@ -139,7 +139,7 @@
                       </fieldset>
                     </div>
                     <div v-if="source.files && source.files.length && !cutContentContainer">
-                      <fieldset class="k-widget">
+                      <fieldset class="bbn-widget">
                         <legend><?=_("Files:")?></legend>
                         <div v-for="f in source.files">
                     <span style="margin-left: 0.5em"
@@ -221,7 +221,7 @@
                                         :source="r"
                                         :key="k"
                 >
-                  <div :class="['bbn-flex-width', 'k-widget', 'appui-notes-forum-replies', {'k-alt': !!($vnode.key%2)}]">
+                  <div :class="['bbn-flex-width', 'bbn-widget', 'appui-notes-forum-replies', {'k-alt': !!($vnode.key%2)}]">
                     <div class="bbn-spadded"
                          style="height: 42px; width: 42px"
                     >
@@ -258,7 +258,7 @@
                       </div>
                       <div v-html="source.content"></div>
                       <div v-if="source.links.length">
-                        <fieldset class="k-widget">
+                        <fieldset class="bbn-widget">
                           <legend><?=_("Links:")?></legend>
                           <div v-for="l in source.links"
                                style="margin-top: 10px"
@@ -297,7 +297,7 @@
                         </fieldset>
                       </div>
                       <div v-if="source.files.length">
-                        <fieldset class="k-widget">
+                        <fieldset class="bbn-widget">
                           <legend><?=_("Files:")?></legend>
                           <div v-for="f in source.files">
                             <span style="margin-left: 0.5em"
@@ -380,7 +380,7 @@
                                        :key="'appui-notes-forum-pager-' + $vnode.key"
                                        ref="pager"
               >
-                <div class="appui-notes-forum-pager k-widget k-floatwrap appui-notes-forum-replies"
+                <div class="appui-notes-forum-pager bbn-widget k-floatwrap appui-notes-forum-replies"
                      v-if="pageable || isAjax"
                 >
                   <div class="bbn-block"
@@ -450,7 +450,7 @@
 			</bbn-scroll>
 		</div>
 		<!-- Footer -->
-		<div class="appui-notes-forum-pager k-widget k-floatwrap"
+		<div class="appui-notes-forum-pager bbn-widget k-floatwrap"
          v-if="pageable || filterable || isAjax"
     >
       <div class="bbn-block"

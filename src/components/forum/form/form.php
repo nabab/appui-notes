@@ -1,4 +1,4 @@
-<bbn-form class="bbn-full-screen appui-notes-forum-form"
+<bbn-form class="appui-notes-forum-form"
           :action="source.props.formAction"
           :source="source.row"
 					:data="data"
@@ -52,7 +52,7 @@
                    class="bbn-w-100"
         ></bbn-input>
       </div>
-      <div class="appui-notes-forum-links-container k-widget"
+      <div class="appui-notes-forum-links-container bbn-widget"
            ref="linksContainer"
            v-if="source.row.links"
       >

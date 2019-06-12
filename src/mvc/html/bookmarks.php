@@ -1,5 +1,5 @@
 <!-- HTML Document -->
-<div class="bbn-full-screen bookmarks-container">
+<div class="bbn-overlay bookmarks-container">
   <bbn-splitter orientation="horizontal">
     <bbn-pane size="50%"
     >
