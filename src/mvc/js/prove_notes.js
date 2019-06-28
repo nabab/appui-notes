@@ -43,7 +43,8 @@
           //bbn.fn.log('data_from_the_post', d);
           if ( d.data && d.data.prove_notes ){
             //mapping of childrens' properties
-            return $.map(d.data.prove_notes, function(v){
+            //return $.map(d.data.prove_notes, function(v){
+            return bbn.fn.map(d.data.prove_notes, v =>{
               //(v) at this point v is the children of the focused node
               // bbn.fn.log('v_children',v);
               //var r contains the new property to assign to the object

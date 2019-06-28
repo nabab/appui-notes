@@ -73,13 +73,13 @@
 			  currentUser: appui.app.user.id,
 				currentData: [],
 				currentLimit: this.limit,
-				currentFilters: $.extend({}, this.filters),
+				currentFilters: bbn.fn.extend({}, this.filters),
 				originalData: null,
 				start: 0,
         total: 0,
 				limits: [10, 25, 50, 100, 250, 500],
 				isLoading: false,
-        isAjax: typeof this.source === 'string',
+        isAjax: typeof(this.source) === 'string',
 				mediaFileType: appui.options.media_types.file.id,
         mediaLinkType: appui.options.media_types.link.id
 			}
@@ -101,13 +101,14 @@
         let r = [],
             ar = [];
         if ( this.toolbar ){
-          ar = $.isFunction(this.toolbar) ?
+          //ar = $.isFunction(this.toolbar) ?
+          ar = typeof(this.toolbar) === 'function' ?
             this.toolbar() : (
               Array.isArray(this.toolbar) ? this.toolbar.slice() : []
             );
           if ( Array.isArray(ar) ){
-            $.each(ar, (i, a) => {
-              let o = $.extend({}, a);
+            bbn.fn.each(ar, (a, i) => {
+              let o = bbn.fn.extend({}, a);
               if ( o.command ){
                 o.command = () => {
                   this._execCommand(a);
@@ -124,7 +125,8 @@
 		  shorten: bbn.fn.shorten,
       _execCommand(button, data){
         if ( button.command ){
-          if ( $.isFunction(button.command) ){
+          //if ( $.isFunction(button.command) ){
+          if ( typeof(button.command) === "function" ){  
             return button.command(data);
           }
           else if ( typeof(button.command) === 'string' ){
@@ -143,7 +145,8 @@
         return false;
       },
       _map(data){
-        return this.map ? $.map(data, this.map) : data;
+        //return this.map ? $.map(data, this.map) : data;
+        return this.map ? bbn.fn.map(data, this.map) : data;
       },
       sdate(d){
         //return moment(d).format('DD/MM/YY')
@@ -190,7 +193,7 @@
             let data = {
               limit: this.currentLimit,
               start: this.start,
-              data: this.data ? ($.isFunction(this.data) ? this.data() : this.data) : {}
+              data: this.data ? ( typeof(this.data) === "function" ? this.data() : this.data) : {}
             };
             if ( this.filterable ){
               data.filters = this.currentFilters;
@@ -299,7 +302,8 @@
         },
         mounted(){
           this.$nextTick(() => {
-            if ( $(this.$refs.contentContainer).height() > 35 ){
+            //if ( $(this.$refs.contentContainer).height() > 35 ){
+            if ( this.getRef('contentContainer').clientHeight > 35 ){  
               this.contentContainerHeight = '35px';
 							this.possibleHiddenContent = true;
             }

@@ -53,7 +53,7 @@
       edit(){
         this.$nextTick(() => {
           if ( this.isModified ){
-            bbn.fn.post(appui.plugins['appui-notes'] + '/actions/update', $.extend({}, this.newData, {
+            bbn.fn.post(appui.plugins['appui-notes'] + '/actions/update', bbn.fn.extend(true, {}, this.newData, {
               id_note: this.id_note,
               color: this.actualColor
             }), (d) => {
@@ -78,7 +78,8 @@
           this.editing = true;
         }
         setTimeout(() => {
-          $(e.target).focus();
+          //$(e.target).focus();
+          e.target.focus();
         }, 200);
       },
       removeNote(){
@@ -95,7 +96,8 @@
         });
       },
       changeText(field, e){
-        let newVal = this.html2text($(e.target).html());
+        //let newVal = this.html2text($(e.target).html());
+        let newVal = this.html2text(e.target.innerHTML);
         if ( newVal !== this.newData[field] ){
           this.newData[field] = newVal;
           this.isModified = true;

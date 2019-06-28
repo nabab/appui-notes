@@ -1,1 +1,0 @@
-<div class="bbn-notes-list bbn-overlay"></div>

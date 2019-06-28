@@ -41,7 +41,7 @@
           mode: 'less'
         }],
         editorType: 'bbn-rte',
-        data: $.extend({
+        data: bbn.fn.extend({
 					ref: moment().unix()
 				}, this.source.data ? this.source.data : {})
       }

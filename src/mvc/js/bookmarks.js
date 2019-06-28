@@ -40,7 +40,7 @@
         }
       },*/
       selectedType() {
-        if (!this.isEmptyObject(this.currentNode)) {
+        if ( Object.entries(this.currentNode).length > 0 ) {
           return this.currentNode.data.type;
         } 
         else {
@@ -55,7 +55,8 @@
     },
     methods: {
       isEmptyObject(a) {
-        return $.isEmptyObject(a);
+        //return  $.isEmptyObject(a);
+        return Object.entries(this.currentNode).length ? true : false; 
       },
       removeParent(){
         this.parent = 'ROOT';

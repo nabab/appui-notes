@@ -365,7 +365,7 @@
                          :title="'<?=_('Created')?>: ' + topic.forum.fdate(source.creation) + ((source.creation !== source.last_edit) ? ('\n<?=_('Edited')?>: ' + topic.forum.fdate(source.last_edit)) : '')"
                          style="margin-left: 0.5rem"
                     >
-                      <i :class="['far', 'fa-calendar_alt', 'bbn-xl', {'bbn-orange': source.creation !== source.last_edit}]"></i>
+                      <i :class="['far', 'nf nf-fa-calendar', 'bbn-xl', {'bbn-orange': source.creation !== source.last_edit}]"></i>
                       <div class="bbn-c bbn-s" style="margin-left: 0.3rem">
                         <div v-text="(source.creation !== source.last_edit) ? topic.forum.sdate(source.last_edit) : topic.forum.sdate(source.creation)"></div>
                         <!--<div v-text="(source.creation !== source.last_edit) ? topic.forum.hour(source.last_edit) : topic.forum.hour(source.creation)"></div>-->
