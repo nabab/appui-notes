@@ -70,7 +70,7 @@
         });
       },
       //load_tree is the method called in the <div id='fancy'>
-      load_tree: function(){
+      /*load_tree: function(){
         var $$ = this;
         $('#fancy').fancytree({
           extensions: ['dnd'],
@@ -153,7 +153,7 @@
           }
 
         });
-          }
+      }*/
         },
   }
 })();

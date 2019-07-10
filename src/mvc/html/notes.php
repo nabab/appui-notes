@@ -12,4 +12,5 @@
                         :editing="isEditing(note.id_note)"
                         >
     </appui-notes-postit>
+  </div>
 </div>

@@ -10,7 +10,7 @@
   return {
 
     data(){
-      return bbn.fn.extend(true, this.source, {editedNote: false}, {choosing:false});
+      return bbn.fn.extend(this.source, {editedNote: false}, {choosing:false});
     },
     watch: {
       editedNote(newVal, oldVal){
