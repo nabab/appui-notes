@@ -21,7 +21,7 @@
                :filterable="false"
   ></bbns-column>
   <bbns-column field="title"
-               title="<i class='nf nf-fa-newspaper bbn-xl'></i>"
+               title="<i class='nf nf-fa-newspaper_o bbn-xl'></i>"
                ftitle="<?=_("Title")?>"
   ></bbns-column>
   <bbns-column field="id_user"
@@ -36,21 +36,21 @@
                :hidden="true"
   ></bbns-column>
   <bbns-column field="creation"
-               title="<i class='nf nf-fa-calendar_alt bbn-xl'></i>"
+               title="<i class='nf nf-fa-calendar bbn-xl'></i>"
                ftitle="<?=_("Creation date")?>"
                :width="120"
                type="date"
                cls="bbn-c"
   ></bbns-column>
   <bbns-column field="start"
-               title="<i class='nf nf-fa-calendar_check bbn-xl'></i>"
+               title="<i class='nf nf-fa-calendar_check_o bbn-xl'></i>"
                ftitle="<?=_("Start date")?>"
                :width="120"
                type="date"
                cls="bbn-c"
   ></bbns-column>
   <bbns-column field="end"
-               title="<i class='nf nf-fa-calendar_times bbn-xl'></i>"
+               title="<i class='nf nf-fa-calendar_times_o bbn-xl'></i>"
                ftitle="<?=_("End date")?>"
                :width="120"
                type="date"

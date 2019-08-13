@@ -7,6 +7,12 @@
  */
 
 if ( isset($model->data['limit'], $model->data['start']) ){
+  if ( !empty($model->data['filters']['conditions']) ){
+    foreach ( $model->data['filters']['conditions'] as &$condition ){
+      $table = ($condition['field'] === 'start') || ($condition['field'] === 'end') ? "bbn_events." : "versions1.";
+      $condition['field'] = $table.$condition['field'];     
+    }
+  } 
   $grid = new \bbn\appui\grid($model->db, $model->data, [
     'table' => 'bbn_notes',
     'fields' => [
