@@ -31,7 +31,7 @@
                                  :source="d"
         >
           <div class="bbn-w-100">
-            <div :class="['bbn-flex-width', 'bbn-widget', 'appui-notes-forum-topic', {'k-alt': !!($vnode.key%2)}]">
+            <div :class="['bbn-flex-width', 'appui-notes-forum-topic', {'bbn-box': !($vnode.key%2), 'bbn-alt': !!($vnode.key%2)}]">
               <div class="bbn-spadded"
                    style="height: 42px; width: 42px"
               >
@@ -221,7 +221,7 @@
                                         :source="r"
                                         :key="k"
                 >
-                  <div :class="['bbn-flex-width', 'bbn-widget', 'appui-notes-forum-replies', {'k-alt': !!($vnode.key%2)}]">
+                  <div :class="['bbn-flex-width', 'appui-notes-forum-replies', {'bbn-box': !($vnode.key%2), 'bbn-alt': !!($vnode.key%2)}]">
                     <div class="bbn-spadded"
                          style="height: 42px; width: 42px"
                     >
@@ -380,7 +380,7 @@
                                        :key="'appui-notes-forum-pager-' + $vnode.key"
                                        ref="pager"
               >
-                <div class="appui-notes-forum-pager bbn-widget k-floatwrap appui-notes-forum-replies"
+                <div class="appui-notes-forum-pager bbn-widget appui-notes-forum-replies"
                      v-if="pageable || isAjax"
                 >
                   <div class="bbn-block"
@@ -398,7 +398,7 @@
                                 :disabled="isLoading || (currentPage == 1)"
                                 @click="currentPage--"
                     ></bbn-button>
-                    <?=_('Page')?>
+                    <span><?=_('Page')?></span>
                     <bbn-numeric v-if="source.replies && source.replies.length"
                                  v-model="currentPage"
                                  :min="1"
@@ -406,7 +406,7 @@
                                  style="margin-right: 0.5em; width: 6em"
                                  :disabled="isLoading"
                     ></bbn-numeric>
-                    <?=_('of')?> {{numPages}}
+                    <span v-text="'<?=_('of')?>' + ' ' + numPages" style="margin-right: 0.25em"></span>
                     <bbn-button icon="nf nf-fa-angle_right"
                                 :notext="true"
                                 title="<?=_('Go to the next page')?>"
@@ -419,21 +419,21 @@
                                 @click="currentPage = numPages"
                                 :disabled="isLoading || (currentPage == numPages)"
                     ></bbn-button>
-                    <span class="k-pager-sizes k-label">
-										<bbn-dropdown :source="limits"
-                                  v-model.number="currentLimit"
-                                  @change="currentPage = 1"
-                                  :disabled="!!isLoading"
-                    ></bbn-dropdown>
-										<span><?=_('items per page')?></span>
+                    <span class="bbn-hmargin">
+                      <bbn-dropdown :source="limits"
+                                    v-model.number="currentLimit"
+                                    @change="currentPage = 1"
+                                    :disabled="!!isLoading"
+                      ></bbn-dropdown>
+										  <span><?=_('items per page')?></span>
 									</span>
                   </div>
                   <div class="bbn-block" style="float: right">
 									<span v-if="pageable"
-                        v-text="_('Display items') + ' ' + (start+1) + '-' + (start + currentLimit > total ? total : start + currentLimit) + ' ' + _('of') + ' ' + total"
+                        v-text="'<?=_('Display items')?> ' + (start+1) + '-' + (start + currentLimit > total ? total : start + currentLimit) + ' <?=_('of')?> ' + total"
                   ></span>
                     <span v-else
-                          v-text="total ? _('Total') + ': ' + total + ' ' + _('items') : _('No item')"
+                          v-text="total ? '<?=_('Total')?>: ' + total + ' <?=_('items')?>' : '<?=_('No item')?>'"
                     ></span>
                     &nbsp;
                     <bbn-button v-if="isAjax"
@@ -450,7 +450,7 @@
 			</bbn-scroll>
 		</div>
 		<!-- Footer -->
-		<div class="appui-notes-forum-pager bbn-widget k-floatwrap"
+		<div class="appui-notes-forum-pager bbn-widget"
          v-if="pageable || filterable || isAjax"
     >
       <div class="bbn-block"
@@ -468,7 +468,7 @@
                     :disabled="isLoading || (currentPage == 1)"
                     @click="currentPage--"
         ></bbn-button>
-        <?=_('Page')?>
+        <span><?=_('Page')?></span>
         <bbn-numeric v-if="currentData.length"
                      v-model="currentPage"
                      :min="1"
@@ -476,7 +476,7 @@
                      style="margin-right: 0.5em; width: 6em"
                      :disabled="isLoading"
         ></bbn-numeric>
-        <?=_('of')?> {{numPages}}
+        <span v-text="'<?=_('of')?> ' + numPages" style="margin-right: 0.25em"></span>
         <bbn-button icon="nf nf-fa-angle_right"
                     :notext="true"
                     title="<?=_('Go to the next page')?>"
@@ -489,7 +489,7 @@
                     @click="currentPage = numPages"
                     :disabled="isLoading || (currentPage == numPages)"
         ></bbn-button>
-        <span class="k-pager-sizes k-label">
+        <span class="bbn-hmargin">
           <bbn-dropdown :source="limits"
                         v-model.number="currentLimit"
                         @change="currentPage = 1"
@@ -500,10 +500,10 @@
       </div>
       <div class="bbn-block" style="float: right">
         <span v-if="pageable"
-              v-text="_('Display items') + ' ' + (start+1) + '-' + (start + currentLimit > total ? total : start + currentLimit) + ' ' + _('of') + ' ' + total"
+              v-text="'<?=_('Display items')?> ' + (start+1) + '-' + (start + currentLimit > total ? total : start + currentLimit) + ' <?=_('of')?> ' + total"
         ></span>
         <span v-else
-              v-text="total ? _('Total') + ': ' + total + ' ' + _('items') : _('No item')"
+              v-text="total ? '<?=_('Total')?> : ' + total + ' <?=_('items')?>' : '<?=_('No item')?>'"
         ></span>
         &nbsp;
         <bbn-button v-if="isAjax"

@@ -45,23 +45,24 @@
 
     <label><?=_("Links")?></label>
     <div>
-      <div>
+      <div class="bbn-w-100">
         <bbn-input ref="link"
                    @keydown.enter.prevent.stop="linkEnter"
                    placeholder="<?=_("Type or paste your URL and press Enter to valid")?>"
                    class="bbn-w-100"
         ></bbn-input>
       </div>
-      <div class="appui-notes-forum-links-container bbn-widget"
+      <div class="appui-notes-forum-links-container bbn-widget bbn-w-100"
            ref="linksContainer"
-           v-if="source.row.links"
+           v-if="source.row.links && source.row.links.length"
       >
         <div v-for="(l, idx) in source.row.links"
-             :class="['k-file', {
+             :class="{
                'link-progress': l.inProgress && !l.error,
                'link-success': !l.inProgress && !l.error,
-               'link-error': l.error
-             }]"
+               'link-error': l.error,
+               'bbn-bordered-top': idx > 0
+             }"
         >
           <div class="bbn-flex-width">
             <div v-if="imageDom"
@@ -83,7 +84,7 @@
               ></span>
             </div>
             <div class="appui-notes-forum-link-actions bbn-vmiddle">
-              <bbn-button class="k-button-bare k-upload-action"
+              <bbn-button class="bbn-button-icon-only"
                           style="display: inline-block;"
                           @click="linkRemove(idx)"
                           icon="nf nf-fa-times"
