@@ -1,5 +1,6 @@
 <?php
 /** @var \bbn\mvc\model $model */
+
 $res = ['success' => false];
 if ( !empty($model->data['title']) || !empty($model->data['content']) ){
   $note = new \bbn\appui\notes($model->db);
@@ -20,7 +21,7 @@ if ( !empty($model->data['title']) || !empty($model->data['content']) ){
       $model->db->insert('bbn_events', [
         'id_type' => $type_event,
         'start' => $model->data['start'],
-        'end' => !empty($model->data['end']) ? $model->data['end'] : NULL
+        'end' => !empty($model->data['end']) && (strtotime($model->data['start']) < strtotime($model->data['end'])) ? $model->data['end'] : NULL
       ]) &&
       ($id_event = $model->db->last_id()) &&
       $model->db->insert('bbn_notes_events', [

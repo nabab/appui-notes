@@ -22,7 +22,7 @@ if ( !empty($model->data['id_note']) && isset($model->data['content']) ){
     	($id_event = $model->db->select_one('bbn_notes_events', 'id_event', ['id_note' => $model->data['id_note']])) &&
       $model->db->update('bbn_events', [
         'start' => $model->data['start'],
-        'end' => !empty($model->data['end']) ? $model->data['end'] : NULL
+        'end' => !empty($model->data['end']) && (strtotime($model->data['start']) < strtotime($model->data['end'])) ? $model->data['end'] : NULL
       ], ['id' => $id_event])
     ){
       $ok2 = true;

@@ -32,7 +32,7 @@
           title: row.title,
           width: 800,
           height: 600,
-          component: 'appui-notes-popup-note',
+          component: 'appui-notes-popup-note',          
           source: row
         });
       }
@@ -47,6 +47,16 @@
         },
         template: '#appui-notes-news-new',
         methods: {
+          checkDate(){
+            if ( (this.source.row.end.length === 0) ||
+              (this.source.row.start < this.source.row.end)
+            ){
+              return true;
+            }
+            else{
+              return false;
+            }
+          },
           success(d){
             if ( d. success ){
               appui.success(bbn._('Saved'));

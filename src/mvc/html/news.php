@@ -76,14 +76,15 @@
 
 
 <script type="text/x-template" id="appui-notes-news-new">
-  <bbn-form
+  <bbn-form class="bbn-lpadded"
             :source="source.row"
             :data="source.data"
             ref="form"
             :action="root + '/actions/' + ( source.row.id_note ? 'update' : 'insert')"
             @success="success"
-  >
-    <div class="bbn-grid-fields">
+            :validation="checkDate"
+  >    
+    <div class="bbn-grid-fields bbn-lpadded">
       <label>
         <?=_("Title")?>
       </label>
@@ -102,16 +103,18 @@
         <?=_("End date")?>
       </label>
       <div>
-        <bbn-datetimepicker v-model="source.row.end"></bbn-datetimepicker>
+        <bbn-datetimepicker v-model="source.row.end"
+                            :min="source.row.start"
+        ></bbn-datetimepicker>
       </div>
       <label>
         <?=_("Text")?>
       </label>
-      <div style="overflow: inherit; height: 500px">
+      <div style="overflow: inherit; height: 400px">
         <bbn-rte v-model="source.row.content"
                  required="required"
         ></bbn-rte>
       </div>
-    </div>
+    </div>   
   </bbn-form>
 </script>
