@@ -13,7 +13,7 @@
       },
       remove(row){
         this.popup().confirm(bbn._("Are you sure you want to delete this standard letter?"), () => {
-          bbn.fn.post(this.source.root + 'actions/mask/delete', {id_note: row.id_note}, (d) => {
+          this.post(this.source.root + 'actions/mask/delete', {id_note: row.id_note}, (d) => {
             if ( d.success ){
               this.$refs.table.remove(row);
             }
@@ -64,7 +64,7 @@
             return bbn.vue.closest(this, 'bbn-table');
           },
           makeDefault(){
-            bbn.fn.post(root + 'actions/mask/default', {
+            this.post(root + 'actions/mask/default', {
               id_note: this.source.id_note
             }, (d) => {
               if ( d.success ){

@@ -72,7 +72,7 @@
                 error: false
               }) - 1;
 				if ( this.linkPreview ){
-					bbn.fn.post(this.linkPreview, {
+					this.post(this.linkPreview, {
 	          url: link,
 	          ref: this.data.ref
 	        }, (d) => {

@@ -198,7 +198,7 @@
             if ( this.filterable ){
               data.filters = this.currentFilters;
             }
-            bbn.fn.post(this.source, data, result => {
+            this.post(this.source, data, result => {
               this.isLoading = false;
               if (
                 !result ||
@@ -227,7 +227,7 @@
       },
       downloadMedia(id){
         if ( id && this.downloadUrl ){
-          bbn.fn.post_out(this.downloadUrl + id);
+          this.post_out(this.downloadUrl + id);
         }
       },
     },
@@ -371,7 +371,7 @@
                       start: this.start,
                       data: {id_alias: this.source.id}
                     };
-                    bbn.fn.post(this.topic.forum.source, data, result =>{
+                    this.post(this.topic.forum.source, data, result =>{
                       this.isLoading = false;
                       if (
                         !result ||

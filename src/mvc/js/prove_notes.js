@@ -38,7 +38,7 @@
     methods: {
       //method src is triggered when lazy = true, it makes a post to 'lazy_load' controller sending the parent's id, in the controller the old data is merged with the new one arriving from the model.
       src: function(id){
-        return bbn.fn.post(data.root + 'lazy_load', {id: id}).promise().then(function(d){
+        return this.post(data.root + 'lazy_load', {id: id}).promise().then(function(d){
           //(d) is the data received from the post and in d.data.prove_notes contains the array of the children of the selected node.
           //bbn.fn.log('data_from_the_post', d);
           if ( d.data && d.data.prove_notes ){
@@ -116,7 +116,7 @@
               bbn.fn.log('dragdrop', dat.hitMode, node.data.id, dat.node.data.id, 'dat.otherNode',dat.otherNode, 'dat', dat);
               // bbn.fn.log("node/dataDragDrop",node,data);
               if ( node.data.id != -1 ){
-                bbn.fn.post(data.root + 'move', {
+                this.post(data.root + 'move', {
                   id_parent: node.data.id,
                   id:dat.otherNode.data.id
                 }, function(d){

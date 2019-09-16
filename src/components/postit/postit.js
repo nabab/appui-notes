@@ -53,7 +53,7 @@
       edit(){
         this.$nextTick(() => {
           if ( this.isModified ){
-            bbn.fn.post(appui.plugins['appui-notes'] + '/actions/update', bbn.fn.extend(true, {}, this.newData, {
+            this.post(appui.plugins['appui-notes'] + '/actions/update', bbn.fn.extend(true, {}, this.newData, {
               id_note: this.id_note,
               color: this.actualColor
             }), (d) => {
@@ -83,7 +83,7 @@
         }, 200);
       },
       removeNote(){
-        bbn.fn.post(appui.plugins['appui-notes'] + '/actions/delete',{id_note: this.id_note}, d =>{
+        this.post(appui.plugins['appui-notes'] + '/actions/delete',{id_note: this.id_note}, d =>{
           if ( d.success ){
             appui.success(bbn._('Delete'));
             this.$nextTick(()=>{

@@ -56,7 +56,7 @@
       },
       editLink(){
         this.confirm(bbn._('Are you sure you want to save changes?'),() => {
-          bbn.fn.post('notes/bookmarks/actions/edit', this.source, (d) => {
+          this.post('notes/bookmarks/actions/edit', this.source, (d) => {
             if ( d.success && d.bookmarks){
               bookmarks.source.bookmarks = d.bookmarks;  
             }
@@ -85,7 +85,7 @@
               description: this.source.description,
               image: this.source.image ? this.source.image : false
             }
-          bbn.fn.post('notes/actions/bookmarks/insert', object, (d) => {
+          this.post('notes/actions/bookmarks/insert', object, (d) => {
             if (d.success > 0) {
               //bookmarks.source.bookmarks = d.bookmarks;
               //this.description = '';
@@ -118,7 +118,7 @@
             title: false,
             error: false
           };
-          bbn.fn.post(this.linkPreview, {
+          this.post(this.linkPreview, {
             url: url,
             ref: this.ref
           }, (d) => {

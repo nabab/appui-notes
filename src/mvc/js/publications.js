@@ -229,7 +229,7 @@
 
             if ( importPages.length ){
               this.confirm(bbn._('Are you sure you import the posts?'), () => {
-                bbn.fn.post(this.root+'actions/publications/import',{imports: importPages}, d =>{
+                this.post(this.root+'actions/publications/import',{imports: importPages}, d =>{
                   if ( d.success ){
                     appui.success(bbn._('Import performed'));
                     this.$nextTick(()=>{
