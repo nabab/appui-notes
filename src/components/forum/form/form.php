@@ -39,7 +39,8 @@
          class="bbn-task-files-container">
       <bbn-upload :save-url="fileSave + data.ref"
                   :remove-url="fileRemove + data.ref"
-									v-model="source.row.files"
+                  v-model="source.row.files"
+                  :paste="true"
       ></bbn-upload>
     </div>
 
