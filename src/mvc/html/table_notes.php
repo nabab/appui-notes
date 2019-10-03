@@ -106,7 +106,7 @@
       </div>
 
       <label class="bbn-form-label">
-        <?=_("Texte")?>
+        <?=_("Text")?>
       </label>
       <div class="bbn-form-field">
         <bbn-rte v-model="source.texte"

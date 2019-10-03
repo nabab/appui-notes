@@ -15,7 +15,7 @@
               :hidden="true"
               :editable="false"
               ></bbns-column>
-  <bbns-column :title="_('Défaut')"
+  <bbns-column :title="_('Default')"
               field="default"
               cls="bbn-c"
               :width="50"
@@ -28,7 +28,7 @@
               :width="50"
               :editable="false"
               ></bbns-column>
-  <bbns-column :title="_('Type de lettre')"
+  <bbns-column :title="_('Letter's type')"
               field="id_type"
               :editable="false"
               :component="$options.components.cat"
@@ -36,22 +36,22 @@
   <bbns-column :title="_('Name')"
                field="name"
   ></bbns-column>
-  <bbns-column :title="_('Objet')"
+  <bbns-column :title="_('Subject')"
               field="title"
               ></bbns-column>
-  <bbns-column :title="_('Dern. modif.')"
+  <bbns-column :title="_('Last change')"
               field="creation"
               :editable="false"
               type="date"
               :width="120"
               ></bbns-column>
-  <bbns-column :title="_('Utilisateur')"
+  <bbns-column :title="_('User')"
               field="id_user"
               :editable="false"
               :width="150"
               :render="renderUser"
               ></bbns-column>
-  <bbns-column :title="_('Texte')"
+  <bbns-column :title="_('Text')"
               field="content"
               editor="bbn-rte"
               :hidden="true"
