@@ -6,7 +6,7 @@
            :toolbar="[{
              text: '<?=_('New message')?>',
              icon: 'nf nf-fa-plus',
-             command: insert
+             action: insert
            }]"
            :editable="true"
            :editor="$options.components['appui-notes-news-new']"
@@ -60,12 +60,12 @@
                cls="bbn-c"
                ftitle="<?=_("Actions")?>"
                :buttons="[{
-                 command: see,
+                 action: see,
                  icon: 'nf nf-fa-eye',
                  text: '<?=_("See")?>',
                  notext: true
                }, {
-                 command: edit,
+                 action: edit,
                  icon: 'nf nf-fa-edit',
                  text: '<?=_("Mod.")?>',
                  notext: true

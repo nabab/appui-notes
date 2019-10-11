@@ -9,25 +9,25 @@
             items: [{
               icon: 'nf nf-fa-plus',
               text: "<i class='nf nf-fa-plus'></i>" + bbn._('Page'),
-              command: this.insertPage
+              action: this.insertPage
             }]
           },{            
             text: bbn._('Show'),           
             items: [{
               icon: 'nf nf-fa-search',
               text: "<i class='nf nf-fa-search'></i>" + bbn._('Find'),
-              command: this.filterTable
+              action: this.filterTable
             }]            
           },{
             text: bbn._('Tools'),
             items: [{
               icon: 'nf nf-mdi-import',
               text: "<i class='nf nf-mdi-import'></i>" + bbn._('Import'),
-              command: this.importPage
+              action: this.importPage
             }, {
               icon: 'nf nf-mdi-export',
               text: "<i class='nf nf-mdi-export'></i>" + bbn._('Export'),
-              command: this.exportPage              
+              action: this.exportPage              
             }]
         }], 
         //for table note

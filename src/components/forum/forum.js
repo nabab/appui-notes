@@ -109,8 +109,8 @@
           if ( Array.isArray(ar) ){
             bbn.fn.each(ar, (a, i) => {
               let o = bbn.fn.extend({}, a);
-              if ( o.command ){
-                o.command = () => {
+              if ( o.action ){
+                o.action = () => {
                   this._execCommand(a);
                 }
               }
@@ -124,13 +124,13 @@
 		methods: {
 		  shorten: bbn.fn.shorten,
       _execCommand(button, data){
-        if ( button.command ){
-          //if ( $.isFunction(button.command) ){
-          if ( typeof(button.command) === "function" ){  
-            return button.command(data);
+        if ( button.action ){
+          //if ( $.isFunction(button.action) ){
+          if ( typeof(button.action) === "function" ){  
+            return button.action(data);
           }
-          else if ( typeof(button.command) === 'string' ){
-            switch ( button.command ){
+          else if ( typeof(button.action) === 'string' ){
+            switch ( button.action ){
               case 'insert':
                 return this.insert(data);
               case 'edit':

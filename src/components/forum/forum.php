@@ -166,7 +166,7 @@
                      :title="tbtn.title || ''"
                 >
                   <i :class="['bbn-xl', 'bbn-p', tbtn.icon]"
-                     @click="tbtn.command ? tbtn.command(source, _self) : false"
+                     @click="tbtn.action ? tbtn.action(source, _self) : false"
                   ></i>
                 </div>  
               </template>
@@ -322,7 +322,7 @@
                           :title="rbtn.title || ''"
                       >
                         <i :class="['bbn-xl', 'bbn-p', rbtn.icon]"
-                          @click="rbtn.command ? rbtn.command(source, topic.source, _self) : false"
+                          @click="rbtn.action ? rbtn.action(source, topic.source, _self) : false"
                         ></i>
                       </div>  
                     </template>
@@ -424,6 +424,7 @@
                                     v-model.number="currentLimit"
                                     @change="currentPage = 1"
                                     :disabled="!!isLoading"
+                                    :autosize="true"
                       ></bbn-dropdown>
 										  <span><?=_('items per page')?></span>
 									</span>
@@ -473,8 +474,8 @@
                      v-model="currentPage"
                      :min="1"
                      :max="numPages"
-                     style="margin-right: 0.5em; width: 6em"
                      :disabled="isLoading"
+                     class="bbn-narrower bbn-right-sspace"
         ></bbn-numeric>
         <span v-text="'<?=_('of')?> ' + numPages" style="margin-right: 0.25em"></span>
         <bbn-button icon="nf nf-fa-angle_right"
@@ -494,6 +495,7 @@
                         v-model.number="currentLimit"
                         @change="currentPage = 1"
                         :disabled="!!isLoading"
+                        :autosize="true"
           ></bbn-dropdown>
           <span><?=_('items per page')?></span>
         </span>

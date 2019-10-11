@@ -11,7 +11,7 @@
                      text: 'Nouvel note',
                      icon: 'nf nf-fa-plus',
                      notext: false,
-                     command: markdown
+                     action: markdown
                      }]"
 
            :expander="$options.components['apst-notes-content']"
@@ -65,10 +65,10 @@
                cls="bbn-c"
                :buttons="[{
                 text: '<?=_('Markdown')?>',
-                command: markdown
+                action: markdown
                }, {
                 text: 'R.T.E.',
-                command: rte
+                action: rte
                }]"
   ></bbns-column>
 

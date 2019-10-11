@@ -32,10 +32,10 @@
       },
       getButtons(row){
         let btns = [
-          {command: this.edit, icon: 'nf nf-fa-edit', text: 'Edit', notext: true}
+          {action: this.edit, icon: 'nf nf-fa-edit', text: 'Edit', notext: true}
         ];
         if ( !row.default ){
-          btns.push({command: this.remove, icon: 'nf nf-fa-trash', text: 'Delete', notext: true});
+          btns.push({action: this.remove, icon: 'nf nf-fa-trash', text: 'Delete', notext: true});
         }
         return btns;
       }
