@@ -48,7 +48,7 @@
          v-if="source.image"
          :style="link  ? 'border:1px solid' : 'border:none'"
     >
-      <div :class="['k-file', {
+      <div :class="['bbn-file', {
               'link-progress': source.image.inProgress && !source.image.error,
               'link-success': !source.image.inProgress && !source.image.error,
               'link-error': source.image.error
@@ -77,7 +77,7 @@
             ></span>
           </div>
           <div class="appui-notes-bookmarks-link-actions bbn-vmiddle">
-            <bbn-button class="k-button-bare k-upload-action"
+            <bbn-button class=""
                         style="display: inline-block;"
                         @click="linkRemove"
                         icon="nf nf-fa-times"

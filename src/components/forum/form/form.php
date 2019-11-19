@@ -30,7 +30,8 @@
                  ref="editor"
                  v-model="source.row.text"
                  style="min-height: 200px; width: 100%;"
-								 required="required"
+                 required="required"
+                 @ready="readyRte"
       ></component>
     </div>
 
