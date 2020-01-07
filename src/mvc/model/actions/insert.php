@@ -2,6 +2,7 @@
 /** @var \bbn\mvc\model $model */
 
 $res = ['success' => false];
+
 if ( !empty($model->data['title']) || !empty($model->data['content']) ){
   $note = new \bbn\appui\notes($model->db);
   if ( $id_note = $note->insert(

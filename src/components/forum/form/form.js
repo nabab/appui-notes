@@ -13,6 +13,7 @@
     },
     data(){
       return {
+        canLock : true,
 				formAction: this.source.props.formAction || false,
         fileSave: this.source.props.fileSave || false,
         fileRemove: this.source.props.fileRemove || false,
@@ -106,6 +107,31 @@
             this.source.row.links.splice(idx, 1);
           });
         }
+      },
+      changeVersion(d){
+        if ( d ){
+          if ( 
+            (this.source.row.category !== undefined) &&
+            (d.category !== undefined)
+          ){
+            this.$set(this.source.row, 'category', d.category);  
+          }
+          this.$set(this.source.row, 'creation', d.creation);
+          this.$set(this.source.row, 'creator', d.id_user);
+          this.$set(this.source.row, 'locked', d.locked);
+          this.$set(this.source.row, 'text', d.content);
+          if ( this.source.row.title !== undefined ){
+            this.$set(this.source.row, 'title', d.title);
+          }
+          this.$set(this.source.row, 'files', d.files);
+          this.$set(this.source.row, 'links', d.links);
+        }
+      }
+    },
+    mounted(){
+      let forum =  this.closest('bbn-container').find('appui-notes-forum');
+      if ( forum ){
+        this.canLock = forum.canLock;
       }
     }
   }

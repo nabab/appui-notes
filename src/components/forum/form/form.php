@@ -4,6 +4,11 @@
 					:data="data"
           @success="source.props.formSuccess"
 >
+  <appui-notes-toolbar-version v-if="data.id && source.row.hasVersions"
+                               :source="source.row"
+                               :data="data"
+                               @version="changeVersion"
+  ></appui-notes-toolbar-version>
   <div class="bbn-grid-fields bbn-padded">
     <label v-if="source.row.title !== undefined"><?=_("Title")?></label>
     <bbn-input v-if="source.row.title !== undefined"
@@ -29,7 +34,7 @@
       <component :is="editorType"
                  ref="editor"
                  v-model="source.row.text"
-                 style="min-height: 200px; width: 100%;"
+                 style="min-height: 450px; width: 100%;"
                  required="required"
                  @ready="readyRte"
       ></component>
@@ -42,6 +47,7 @@
                   :remove-url="fileRemove + data.ref"
                   v-model="source.row.files"
                   :paste="true"
+                  :show-filesize="false"
       ></bbn-upload>
     </div>
 
@@ -98,9 +104,10 @@
       </div>
     </div>
 
-    <label><?=_("Locked")?></label>
+    <label v-if="canLock"><?=_("Locked")?></label>
     <div>
-      <bbn-checkbox v-model="source.row.locked"
+      <bbn-checkbox v-if="canLock"
+                    v-model="source.row.locked"
                     :value="1"
                     :novalue="0"
       ></bbn-checkbox>

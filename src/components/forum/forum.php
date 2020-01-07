@@ -179,7 +179,7 @@
                    @click="forum.remove ? forum.remove(source, _self) : false"
                 ></i>
               </div>
-              <div v-if="(source.creator === forum.currentUser) || !source.locked"
+              <div v-if="(source.creator === forum.currentUser) || !source.locked || forum.canLock"
                    class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                    style="margin-left: 0.5rem"
                    title="<?=_('Edit')?>"
@@ -322,7 +322,7 @@
                           :title="rbtn.title || ''"
                       >
                         <i :class="['bbn-xl', 'bbn-p', rbtn.icon]"
-                          @click="rbtn.action ? rbtn.action(source, topic.source, _self) : false"
+                           @click="rbtn.action ? rbtn.action(source, topic.source, _self) : false"
                         ></i>
                       </div>  
                     </template>
@@ -335,7 +335,7 @@
                          @click="topic.forum.remove ? topic.forum.remove(source, _self) : false"
                       ></i>
                     </div>
-                    <div v-if="(source.creator === topic.forum.currentUser) || !source.locked"
+                    <div v-if="(source.creator === topic.forum.currentUser) || !source.locked || topic.forum.canLock"
                          class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                          style="margin-left: 0.5rem"
                          title="<?=_('Edit')?>"
