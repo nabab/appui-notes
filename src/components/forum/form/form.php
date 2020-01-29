@@ -36,7 +36,6 @@
                  v-model="source.row.text"
                  style="min-height: 450px; width: 100%;"
                  required="required"
-                 @ready="readyRte"
       ></component>
     </div>
 

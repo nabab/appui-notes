@@ -5,12 +5,12 @@
         <bbn-menu class="bbn-h-100"
                   ref="menu"
                   :source="sourceMenu"
-        ></bbn-menu>        
+        ></bbn-menu>
       </div>
       <div class="bbn-hpadded bbn-vspadded bbn-xl bbn-b bbn-flex-fill bbn-c">
         <?=_("Publications' management")?>
       </div>
-    </div>  
+    </div>
   </bbn-toolbar>
   <div class="bbn-flex-fill">
     <bbn-table class="bbn-w-100"

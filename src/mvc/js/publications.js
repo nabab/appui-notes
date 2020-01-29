@@ -199,11 +199,11 @@
                 cls: "bbn-c",
                 source: this.source.statuses
               }
-            ]     
+            ]
           }
         },
         methods:{
-          selectPost(){            
+          selectPost(){
             this.$set(this, 'selected', true);
           },
           unselectPost(){
@@ -218,11 +218,11 @@
             return '-';
           },
           closePopUp(){
-            this.closest('bbn-floater').close();            
+            this.closest('bbn-floater').close();
           },
           importPage(){
             let table = this.$refs.table,
-                importPages = [];            
+                importPages = [];
             bbn.fn.each( table.currentSelected, (idx,i)=>{
               importPages.push(table.currentData[idx]['data']);
             });

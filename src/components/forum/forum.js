@@ -11,6 +11,10 @@
         type: Boolean,
         default: false
       },
+			pinnable: {
+        type: Boolean,
+        default: false
+      },
 			filters: {
 				type: Object,
 				default(){

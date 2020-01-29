@@ -48,11 +48,6 @@
       }
     },
     methods: {
-      readyRte(ele){
-        if ( this.editorType === 'bbn-rte' ){
-          ele.$el.querySelector(".trumbowyg-box").classList.add('bbn-overlay');
-        }
-      },
       switchEditorType(){
         let mode;
         if ( this.$refs.editorType.widget ){

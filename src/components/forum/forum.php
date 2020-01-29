@@ -170,6 +170,15 @@
                   ></i>
                 </div>  
               </template>
+              <div v-if="forum.pinnable"
+                   class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                   style="margin-left: 0.5rem"
+                   :title="source.pinned ? '<?=\bbn\str::escape_squotes(_('unpin'))?>' : '<?=\bbn\str::escape_squotes(_('pin'))?>'"
+                   >
+                <i :class="'nf nf-mdi-' + (source.pinned ? 'pin_off' : 'pin') + ' bbn-xl bbn-p'"
+                   @click="source.pinned = !source.pinned; forum.$emit('pin', source)"
+                   ></i>
+              </div>
               <div v-if="!source.locked"
                    class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                    style="margin-left: 0.5rem"
@@ -199,12 +208,11 @@
 
               <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
                    :title="'<?=_('Created')?>: ' + forum.fdate(source.creation) + ((source.creation !== source.last_edit) ? ('\n<?=_('Edited')?>: ' + forum.fdate(source.last_edit)) : '')"
-                   style="margin-left: 0.5rem"
+                   style="margin-left: 0.5rem; width"
               >
                 <i :class="['nf nf-fa-calendar', {'bbn-orange': source.creation !== source.last_edit}]"></i>
-                <div class="bbn-c bbn-s" style="margin-left: 0.3rem">
+                <div class="bbn-c bbn-s" style="width: 10em">
                   <div v-text="(source.creation !== source.last_edit) ? forum.sdate(source.last_edit) : forum.sdate(source.creation)"></div>
-                  <!--<div v-text="(source.creation !== source.last_edit) ? forum.hour(source.last_edit) : forum.hour(source.creation)"></div>-->
                 </div>
               </div>
             </div>
