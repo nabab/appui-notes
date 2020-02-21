@@ -63,22 +63,20 @@
                 <div ref="contentContainer"
                      :style="{'height': contentContainerHeight, 'overflow': 'hidden'}"
                 >
-                  <div :class="{'bbn-flex-width': cutContentContainer}">
+                  <div class="bbn-flex-width">
 										<i v-if="cutContentContainer && possibleHiddenContent"
-	                     class="nf nf-fa-angle_right bbn-b bbn-p"
+	                     class="nf nf-fa-angle_right bbn-p bbn-m"
 	                     title="<?=_('Show full text')?>"
 	                     @click="showContentContainer('auto')"
-	                     style="margin: 0.2rem 0.5rem 0 0"
+	                     style="margin: 0.2rem 0.5rem 0 0; font-weight: bold"
 	                   ></i>
 										 <i v-else-if="!cutContentContainer && possibleHiddenContent"
-                       class="nf nf-fa-angle_left bbn-b bbn-p"
+                       class="nf nf-fa-angle_left bbn-p bbn-m"
                        title="<?=_('Hidden full text')?>"
                        @click="showContentContainer('no_auto')"
-                       style="margin: 0.2rem 0.5rem 0 0"
+                       style="margin: 0.2rem 0.5rem 0 0; font-weight: bold"
                     ></i>
-
-                    <div v-if="cutContentContainer"
-                         v-text="cutContent"
+                    <div v-html="cutContentContainer ? cutContent : source.content"
                          :style="{
                           'height': contentContainerHeight,
                           'text-overflow': cutContentContainer ? 'ellipsis' : 'unset',
@@ -86,18 +84,7 @@
                           'width': cutContentContainer ? '100px' : 'unset',
                           'overflow': cutContentContainer ? 'hidden' : 'unset'
                          }"
-                         :class="{'bbn-flex-fill': cutContentContainer}"
-                    ></div>
-                    <div v-else
-                         v-html="source.content"
-                         :style="{
-                          'height': contentContainerHeight,
-                          'text-overflow': cutContentContainer ? 'ellipsis' : 'unset',
-                          'white-space': cutContentContainer ? 'nowrap' : 'unset',
-                          'width': cutContentContainer ? '100px' : 'unset',
-                          'overflow': cutContentContainer ? 'hidden' : 'unset'
-                         }"
-                         :class="{'bbn-flex-fill': cutContentContainer}"
+                         class="bbn-flex-fill"
                     ></div>
                     <div v-if="source.links && source.links.length && !cutContentContainer">
                       <fieldset class="bbn-widget">

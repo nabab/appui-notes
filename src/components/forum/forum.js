@@ -310,8 +310,8 @@
         },
         mounted(){
           this.$nextTick(() => {
-            //if ( $(this.$refs.contentContainer).height() > 35 ){
-            if ( this.getRef('contentContainer').clientHeight > 35 ){  
+            // if ( this.getRef('contentContainer').clientHeight > 35 ){
+            if ( this.getRef('contentContainer').getClientRects()[0].height > 35 ){
               this.contentContainerHeight = '35px';
 							this.possibleHiddenContent = true;
             }
