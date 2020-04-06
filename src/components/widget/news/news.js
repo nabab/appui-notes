@@ -39,7 +39,7 @@
         this.showForm = false;
       },
       openNote(note){
-        appui.$refs.tabnav.activeTab.getPopup().open({
+        appui.getRef('nav').activeContainer.getPopup().open({
           title: note.title,
           width: '70%',
           height: '70%',
@@ -61,7 +61,7 @@
           end: moment().add(10, 'minutes').format('YYYY-MM-DD HH:mm:ss')
         };
         this.$set(this, 'formData', obj);
-        this.showForm = !this.showForm;        
+        this.showForm = !this.showForm;
       },
       userName(usr){
         return appui.app.getUserName(usr);

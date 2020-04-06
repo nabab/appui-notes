@@ -36,7 +36,7 @@
         this.toggleForm();
       },
       openNote(note){
-        appui.$refs.tabnav.activeTab.getPopup().open({
+        appui.getRef('nav').activeContainer.getPopup().open({
           title: note.title,
           width: '70%',
           height: '70%',
@@ -60,6 +60,6 @@
       userName(usr){
         return appui.app.getUserName(usr);
       }
-    }    
+    }
   };
 })();

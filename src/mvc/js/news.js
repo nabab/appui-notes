@@ -32,7 +32,7 @@
           title: row.title,
           width: 800,
           height: 600,
-          component: 'appui-notes-popup-note',          
+          component: 'appui-notes-popup-note',
           source: row
         });
       }
@@ -60,7 +60,7 @@
           success(d){
             if ( d. success ){
               appui.success(bbn._('Saved'));
-              appui.$refs.tabnav.activeTab.getComponent().$refs.table.updateData();
+              appui.getRef('nav').activeContainer.getComponent().getRef('table').updateData();
             }
             else {
               appui.error(bbn._('Error'));
