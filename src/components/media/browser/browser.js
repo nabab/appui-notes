@@ -294,7 +294,7 @@
 		<div>Type:</div>
 		<div v-text="source.type"></div>
 		<div>User:</div>
-		<div v-text="get_field(users, 'value', source.id_user, 'text')"></div>
+		<div v-text=.getField(users, 'text', 'value', source.id_user)"></div>
 		<div>Size:</div>
     <div v-text="formatBytes(source.content.size)"></div>
     <div>Extension:</div>
@@ -330,7 +330,7 @@
             })
           },
           formatBytes: bbn.fn.formatBytes,
-          get_field: bbn.fn.get_field,
+          getField: bbn.fn.getField,
         }
       }, 
       'block': {

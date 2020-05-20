@@ -27,7 +27,7 @@
     },
     computed: {
       currentCreator(){
-        return bbn.fn.get_field(appui.app.users, {value: this.source.creator}, 'text');
+        return bbn.fn.getField(appui.app.users, 'text', {value: this.source.creator});
       },
       currentDate(){
         return moment(this.source.creation).format('DD/MM/YYYY HH:mm');

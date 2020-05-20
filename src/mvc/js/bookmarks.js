@@ -190,7 +190,7 @@
             'parent',
             a ? a.data.parent : 'ROOT'
           ), (b) => {
-            b.num = bbn.fn.count(
+            b.numChildren = bbn.fn.count(
               this.source.bookmarks,
               'parent',
               b.text
