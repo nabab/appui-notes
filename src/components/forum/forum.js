@@ -235,7 +235,7 @@
       },
       downloadMedia(id){
         if ( id && this.downloadUrl ){
-          this.post_out(this.downloadUrl + id);
+          this.postOut(this.downloadUrl + id);
         }
       },
     },
