@@ -294,7 +294,7 @@
 		<div>Type:</div>
 		<div v-text="source.type"></div>
 		<div>User:</div>
-		<div v-text=.getField(users, 'text', 'value', source.id_user)"></div>
+		<div v-text="getField(users, 'text', {value: source.id_user})"></div>
 		<div>Size:</div>
     <div v-text="formatBytes(source.content.size)"></div>
     <div>Extension:</div>
