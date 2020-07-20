@@ -1,0 +1,21 @@
+{
+  "text": "Notes",
+  "icon": "nf nf-fa-sticky_note",
+  "items": [{
+    "text": "Notes",
+    "icon": "nf nf-fa-sticky_note_o",
+    "link": "notes"
+  }, {
+    "text": "Table notes",
+    "icon": "nf nf-mdi-table_large",
+    "link": "table_notes"
+  }, {
+    "text": "News",
+    "icon": "nf nf-fa-rss_square",
+    "link": "news"
+  }, {
+    "text": "Masks",
+    "icon": "nf nf-fa-list_alt",
+    "link": "masks"
+  }]
+}
