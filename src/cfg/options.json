@@ -2,10 +2,9 @@
   "text": "Masks",
   "code": "masks",
   "icon": "nf nf-mdi-guy_fawkes_mask",
-  "tekname": "ltypes",
   "cfg": {
       "show_code": 1,
-      "desc": "Les différents types de lettres-types (pas encore actif)"
+      "allow_children": 1,
   }
 },
 {
