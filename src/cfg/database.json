@@ -892,62 +892,64 @@
             }
         }
     },
-    "keys": {
-        "id_note": {
-            "columns": [
+    "bbn_notes_events": {
+        "keys": {
+            "id_note": {
+                "columns": [
+                    "id_note"
+                ],
+                "ref_db": null,
+                "ref_table": "bbn_notes",
+                "ref_column": "id",
+                "constraint": "bbn_notes_events_ibfk_2",
+                "update": "CASCADE",
+                "delete": "CASCADE",
+                "unique": 0
+            },
+            "id_event": {
+                "columns": [
+                    "id_event"
+                ],
+                "ref_db": null,
+                "ref_table": "bbn_events",
+                "ref_column": "id",
+                "constraint": "bbn_notes_events_ibfk_1",
+                "update": "CASCADE",
+                "delete": "CASCADE",
+                "unique": 0
+            }
+        },
+        "cols": {
+            "id_note": [
                 "id_note"
             ],
-            "ref_db": null,
-            "ref_table": "bbn_notes",
-            "ref_column": "id",
-            "constraint": "bbn_notes_events_ibfk_2",
-            "update": "CASCADE",
-            "delete": "CASCADE",
-            "unique": 0
-        },
-        "id_event": {
-            "columns": [
+            "id_event": [
                 "id_event"
-            ],
-            "ref_db": null,
-            "ref_table": "bbn_events",
-            "ref_column": "id",
-            "constraint": "bbn_notes_events_ibfk_1",
-            "update": "CASCADE",
-            "delete": "CASCADE",
-            "unique": 0
-        }
-    },
-    "cols": {
-        "id_note": [
-            "id_note"
-        ],
-        "id_event": [
-            "id_event"
-        ]
-    },
-    "fields": {
-        "id_note": {
-            "position": 1,
-            "type": "binary",
-            "null": 0,
-            "key": "MUL",
-            "extra": "",
-            "signed": true,
-            "virtual": false,
-            "generation": "",
-            "maxlength": 16
+            ]
         },
-        "id_event": {
-            "position": 2,
-            "type": "binary",
-            "null": 0,
-            "key": "MUL",
-            "extra": "",
-            "signed": true,
-            "virtual": false,
-            "generation": "",
-            "maxlength": 16
+        "fields": {
+            "id_note": {
+                "position": 1,
+                "type": "binary",
+                "null": 0,
+                "key": "MUL",
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "maxlength": 16
+            },
+            "id_event": {
+                "position": 2,
+                "type": "binary",
+                "null": 0,
+                "key": "MUL",
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "maxlength": 16
+            }
         }
     }
 }
