@@ -1,6 +1,7 @@
 [{
   "text": "Masks",
   "code": "masks",
+  "id_parent": "appui",
   "icon": "nf nf-mdi-guy_fawkes_mask",
   "cfg": {
     "show_code": 1,
@@ -9,6 +10,7 @@
 }, {
   "text": "Notes",
   "code": "notes",
+  "id_parent": "appui",
   "icon": "nf nf-fa-pencil_square_o",
   "cfg": {
     "show_code": 1,
