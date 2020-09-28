@@ -134,10 +134,10 @@
       _execCommand(button, data){
         if ( button.action ){
           //if ( $.isFunction(button.action) ){
-          if ( typeof(button.action) === "function" ){  
+          if ( typeof(button.action) === "function" ){
             return button.action(data);
           }
-          else if ( typeof(button.action) === 'string' ){            
+          else if ( typeof(button.action) === 'string' ){
             switch ( button.action ){
               case 'insert':
                 return this.insert(data);
@@ -406,7 +406,7 @@
                   }
                   this.total = this.source.replies.length;
                   this.source.num_replies = this.total;
-                }             
+                }
               }
             },
             mounted(){
