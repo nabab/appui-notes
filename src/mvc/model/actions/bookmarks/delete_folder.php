@@ -32,10 +32,10 @@ if ( $folder = $model->data['folder'] ){
       'text' => $folder['text'],
       'parent' => $folder['parent'],
       'type' => 'folder'
-      ]);
-      if ( isset($idx) ){
-        array_splice($bookmarks, $idx, 1);
-      }
+    ]);
+    if ( isset($idx) ){
+      array_splice($bookmarks, $idx, 1);
+    }
   }
   else {
     remove($bookmarks, $folder);

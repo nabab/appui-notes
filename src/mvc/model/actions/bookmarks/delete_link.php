@@ -8,7 +8,7 @@ if ( !empty($model->data['obj']) ){
     $idx = \bbn\x::find($bookmarks, [
       'url' => $model->data['obj']['url'],
       'parent' => $model->data['obj']['parent'],
-      ]);
+    ]);
    
     if ( isset($idx) ){
       array_splice($bookmarks, $idx, 1);
