@@ -66,6 +66,7 @@
         ]
       };
     },
+    
     methods: {
       open(){
         bbn.fn.happy(open)

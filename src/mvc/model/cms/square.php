@@ -9,29 +9,58 @@
 return [
   'lines' => [
     [
-      'content' => '<p>Hello world</p>',
+      'content' => [
+        'data' => '<p>Hello world</p>'
+      ],
       'type' => 'html'
     ],[
-      'content' => 'https://upload.wikimedia.org/wikipedia/commons/8/84/Example.svg',
+      'content' => [
+        'data' => 'I\'m the title',
+        'tag' => 'h1'
+      ],
+      'type' => 'title'
+    ],[
+      'content' => [
+        'data' => 'italian_launguage_courses-3.png',
+        'style' => [
+          'width' => '75%'
+        ]
+      ],
       'type' => 'image'
     ],[
-      'content' => 'https://www.youtube.com/embed/tgbNymZ7vqY',
+      'content' => [
+        'data' => 'https://www.youtube.com/watch?v=zXhLFb34nz4&list=RDzXhLFb34nz4&start_radio=1',
+        'style' => [
+          'width' => '420',
+          'height' => '315'
+        ]
+      ],
       'type' => 'video'
     ],[
       'content' => [
-        'border-width' => '10px',
-        'border-style'=> 'solid',
-        'border-color'=> '#8a8a8a',
-        'border-radius' => '3px',
-        'width'=> '90%'
+        'style' => [
+					'border-width' => '1px',
+          'border-style'=> 'dashed',
+          'border-color'=> '#8a8a8a',
+          'border-radius' => '3px',
+          'width'=> '90%'          
+        ]
       ],
       'type' => 'line'
     ],[
-      'content' => 'click',
+      'content' => [
+        'data' => 'click',
+        'style' => [
+          'font-size' => '16'
+        ]
+      ],
       'type' => 'button'
-    ],
-    [
-      'content' => '30',
+    ],[
+			'content' => [
+      	'style'=> [
+      	  'height' => '30px'
+      	]
+      ],
       'type' => 'space'
     ]
     
