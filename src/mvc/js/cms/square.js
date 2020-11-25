@@ -9,10 +9,12 @@
           lines.push(a);
         })
       }
-		/*	lines.push({
-        content: '[CONTENT]',
-        type: 'html'
-      });*/
+			lines.push({
+        content: { 
+          data:  '<div>[CONTENT]</div>'
+        },
+        type: ''
+      });
 		  return {
         focused: false,
         lines: lines,
@@ -75,10 +77,15 @@
         return '[CONTENT]'
       },
       add(){
-        this.getPopup({
-          title: bbn._("Pick a block type to insert"),
-          content: 'Woo'
-        });
+        //make the difference beetwen focused === source.lines.length and other focused to add the block at the exact position
+        if ( this.focused === this.source.lines.length ){
+          this.lines[this.focused].type = this.currentBlockType
+          this.$nextTick(()=>{
+            //the watch on the prop edit in bbn-block will add a new empty block in this.lines when newBlock is true
+            this.$refs['block'][this.focused].edit = true;
+            this.$refs['block'][this.focused].newBlock = true;
+          })
+        }
       }
     },
     components: {
@@ -95,8 +102,8 @@
 							>
               </bbn-button>
             </bbn-context>
-						<bbn-button :notext="true"
-												v-if="index !== undefined"
+            <bbn-button :notext="true"
+                        v-if="$parent.$parent.lines[index] && $parent.$parent.lines[index]['type']"
                         icon="nf nf-fa-edit"
 												@click="editBlock"
 												:title="_('Edit blocks in this row')"
@@ -119,21 +126,19 @@
             this.parent.$refs['block'][this.index].edit = true;
             this.parent.$refs['block'][this.index].ready = true;
           },
-          /*add(){
-            return this.parent.add(this.source);
-          }*/
         }, 
       }
     },
     watch: {
       /* When the bbn-context of types changes value */
       currentBlockType(val){
-        if ( this.focused > -1 ){
+        bbn.fn.error('error here')
+        if ( ( this.focused > -1 ) && ( this.focused !== this.source.lines.length ) ){
       		//for the bbn-block template to be defined based on the type of block there's a v-if on the prop ready on the html of the component bbn-block
           this.$refs['block'][this.focused].edit = false;
           this.$refs['block'][this.focused].ready = false;
           this.$refs['block'][this.focused].source.type = val;
-          this.$nextTick(()=>{
+          this.$nextTick( ()=>{
             this.$refs['block'][this.focused].ready = true;
           })    
         }

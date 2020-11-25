@@ -5,3 +5,4 @@
  **/
 
 /** @var $this \bbn\mvc\controller */
+$ctrl->combo('test marine');

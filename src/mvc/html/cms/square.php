@@ -14,10 +14,13 @@
             <control :source="blockChoice" :index="i"/>
           </div>
           <div class="bbn-padded">
-            <bbn-block :source="line"
+            <bbn-cms-block :source="line"
                        ref="block"
+                       :index="i"
+                       v-if="line.type"
             >
-            </bbn-block>
+            </bbn-cms-block>
+            <span v-else class="bbn-c bbn-medium bbn-green"><?=('Select a block type')?></span>
           </div>
         </div>
       </bbn-scroll>
