@@ -7,10 +7,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-09-01 22:14+0200\n"
-"POT-Revision-Date: 2020-09-01 22:14+0200\n"
+"POT-Creation-Date: 2020-12-07 02:15+0100\n"
+"POT-Revision-Date: 2020-12-07 02:15+0100\n"
 "Language: en\n"
-"X-Domain: appui-notes8\n"
+"X-Domain: appui-notes10\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-notes/src/components/bookmarks/folder/folder.js
@@ -410,7 +410,7 @@ msgstr "Version"
 
 #: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-notes/src/components/toolbar/version/version.php
 msgid "Versions"
-msgstr "VERSIONS"
+msgstr "Versions"
 
 #: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/publications.js
 #: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/cms/list.js
@@ -774,7 +774,7 @@ msgstr "Are you sure to remove the publication from this note?"
 
 #: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/cms/list.js
 msgid "Successfully deleted"
-msgstr "successfully deleted"
+msgstr "Successfully deleted"
 
 #: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/cms/list.js
 msgid "Error in deleting"
@@ -791,6 +791,14 @@ msgstr "Media correctly added to the note"
 #: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/cms/list.js
 msgid "Something went wrong while adding the media to the note"
 msgstr "Something went wrong while adding the media to the note"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/cms/square.js
+msgid "Add a new block to this row"
+msgstr "Add a new block to this row"
+
+#: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/cms/square.js
+msgid "Edit blocks in this row"
+msgstr "Edit blocks in this row"
 
 #: /home/thomas/domains/apstapp.thomas.lan/_appui/vendor/bbn/appui-notes/src/mvc/js/cms/preview/index.js
 msgid "Published"
