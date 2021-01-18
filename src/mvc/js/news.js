@@ -60,7 +60,7 @@
           success(d){
             if ( d. success ){
               appui.success(bbn._('Saved'));
-              appui.getRef('nav').activeContainer.getComponent().getRef('table').updateData();
+              appui.getRef('router').activeContainer.getComponent().getRef('table').updateData();
             }
             else {
               appui.error(bbn._('Error'));
