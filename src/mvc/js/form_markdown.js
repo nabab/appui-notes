@@ -2,7 +2,7 @@
   return {
     data(){
       return {
-        root: appui.plugins['appui-notes']
+        root: appui.plugins['appui-note']
       }
     },
     methods: {

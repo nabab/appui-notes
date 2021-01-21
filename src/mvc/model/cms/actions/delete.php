@@ -2,7 +2,7 @@
 $res = [
   'success' => false
 ];
-$notes = new \bbn\appui\notes($model->db);
+$notes = new \bbn\appui\note($model->db);
 $cms = new \bbn\appui\cms($model->db);
 
 if ( !empty($model->data['id']) ){

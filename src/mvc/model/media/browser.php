@@ -6,9 +6,9 @@
 
 /** @var $model \bbn\mvc\model*/
 if ( !empty($model->data['limit']) && isset($model->data['start'])){
-  $notes = new \bbn\appui\notes($model->db);
+  $notes = new \bbn\appui\note($model->db);
   
-  $path = $model->content_path('appui-notes').'media/';
+  $path = $model->content_path('appui-note').'media/';
 	$img_extensions = ['jpeg', 'jpg', 'png', 'gif'];	
   $opt = $model->inc->options;
   $mds = $notes->get_medias_notes($model->data['start'], $model->data['limit']);

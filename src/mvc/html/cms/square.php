@@ -1,5 +1,5 @@
 <!-- HTML Document -->
-<div class="bbn-overlay appui-notes-square bbn-flex-height">
+<div class="bbn-overlay appui-note-square bbn-flex-height">
   <bbn-toolbar class="bbn-spadded">
     <control :source="blockChoice"/>
   </bbn-toolbar>

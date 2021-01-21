@@ -5,8 +5,8 @@
   ];
 
   if ( !empty($model->data['limit']) ){
-    $notes = new \bbn\appui\notes($model->db);
-    $type = $model->inc->options->from_code('pages', 'types', 'notes', 'appui');
+    $notes = new \bbn\appui\note($model->db);
+    $type = $model->inc->options->from_code('pages', 'types', 'note', 'appui');
 
     $all['data'] = array_map(function($note)use($model){
       $note['url'] = $model->db->rselect('bbn_notes_url', ['url'], [ 'id_note' => $note['id_note'] ])['url'];

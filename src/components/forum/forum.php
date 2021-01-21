@@ -1,4 +1,4 @@
-<div class="bbn-overlay appui-notes-forum">
+<div class="bbn-overlay appui-note-forum">
 	<div class="bbn-overlay bbn-flex-height">
 		<div v-if="toolbar"
 				 class="bbn-header bbn-w-100"
@@ -24,14 +24,14 @@
 		<!-- Main -->
 		<div class="bbn-w-100 bbn-flex-fill">
 			<bbn-scroll v-if="!isLoading">
-        <appui-notes-forum-topic inline-template
+        <appui-note-forum-topic inline-template
                                  v-for="(d, i) in currentData"
                                  :key="i"
                                  class="bbn-w-100"
                                  :source="d"
         >
           <div class="bbn-w-100">
-            <div :class="['bbn-flex-width', 'appui-notes-forum-topic', {'bbn-box': !($vnode.key%2), 'bbn-alt': !!($vnode.key%2)}]">
+            <div :class="['bbn-flex-width', 'appui-note-forum-topic', {'bbn-box': !($vnode.key%2), 'bbn-alt': !!($vnode.key%2)}]">
               <div class="bbn-spadded"
                    style="height: 42px; width: 42px"
               >
@@ -40,12 +40,12 @@
                                :title="forum.usersNames(source.creator, source.users)"
                   ></bbn-initial>
                   <span v-if="forum.hasEditUsers(source.users)"
-                        class="bbn-badge bbn-bg-webblue bbn-white appui-notes-forum-initial-badge bbn-s"
+                        class="bbn-badge bbn-bg-webblue bbn-white appui-note-forum-initial-badge bbn-s"
                         v-text="forum.usersNames(source.creator, source.users, true)"
                   ></span>
                 </div>
               </div>
-              <div class="bbn-spadded bbn-vmiddle bbn-p appui-notes-forum-hfixed appui-notes-forum-replies-badge"
+              <div class="bbn-spadded bbn-vmiddle bbn-p appui-note-forum-hfixed appui-note-forum-replies-badge"
                    title="<?=_('Replies')?>"
                    @click="toggleReplies()"
               >
@@ -101,7 +101,7 @@
                               >
                               <i v-else class="nf nf-fa-link"></i>
                             </div>
-                            <div class="appui-notes-forum-link-title bbn-flex-fill bbn-vmiddle">
+                            <div class="appui-note-forum-link-title bbn-flex-fill bbn-vmiddle">
                               <div>
                                 <strong>
                                   <a :href="l.content.url"
@@ -148,7 +148,7 @@
               <template v-if="forum.topicButtons && forum.topicButtons.length"
                         v-for="tbtn in forum.topicButtons"
               >
-                <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                <div class="bbn-spadded bbn-vmiddle appui-note-forum-hfixed"
                      style="margin-left: 0.5rem"
                      :title="tbtn.title || ''"
                 >
@@ -158,7 +158,7 @@
                 </div>  
               </template>
               <div v-if="forum.pinnable"
-                   class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                   class="bbn-spadded bbn-vmiddle appui-note-forum-hfixed"
                    style="margin-left: 0.5rem"
                    :title="source.pinned ? '<?=\bbn\str::escape_squotes(_('unpin'))?>' : '<?=\bbn\str::escape_squotes(_('pin'))?>'"
                    >
@@ -167,7 +167,7 @@
                    ></i>
               </div>
               <div v-if="!source.locked"
-                   class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                   class="bbn-spadded bbn-vmiddle appui-note-forum-hfixed"
                    style="margin-left: 0.5rem"
                    title="<?=_('Delete')?>"
               >
@@ -176,7 +176,7 @@
                 ></i>
               </div>
               <div v-if="(source.creator === forum.currentUser) || !source.locked || forum.canLock"
-                   class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                   class="bbn-spadded bbn-vmiddle appui-note-forum-hfixed"
                    style="margin-left: 0.5rem"
                    title="<?=_('Edit')?>"
               >
@@ -184,7 +184,7 @@
                    @click="forum.edit ? forum.edit(source, _self) : false"
                 ></i>
               </div>
-              <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+              <div class="bbn-spadded bbn-vmiddle appui-note-forum-hfixed"
                    style="margin-left: 0.5rem"
                    title="<?=_('Reply')?>"
               >
@@ -193,7 +193,7 @@
                 ></i>
               </div>
 
-              <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+              <div class="bbn-spadded bbn-vmiddle appui-note-forum-hfixed"
                    :title="'<?=_('Created')?>: ' + forum.fdate(source.creation) + ((source.creation !== source.last_edit) ? ('\n<?=_('Edited')?>: ' + forum.fdate(source.last_edit)) : '')"
                    style="margin-left: 0.5rem; width"
               >
@@ -211,12 +211,12 @@
                    class="bbn-middle bbn-padded"
               ><?=_('LOADING')?>...</div>
               <div v-else>
-                <appui-notes-forum-post inline-template
+                <appui-note-forum-post inline-template
                                         v-for="(r, k) in source.replies"
                                         :source="r"
                                         :key="k"
                 >
-                  <div :class="['bbn-flex-width', 'appui-notes-forum-replies', {'bbn-box': !($vnode.key%2), 'bbn-alt': !!($vnode.key%2)}]">
+                  <div :class="['bbn-flex-width', 'appui-note-forum-replies', {'bbn-box': !($vnode.key%2), 'bbn-alt': !!($vnode.key%2)}]">
                     <div class="bbn-spadded"
                          style="height: 42px; width: 42px"
                     >
@@ -225,7 +225,7 @@
                                      :title="topic.forum.usersNames(source.creator, source.users)"
                         ></bbn-initial>
                         <span v-if="topic.forum.hasEditUsers(source.users)"
-                              class="bbn-badge bbn-bg-webblue appui-notes-forum-initial-badge bbn-s"
+                              class="bbn-badge bbn-bg-webblue appui-note-forum-initial-badge bbn-s"
                               v-text="topic.forum.usersNames(source.creator, source.users, true)"
                         ></span>
                       </div>
@@ -267,7 +267,7 @@
                                 >
                                 <i v-else class="nf nf-fa-link"></i>
                               </div>
-                              <div class="appui-notes-forum-link-title bbn-flex-fill bbn-vmiddle">
+                              <div class="appui-note-forum-link-title bbn-flex-fill bbn-vmiddle">
                                 <div>
                                   <strong>
                                     <a :href="l.content.url"
@@ -312,7 +312,7 @@
                     <template v-if="topic.forum.replyButtons && topic.forum.replyButtons.length"
                               v-for="rbtn in topic.forum.replyButtons"
                     >
-                      <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                      <div class="bbn-spadded bbn-vmiddle appui-note-forum-hfixed"
                           style="margin-left: 0.5rem"
                           :title="rbtn.title || ''"
                       >
@@ -322,7 +322,7 @@
                       </div>  
                     </template>
                     <div v-if="!source.locked && !source.num_replies"
-                         class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                         class="bbn-spadded bbn-vmiddle appui-note-forum-hfixed"
                          style="margin-left: 0.5rem"
                          title="<?=_('Delete')?>"
                     >
@@ -331,7 +331,7 @@
                       ></i>
                     </div>
                     <div v-if="(source.creator === topic.forum.currentUser) || !source.locked || topic.forum.canLock"
-                         class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                         class="bbn-spadded bbn-vmiddle appui-note-forum-hfixed"
                          style="margin-left: 0.5rem"
                          title="<?=_('Edit')?>"
                     >
@@ -339,7 +339,7 @@
                          @click="topic.forum.edit ? topic.forum.edit(source, _self) : false"
                       ></i>
                     </div>
-                    <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                    <div class="bbn-spadded bbn-vmiddle appui-note-forum-hfixed"
                          style="margin-left: 0.5rem"
                          title="<?=_('Reply')?>"
                     >
@@ -348,7 +348,7 @@
                       ></i>
                     </div>
                     <div v-if="source.num_replies"
-                         class="bbn-spadded bbn-hsmargin bbn-vmiddle appui-notes-forum-hfixed appui-notes-forum-replies-badge"
+                         class="bbn-spadded bbn-hsmargin bbn-vmiddle appui-note-forum-hfixed appui-note-forum-replies-badge"
                          title="<?=_('Replies')?>"
                     >
                       <i class="nf nf-fa-comments bbn-xl bbn-hsmargin"></i>
@@ -356,7 +356,7 @@
                             v-text="source.num_replies"
                       ></span>
                     </div>
-                    <div class="bbn-spadded bbn-vmiddle appui-notes-forum-hfixed"
+                    <div class="bbn-spadded bbn-vmiddle appui-note-forum-hfixed"
                          :title="'<?=_('Created')?>: ' + topic.forum.fdate(source.creation) + ((source.creation !== source.last_edit) ? ('\n<?=_('Edited')?>: ' + topic.forum.fdate(source.last_edit)) : '')"
                          style="margin-left: 0.5rem"
                     >
@@ -367,15 +367,15 @@
                       </div>
                     </div>
                   </div>
-                </appui-notes-forum-post>
+                </appui-note-forum-post>
               </div>
               <!-- Replies footer -->
-              <appui-notes-forum-pager inline-template
+              <appui-note-forum-pager inline-template
                                        :source="source"
-                                       :key="'appui-notes-forum-pager-' + $vnode.key"
+                                       :key="'appui-note-forum-pager-' + $vnode.key"
                                        ref="pager"
               >
-                <div class="appui-notes-forum-pager bbn-widget appui-notes-forum-replies"
+                <div class="appui-note-forum-pager bbn-widget appui-note-forum-replies"
                      v-if="pageable || isAjax"
                 >
                   <div class="bbn-block"
@@ -439,14 +439,14 @@
                     ></bbn-button>
                   </div>
                 </div>
-              </appui-notes-forum-pager>
+              </appui-note-forum-pager>
             </div>
           </div>
-        </appui-notes-forum-topic>
+        </appui-note-forum-topic>
 			</bbn-scroll>
 		</div>
 		<!-- Footer -->
-		<div class="appui-notes-forum-pager bbn-widget"
+		<div class="appui-note-forum-pager bbn-widget"
          v-if="pageable || filterable || isAjax"
     >
       <div class="bbn-block"

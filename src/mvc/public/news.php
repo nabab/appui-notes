@@ -11,5 +11,5 @@
 $ctrl->obj->icon = 'nf nf-fa-rss_square';
 $ctrl->combo(_('News'), [
   'root' => APPUI_NOTES_ROOT,
-  'type' => $ctrl->inc->options->from_code('news', 'types', 'notes', 'appui')
+  'type' => $ctrl->inc->options->from_code('news', 'types', 'note', 'appui')
 ]);

@@ -13,7 +13,7 @@ $res = ['success' => false];
 if ( !empty($model->data['title']) &&
     ($cms = new \bbn\appui\cms($model->db)) 
 ){
-  $notes = new \bbn\appui\notes($model->db);
+  $notes = new \bbn\appui\note($model->db);
   if( ($notes->insert_version(
      $model->data['id_note'],
      $model->data['title'], 

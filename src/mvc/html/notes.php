@@ -3,7 +3,7 @@
     <bbn-input type="text" class="bbn-textbox" placeholder="<?=_("Search")?>" autocomplete="off" style="width: 75%; font-size: x-large"></bbn-input>
   </div>
   <div class="bbn-content bbn-postit-container bbn-w-100 bbn-flex-fill">
-    <appui-notes-postit v-for="note in source.notes"
+    <appui-note-postit v-for="note in source.notes"
                         :key="note.id_note"
                         :uid="note.id_note"
                         :content="note.content"
@@ -11,6 +11,6 @@
                         :title="note.title"
                         :editing="isEditing(note.id_note)"
                         >
-    </appui-notes-postit>
+    </appui-note-postit>
   </div>
 </div>

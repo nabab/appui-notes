@@ -7,9 +7,9 @@ if ( !empty($model->data['title']) &&
     ($cms = new \bbn\appui\cms($model->db)) &&
     ($url = $model->data['url'])
 ){
-  $notes = new \bbn\appui\notes($model->db);
+  $notes = new \bbn\appui\note($model->db);
   //the note has to be type 'pages'
-  $type = $model->inc->options->from_code('pages', 'types', 'notes', 'appui');
+  $type = $model->inc->options->from_code('pages', 'types', 'note', 'appui');
   if ( $note = $notes->insert(
         $model->data['title'], 
         $model->data['content'], 

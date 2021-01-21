@@ -4,7 +4,7 @@
 $res = ['success' => false];
 
 if ( !empty($model->data['title']) || !empty($model->data['content']) ){
-  $note = new \bbn\appui\notes($model->db);
+  $note = new \bbn\appui\note($model->db);
   if ( $id_note = $note->insert(
     $model->data['title'] ?? '',
     $model->data['content'] ?? '',
@@ -16,7 +16,7 @@ if ( !empty($model->data['title']) || !empty($model->data['content']) ){
     if ( 
       !empty($model->data['type']) &&
       isset($model->data['start']) &&
-      ($type_news = $model->inc->options->from_code('news', 'types', 'notes', 'appui')) &&
+      ($type_news = $model->inc->options->from_code('news', 'types', 'note', 'appui')) &&
       ($model->data['type'] === $type_news) &&
       ($type_event = $model->inc->options->from_code('NEWS', 'evenements')) &&
       $model->db->insert('bbn_events', [

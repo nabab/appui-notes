@@ -1,4 +1,4 @@
-<div class="appui-notes-widget-news">
+<div class="appui-note-widget-news">
   <div v-if="showForm">
     <bbn-form style="height: 500px"
               :buttons="[]"

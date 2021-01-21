@@ -12,16 +12,16 @@
       },
       dataUrl: { 
         type: String,
-        default: appui.plugins['appui-notes'] + '/data/versions'
+        default: appui.plugins['appui-note'] + '/data/versions'
       },
       actionUrl: {
         type: String,
-        default: appui.plugins['appui-notes'] + '/data/version'
+        default: appui.plugins['appui-note'] + '/data/version'
       }
     },
     data(){
       return {
-        root: appui.plugins['appui-notes'] + '/',
+        root: appui.plugins['appui-note'] + '/',
         currentVersion: this.source.version
       }
     },

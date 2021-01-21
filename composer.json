@@ -1,8 +1,8 @@
 {
-  "name": "bbn/appui-notes",
+  "name": "bbn/appui-note",
   "description": "Notes system for appui",
   "keywords": ["notes","php","appui"],
-  "homepage": "https://github.com/nabab/appui-notes",
+  "homepage": "https://github.com/nabab/appui-note",
   "license": "MIT",
   "authors": [
     {

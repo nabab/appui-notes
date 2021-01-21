@@ -5,7 +5,7 @@
  **/
 /** @var $this \bbn\mvc\model*/
 if ( !empty($model->data['id_note']) ){
-  $notes = new \bbn\appui\notes($model->db);
+  $notes = new \bbn\appui\note($model->db);
   $note = $notes->get($model->data['id_note']);
 
 	if ( !empty($model->data['id_type']) ){

@@ -2,7 +2,7 @@
 /** @var $model \bbn\mvc\model */
 $limit = isset($model->data['limit']) && is_int($model->data['limit']) ? $model->data['limit'] : 5;
 $start = isset($model->data['start']) && is_int($model->data['start']) ? $model->data['start'] : 0;
-$type_note = $model->inc->options->from_code('news', 'types', 'notes', 'appui');
+$type_note = $model->inc->options->from_code('news', 'types', 'note', 'appui');
 $type_event = $model->inc->options->from_code('NEWS', 'evenements');
 
 $grid = new \bbn\appui\grid($model->db, $model->data, [
@@ -118,7 +118,7 @@ if ( $grid->check() ){
     $d['items'] = $d['data'];
     unset($d['data']);
   }
-  $d['id_type'] = $model->inc->options->from_code('news', 'types', 'notes', 'appui');
+  $d['id_type'] = $model->inc->options->from_code('news', 'types', 'note', 'appui');
   return $d;
 }
 return [];

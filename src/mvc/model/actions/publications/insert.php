@@ -15,7 +15,7 @@ $urls = array_map(function($val){
 
 //no exist more note with the same url
 if ( in_array($model->data['url'], $urls) === false ){  
-  $type = $model->inc->options->from_code('pages', 'types', 'notes', 'appui');
+  $type = $model->inc->options->from_code('pages', 'types', 'note', 'appui');
   $type_event = $model->inc->options->from_code('PAGE', 'evenements');
 
   if ( (!empty($model->data['title']) || !empty($model->data['content'])) &&
@@ -23,7 +23,7 @@ if ( in_array($model->data['url'], $urls) === false ){
     !empty($type) &&
     !empty($type_event)
   ){
-    $note = new \bbn\appui\notes($model->db);
+    $note = new \bbn\appui\note($model->db);
     if ( $id_note = $note->insert(
       $model->data['title'] ?? '',
       $model->data['content'] ?? '',

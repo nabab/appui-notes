@@ -162,7 +162,7 @@
         data(){
           return {
             browser: {},
-            root: appui.plugins['appui-notes'] + '/',     
+            root: appui.plugins['appui-note'] + '/',     
             ref: (new Date()).getTime(),
             validTitle: true,
             content: [],
@@ -266,7 +266,7 @@
           }
         },
         mounted(){
-          this.browser = this.closest('bbn-container').find('appui-notes-media-browser')
+          this.browser = this.closest('bbn-container').find('appui-note-media-browser')
           this.mediaIdx =  bbn.fn.search(this.browser.medias, 'id', this.source.media.id);
           this.setContent();
           this.source.edit ? (this.source.oldName = this.source.media.content.name) : ''
@@ -376,14 +376,14 @@
             }
           },
           addMediaToNote(m){
-            this.closest('appui-notes-media-browser').selected = m;
-            this.closest('appui-notes-media-browser').$emit('select',m)
+            this.closest('appui-note-media-browser').selected = m;
+            this.closest('appui-note-media-browser').$emit('select',m)
           },
           showFileInfo(m){
-            this.closest('appui-notes-media-browser').showFileInfo(m)
+            this.closest('appui-note-media-browser').showFileInfo(m)
           },
           editMedia(m){
-            this.closest('appui-notes-media-browser').editMedia(m, this.dataIdx)
+            this.closest('appui-note-media-browser').editMedia(m, this.dataIdx)
           },
           deleteMedia(m){
             this.closest('bbn-container').getComponent().deleteMedia(m)
@@ -441,7 +441,7 @@
           		
         },
         mounted(){
-          this.cp = this.closest('appui-notes-media-browser');
+          this.cp = this.closest('appui-note-media-browser');
           this.select = this.cp.select
           this.initialTitle = this.data.media.title
           this.data.media.removedFile = false;
@@ -504,21 +504,21 @@
         },
        	methods:{
           showFileInfo(m){
-            this.closest('appui-notes-media-browser').showFileInfo(m)
+            this.closest('appui-note-media-browser').showFileInfo(m)
           },
           editMedia(m){
-            this.closest('appui-notes-media-browser').editMedia(m)
+            this.closest('appui-note-media-browser').editMedia(m)
           },
           deleteMedia(m){
-            this.closest('appui-notes-media-browser').deleteMedia(m)
+            this.closest('appui-note-media-browser').deleteMedia(m)
           }
         },
         mounted(){
-          if ( this.closest('appui-notes-media-browser').select ){
-            this.closest('appui-notes-media-browser').selected = false
+          if ( this.closest('appui-note-media-browser').select ){
+            this.closest('appui-note-media-browser').selected = false
           }
           if (this.data.media.id){
-            this.mediaIdx = bbn.fn.search(this.closest('appui-notes-media-browser').medias, 'id', this.data.media.id)
+            this.mediaIdx = bbn.fn.search(this.closest('appui-note-media-browser').medias, 'id', this.data.media.id)
           }
         }
       }

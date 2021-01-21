@@ -1,7 +1,7 @@
 <!-- HTML Document -->
 
 <bbn-table :source="source.data"
-           class="appui-notes-masks-table"
+           class="appui-note-masks-table"
            editable="popup"
            ref="table"
            :url="source.root + 'actions/mask/update'"

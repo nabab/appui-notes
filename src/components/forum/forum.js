@@ -264,8 +264,8 @@
       this.ready = true;
 		},
 		components: {
-		  'appui-notes-forum-topic': {
-        name: 'appui-notes-forum-topic',
+		  'appui-note-forum-topic': {
+        name: 'appui-note-forum-topic',
         props: {
           source: {
             type: Object
@@ -273,7 +273,7 @@
         },
         data(){
           return {
-            forum: bbn.vue.closest(this, 'appui-notes-forum'),
+            forum: bbn.vue.closest(this, 'appui-note-forum'),
             currentLimit: this.limit,
             start: 0,
             total: 0,
@@ -318,8 +318,8 @@
           });
         },
         components: {
-          'appui-notes-forum-post': {
-            name: 'appui-notes-forum-post',
+          'appui-note-forum-post': {
+            name: 'appui-note-forum-post',
             props: {
               source: {
                 type: Object
@@ -327,12 +327,12 @@
             },
             data(){
               return {
-                topic: bbn.vue.closest(this, 'appui-notes-forum-topic')
+                topic: bbn.vue.closest(this, 'appui-note-forum-topic')
               }
             }
           },
-          'appui-notes-forum-pager': {
-            name: 'appui-notes-forum-pager',
+          'appui-note-forum-pager': {
+            name: 'appui-note-forum-pager',
             props: {
               source: {
                 type: Object
@@ -340,7 +340,7 @@
             },
             data(){
               return {
-                topic: bbn.vue.closest(this, 'appui-notes-forum-topic'),
+                topic: bbn.vue.closest(this, 'appui-note-forum-topic'),
                 currentLimit: 25,
                 originalData: null,
                 start: 0,

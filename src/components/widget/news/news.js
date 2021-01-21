@@ -9,7 +9,7 @@
     data(){
       return {
         showForm: false,
-        notesRoot: appui.plugins['appui-notes'],
+        notesRoot: appui.plugins['appui-note'],
         formData:{}
       }
     },
@@ -43,12 +43,12 @@
           title: note.title,
           width: '70%',
           height: '70%',
-          component: 'appui-notes-popup-note',
+          component: 'appui-note-popup-note',
           source: note
         });
       },
       openNews(){
-        bbn.fn.link(appui.plugins['appui-notes'] + '/news');
+        bbn.fn.link(appui.plugins['appui-note'] + '/news');
       },
       toggleForm(){
         let obj = {

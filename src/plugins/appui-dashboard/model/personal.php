@@ -3,8 +3,8 @@
 
 $limit = isset($model->data['limit']) && is_int($model->data['limit']) ? $model->data['limit'] : 5;
 $start = isset($model->data['start']) && is_int($model->data['start']) ? $model->data['start'] : 0;
-$type = $model->inc->options->from_code('personal', 'types', 'notes', 'appui');
-$note = new \bbn\appui\notes($model->db);
+$type = $model->inc->options->from_code('personal', 'types', 'note', 'appui');
+$note = new \bbn\appui\note($model->db);
 $obs = new bbn\appui\observer($model->db);
 $res = [
   'id_type' => $type,

@@ -219,7 +219,7 @@
     components: {
       'browser' :{
         props: ['source'],
-        template: '<appui-notes-media-browser @select="insertMedia" :select="true"></appui-notes-media-browser>',
+        template: '<appui-note-media-browser @select="insertMedia" :select="true"></appui-note-media-browser>',
         data(){
           return {
             root: this.closest('bbn-container').getComponent().source.root
@@ -227,7 +227,7 @@
         },
         computed:{
           selected(){
-            return this.find('appui-notes-media-browser').selected
+            return this.find('appui-note-media-browser').selected
           }
         },
         methods: {

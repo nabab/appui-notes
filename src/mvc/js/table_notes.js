@@ -4,7 +4,7 @@
     data(){
       return {
         action: '',
-        root: appui.plugins['appui-notes'] + '/',
+        root: appui.plugins['appui-note'] + '/',
         span: '<span title="' + bbn._('Click on the first column of this row to view full content') + '">...</span>'
       }
     },

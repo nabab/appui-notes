@@ -2,7 +2,7 @@
 /** @var \bbn\mvc\model $model */
 if ( !empty($model->data['title']) || !empty($model->data['content']) ){
   $res = ['success' => false];
-  $note = new \bbn\appui\notes($model->db);
+  $note = new \bbn\appui\note($model->db);
   
   if ( !empty($model->data['id_note']) ){
 
@@ -32,7 +32,7 @@ if ( !empty($model->data['title']) || !empty($model->data['content']) ){
     $ok &&
     !empty($model->data['type']) &&
     isset($model->data['start']) &&
-    ($type_news = $model->inc->options->from_code('news', 'types', 'notes', 'appui')) &&
+    ($type_news = $model->inc->options->from_code('news', 'types', 'note', 'appui')) &&
     ($model->data['type'] === $type_news) &&
     ($type_event = $model->inc->options->from_code('NEWS', 'evenements')) &&
     $model->db->insert('bbn_events', [
@@ -52,6 +52,6 @@ if ( !empty($model->data['title']) || !empty($model->data['content']) ){
   return $res;
 }
 else if ( !empty($model->data['id_note']) ){
-  $note = new \bbn\appui\notes($model->db);
+  $note = new \bbn\appui\note($model->db);
   return $note->get($model->data['id_note']);
 }

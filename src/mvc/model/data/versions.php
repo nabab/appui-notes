@@ -1,7 +1,7 @@
 <?php
 /* @var \bbn\mvc\model $model */
 if ( isset($model->data['id']) || isset($model->data['data']['id']) ){
-  $notes = new \bbn\appui\notes($model->db);
+  $notes = new \bbn\appui\note($model->db);
   $versions = $notes->get_versions($model->data['id'] ?? $model->data['data']['id']);
   if ( is_array($versions) ){
     return [

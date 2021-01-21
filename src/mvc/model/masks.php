@@ -7,7 +7,7 @@
 /** @var $this \bbn\mvc\model*/
 $masks = new \bbn\appui\masks($model->db);
 $all = $masks->get_all();
-$cats = $model->inc->options->options('masks', 'appui');
+$cats = $model->inc->options->options('mask', 'appui');
 return [
   'is_dev' => $model->inc->user->is_dev(),
   'data' => $all,

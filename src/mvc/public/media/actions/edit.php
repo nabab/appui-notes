@@ -13,7 +13,7 @@ if (!empty($ctrl->post['media']['id']) && !empty($ctrl->post['media']) && ($titl
   $ctrl->obj->success = true;
   $medias = new \bbn\appui\medias($ctrl->db);
   $fs = new \bbn\file\system();
-  $root = bbn\mvc::get_data_path('appui-notes').'media/';
+  $root = bbn\mvc::get_data_path('appui-note').'media/';
   $path = bbn\x::make_storage_path($root, '', 0, $fs);
   $full_path = $path.$ctrl->post['media']['id'].'/'.$ctrl->post['media']['name'];
   
@@ -34,7 +34,7 @@ if (!empty($ctrl->post['media']['id']) && !empty($ctrl->post['media']) && ($titl
     $media = $medias->update_content($ctrl->post['media']['id'], $ctrl->post['ref'],$old_name, $ctrl->post['media']['name'], $title);
   }
   if(!empty($media)){
-    $notes= new \bbn\appui\notes($ctrl->db);
+    $notes= new \bbn\appui\note($ctrl->db);
     $media['notes'] = $notes->get_media_notes($media['id']);
 		$ctrl->obj->media = $media;      
     $ctrl->obj->success = true;

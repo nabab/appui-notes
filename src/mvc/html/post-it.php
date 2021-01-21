@@ -1,4 +1,4 @@
-<div class="appui-notes-postit bbn-overlay bbn-flex-height">
+<div class="appui-note-postit bbn-overlay bbn-flex-height">
   <div class="bbn-c bbn-vmargin">
     <bbn-input placeholder="<?=_("Search")?>"
                autocomplete="off"
@@ -10,10 +10,10 @@
   <div class="bbn-flex-fill">
     <bbn-scroll>
       <div class="bbn-postit-container">
-        <appui-notes-postit v-for="(note, index) in notes"
+        <appui-note-postit v-for="(note, index) in notes"
                             v-bind="note"
                             :key="index"                                                        
-        ></appui-notes-postit>
+        ></appui-note-postit>
       </div>
     </bbn-scroll>
   </div>

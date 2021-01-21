@@ -73,7 +73,7 @@ if ( isset($model->data['limit'], $model->data['start']) ){
     'where' => [
       'conditions' => [[
         'field' => 'bbn_notes.id_type',
-        'value' => $model->inc->options->from_code('news', 'types', 'notes', 'appui')
+        'value' => $model->inc->options->from_code('news', 'types', 'note', 'appui')
       ], [
         'field' => 'bbn_notes.active',
         'value' => 1
@@ -144,7 +144,7 @@ if ( isset($model->data['limit'], $model->data['start']) ){
         'where' => [
           'conditions' => [[
             'field' => 'bbn_notes.id_type',
-            'value' => $model->inc->options->from_code('news', 'types', 'notes', 'appui')
+            'value' => $model->inc->options->from_code('news', 'types', 'note', 'appui')
           ], [
             'field' => 'bbn_notes.active',
             'value' => 1

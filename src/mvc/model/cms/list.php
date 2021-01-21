@@ -7,8 +7,8 @@
 /** @var $this \bbn\mvc\model*/
 
 $db = new \bbn\db();
-$opt = new \bbn\appui\options($db);
-$notes = new \bbn\appui\notes($db);
+$opt = new \bbn\appui\option($db);
+$notes = new \bbn\appui\note($db);
 $cms = new \bbn\appui\cms($model->db);
 
 $all = [

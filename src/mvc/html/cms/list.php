@@ -1,5 +1,5 @@
 <!-- HTML Document -->
-<div class="bbn-overlay appui-notes-cms">
+<div class="bbn-overlay appui-note-cms">
   <bbn-table ref="table"
              :source="source.root + 'cms/list'"
              :columns="cols"
@@ -98,10 +98,10 @@
           ></bbn-button>
   			</div>
 				<div class="bbn-grid-full" v-if="source.files && source.files.length">
-          <appui-notes-media-preview v-for="(f, i) in source.files" 
+          <appui-note-media-preview v-for="(f, i) in source.files" 
                                      :data="f"
                                      :key="i"
-          ></appui-notes-media-preview>
+          ></appui-note-media-preview>
         </div>
       </div>
       <div style="height:350px;" class="bbn-spadded">

@@ -9,7 +9,7 @@
              action: insert
            }]"
            :editable="true"
-           :editor="$options.components['appui-notes-news-new']"
+           :editor="$options.components['appui-note-news-new']"
            :data="{
              type: source.type
            }"
@@ -75,7 +75,7 @@
 </bbn-table>
 
 
-<script type="text/x-template" id="appui-notes-news-new">
+<script type="text/x-template" id="appui-note-news-new">
   <bbn-form class="bbn-lpadded"
             :source="source.row"
             :data="source.data"

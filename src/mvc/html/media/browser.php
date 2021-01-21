@@ -1,1 +1,1 @@
-<appui-notes-media-browser></appui-notes-media-browser>
+<appui-note-media-browser></appui-note-media-browser>

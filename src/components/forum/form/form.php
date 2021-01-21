@@ -1,14 +1,14 @@
-<bbn-form class="appui-notes-forum-form"
+<bbn-form class="appui-note-forum-form"
           :action="source.props.formAction"
           :source="source.row"
 					:data="data"
           @success="source.props.formSuccess"
 >
-  <appui-notes-toolbar-version v-if="data.id && source.row.hasVersions"
+  <appui-note-toolbar-version v-if="data.id && source.row.hasVersions"
                                :source="source.row"
                                :data="data"
                                @version="changeVersion"
-  ></appui-notes-toolbar-version>
+  ></appui-note-toolbar-version>
   <div class="bbn-grid-fields bbn-padded">
     <label v-if="source.row.title !== undefined"><?=_("Title")?></label>
     <bbn-input v-if="source.row.title !== undefined"
@@ -59,7 +59,7 @@
                    class="bbn-w-100"
         ></bbn-input>
       </div>
-      <div class="appui-notes-forum-links-container bbn-widget bbn-w-100"
+      <div class="appui-note-forum-links-container bbn-widget bbn-w-100"
            ref="linksContainer"
            v-if="source.row.links && source.row.links.length"
       >
@@ -73,13 +73,13 @@
         >
           <div class="bbn-flex-width">
             <div v-if="imageDom"
-                 class="appui-notes-forum-link-image">
+                 class="appui-note-forum-link-image">
               <img v-if="l.image"
                    :src="imageDom + data.ref + '/' + l.image"
               >
               <i v-else class="nf nf-fa-link"> </i>
             </div>
-            <div class="appui-notes-forum-link-title bbn-flex-fill">
+            <div class="appui-note-forum-link-title bbn-flex-fill">
               <strong>
                 <a :href="l.content.url"
                    v-text="l.title || l.content.url"
@@ -90,7 +90,7 @@
                     v-text="l.content.description"
               ></span>
             </div>
-            <div class="appui-notes-forum-link-actions bbn-vmiddle">
+            <div class="appui-note-forum-link-actions bbn-vmiddle">
               <bbn-button class="bbn-button-icon-only"
                           style="display: inline-block;"
                           @click="linkRemove(idx)"

@@ -10,13 +10,13 @@
 $res = [
   'success' => false
 ];
-$notes = new \bbn\appui\notes($model->db);
+$notes = new \bbn\appui\note($model->db);
 if ( !empty($model->data['id_note']) && isset($model->data['content']) ){
   $ok = $notes->update($model->data['id_note'], $model->data['title'] ?? '', $model->data['content']);
   if (
       !empty($model->data['type']) &&
       isset($model->data['start']) &&
-      ($type_news = $model->inc->options->from_code('news', 'types', 'notes', 'appui')) &&
+      ($type_news = $model->inc->options->from_code('news', 'types', 'note', 'appui')) &&
       ($model->data['type'] === $type_news) &&
       ($type_event = $model->inc->options->from_code('NEWS', 'evenements')) &&
     	($id_event = $model->db->select_one('bbn_notes_events', 'id_event', ['id_note' => $model->data['id_note']])) &&

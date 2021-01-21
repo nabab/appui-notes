@@ -12,7 +12,7 @@ if ( $id_media = $ctrl->arguments[0] ){
   if ( $media = $medias->get_media($id_media, true) ){
     $content = json_decode($media['content'],true);
     $path = $content['path'].$id_media.'/'.$media['name'];
-    $root = \bbn\mvc::get_data_path('appui-notes').'media/';
+    $root = \bbn\mvc::get_data_path('appui-note').'media/';
  	
     if ( $fs->exists($root.$path) ){
       $ctrl->obj->removed = true;

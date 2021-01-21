@@ -124,7 +124,7 @@
       }
     },
     mounted(){
-      let forum =  this.closest('bbn-container').find('appui-notes-forum');
+      let forum =  this.closest('bbn-container').find('appui-note-forum');
       if ( forum ){
         this.canLock = forum.canLock;
       }

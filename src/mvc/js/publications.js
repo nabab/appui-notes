@@ -2,7 +2,7 @@
   return {
     data(){
       return {        
-        root: appui.plugins['appui-notes'] + '/',
+        root: appui.plugins['appui-note'] + '/',
         //configuration for menu in toolbar
         sourceMenu: [{
             text: bbn._('New'),
@@ -102,11 +102,11 @@
     },
     components: {
       'new-page': {
-        template: '#appui-notes-new-page',
+        template: '#appui-note-new-page',
         props: ['source'],              
         data(){
           return {        
-            root: appui.plugins['appui-notes'],        
+            root: appui.plugins['appui-note'],        
             formData: {
               title: '',
               start: '',
@@ -137,11 +137,11 @@
         }     
       },
       'import-page': {
-        template: '#appui-notes-import-page',
+        template: '#appui-note-import-page',
         props: ['source'],
         data(){
           return {     
-            root: appui.plugins['appui-notes'] + '/',
+            root: appui.plugins['appui-note'] + '/',
             selected : false,
             //for table wp_posts
             colsTable: [

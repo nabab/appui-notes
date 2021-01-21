@@ -40,12 +40,12 @@
           title: note.title,
           width: '70%',
           height: '70%',
-          component: 'appui-notes-popup-note',
+          component: 'appui-note-popup-note',
           source: note
         });
       },
       openPostit(){
-        bbn.fn.link(appui.plugins['appui-notes'] + '/post-it');
+        bbn.fn.link(appui.plugins['appui-note'] + '/post-it');
       },
       toggleForm(){
         let obj = {

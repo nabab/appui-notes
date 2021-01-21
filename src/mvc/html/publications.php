@@ -1,4 +1,4 @@
-<div class="bbn-flex-height appui-notes-publications">
+<div class="bbn-flex-height appui-note-publications">
   <bbn-toolbar>
     <div class="bbn-flex-width bbn-w-100">
       <div>
@@ -27,7 +27,7 @@
 </div>
 
 <!--form for create new pge in note-->
-<script type="text/x-template" id="appui-notes-new-page">
+<script type="text/x-template" id="appui-note-new-page">
   <bbn-form ref="form"
             :action="root + '/actions/publications/insert'"
             :source="formData"              
@@ -73,7 +73,7 @@
 </script>
 
 <!--form for create new page in note-->
-<script type="text/x-template" id="appui-notes-import-page">
+<script type="text/x-template" id="appui-note-import-page">
   <div class="bbn-flex-height">
     <div class="bbn-flex-fill">
       <bbn-table ref="table"

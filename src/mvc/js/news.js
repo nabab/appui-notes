@@ -32,20 +32,20 @@
           title: row.title,
           width: 800,
           height: 600,
-          component: 'appui-notes-popup-note',
+          component: 'appui-note-popup-note',
           source: row
         });
       }
     },
     components: {
-      'appui-notes-news-new': {
+      'appui-note-news-new': {
         props: ['source'],
         data(){
           return {
-            root: appui.plugins['appui-notes'],
+            root: appui.plugins['appui-note'],
           }
         },
-        template: '#appui-notes-news-new',
+        template: '#appui-note-news-new',
         methods: {
           checkDate(){
             if ( (this.source.row.end.length === 0) ||
